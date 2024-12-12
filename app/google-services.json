@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "6844329768",
+    "project_id": "mtc-app-8ee8d",
+    "storage_bucket": "mtc-app-8ee8d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6844329768:android:df597780072dbfbd076a1d",
+        "android_client_info": {
+          "package_name": "com.example.mtc_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaWOk8IuPJdtLPzG69psx9okZimnF2T84"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
