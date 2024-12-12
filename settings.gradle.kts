@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "MTC_APP"
 include(":app")
+include(":Login")
