@@ -11,13 +11,12 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mtc_app.MainActivity;
 import com.example.mtc_app.R;
 import com.example.mtc_app.customer.HomePageActivity;
 import com.example.mtc_app.register.RegisterActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class LoginActivity extends AppCompatActivity {
+public class CustomerLoginActivity extends AppCompatActivity {
 
     private EditText emailField, passwordField;
     private Button loginButton, registerButton;
@@ -39,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
 
         loginButton.setOnClickListener(view -> loginUser());
         registerButton.setOnClickListener(view -> {
-            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            Intent intent = new Intent(CustomerLoginActivity.this, RegisterActivity.class);
             startActivity(intent);
         });
     }
@@ -60,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
                     progressBar.setVisibility(View.GONE);
                     if (task.isSuccessful()) {
                         Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
+                        Intent intent = new Intent(CustomerLoginActivity.this, HomePageActivity.class);
                         startActivity(intent);
                         finish();
                     } else {

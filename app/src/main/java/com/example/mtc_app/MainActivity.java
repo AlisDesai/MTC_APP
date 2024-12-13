@@ -4,13 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.example.mtc_app.login.LoginActivity;
+import com.example.mtc_app.login.CustomerLoginActivity;
+import com.example.mtc_app.splashScreen.SplashScreenActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            Intent intent = new Intent(MainActivity.this, SplashScreenActivity.class);
             startActivity(intent);
             finish();
         }, 3000);

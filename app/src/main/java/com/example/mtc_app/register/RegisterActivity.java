@@ -13,7 +13,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mtc_app.R;
-import com.example.mtc_app.login.LoginActivity;
+import com.example.mtc_app.login.CustomerLoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -44,7 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Redirect to LoginActivity
-                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                Intent intent = new Intent(RegisterActivity.this, CustomerLoginActivity.class);
                 startActivity(intent);
                 finish(); // Optionally finish RegisterActivity to prevent back navigation to it
             }
@@ -89,7 +89,7 @@ public class RegisterActivity extends AppCompatActivity {
                 .set(user)
                 .addOnSuccessListener(aVoid -> {
                     Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                    Intent intent = new Intent(RegisterActivity.this, CustomerLoginActivity.class);
                     startActivity(intent);
                     finish();
                 })

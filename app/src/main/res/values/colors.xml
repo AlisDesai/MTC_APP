@@ -3,6 +3,8 @@
     <color name="accentColor">#FF9800</color>  <!-- Orange -->
     <color name="successColor">#4CAF50</color> <!-- Green -->
     <color name="errorColor">#F44336</color>   <!-- Red -->
-    <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color> <!-- White -->
+    <color name="purple">#9C27B0</color> <!-- Purple -->
+    <color name="light_purple">#D1C4E9</color> <!-- Light Purple -->
 </resources>
