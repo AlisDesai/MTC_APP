@@ -12,7 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mtc_app.R;
-import com.example.mtc_app.customer.HomePageActivity;
+import com.example.mtc_app.customer.CustomerHomePageActivity;
 import com.example.mtc_app.register.RegisterActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -59,7 +59,7 @@ public class CustomerLoginActivity extends AppCompatActivity {
                     progressBar.setVisibility(View.GONE);
                     if (task.isSuccessful()) {
                         Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(CustomerLoginActivity.this, HomePageActivity.class);
+                        Intent intent = new Intent(CustomerLoginActivity.this, CustomerHomePageActivity.class);
                         startActivity(intent);
                         finish();
                     } else {
