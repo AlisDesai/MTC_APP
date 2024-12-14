@@ -1,4 +1,3 @@
-// RegisterActivity.java
 package com.example.mtc_app.register;
 
 import android.content.Intent;
@@ -17,12 +16,15 @@ import com.example.mtc_app.login.CustomerLoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText nameField, emailField, passwordField;
+    private EditText nameField, emailField, passwordField, phoneField, roleField;
     private Button registerButton;
     private ProgressBar progressBar;
     private FirebaseAuth auth;
@@ -36,6 +38,8 @@ public class RegisterActivity extends AppCompatActivity {
         nameField = findViewById(R.id.nameField);
         emailField = findViewById(R.id.emailField);
         passwordField = findViewById(R.id.passwordField);
+        phoneField = findViewById(R.id.phoneField);
+        roleField = findViewById(R.id.roleField);
         registerButton = findViewById(R.id.registerButton);
         progressBar = findViewById(R.id.progressBar);
 
@@ -60,8 +64,10 @@ public class RegisterActivity extends AppCompatActivity {
         String name = nameField.getText().toString();
         String email = emailField.getText().toString();
         String password = passwordField.getText().toString();
+        String phone = phoneField.getText().toString();
+        String role = roleField.getText().toString();
 
-        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
+        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(phone) || TextUtils.isEmpty(role)) {
             Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -73,17 +79,24 @@ public class RegisterActivity extends AppCompatActivity {
                     progressBar.setVisibility(View.GONE);
                     if (task.isSuccessful()) {
                         String userId = auth.getCurrentUser().getUid();
-                        saveUserDetailsToFirestore(userId, name, email);
+                        saveUserDetailsToFirestore(userId, name, email, phone, role);
                     } else {
                         Toast.makeText(this, "Registration failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
 
-    private void saveUserDetailsToFirestore(String userId, String name, String email) {
+    private void saveUserDetailsToFirestore(String userId, String name, String email, String phone, String role) {
+        // Get current date and time
+        String createdAt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
+
+        // Create user data map
         Map<String, Object> user = new HashMap<>();
         user.put("name", name);
         user.put("email", email);
+        user.put("phone", phone);
+        user.put("role", role);
+        user.put("created_at", createdAt);
 
         firestore.collection("users").document(userId)
                 .set(user)
