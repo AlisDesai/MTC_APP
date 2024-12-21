@@ -1,45 +1,50 @@
 package com.example.mtc_app.customer;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import com.example.mtc_app.R;
-import com.example.mtc_app.order.MyOrdersActivity;
-import com.example.mtc_app.order.RequestOrderActivity;
+import com.example.mtc_app.customer.fragments.HomeFragment;
+import com.example.mtc_app.customer.fragments.ProfileFragment;
+import com.example.mtc_app.customer.fragments.MakeOrderFragment;
 
 public class CustomerHomePageActivity extends AppCompatActivity {
 
-    private TextView welcomeText;
+    private ImageView backArrow;
+    private TextView pageTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_home_page);
 
-        // Example of setting customer name (can be dynamic)
-        welcomeText = findViewById(R.id.welcomeText);
-        String customerName = "John Doe"; // You can fetch this from intent or shared preferences
-        welcomeText.setText("Welcome, " + customerName);
+        // Initialize the back arrow and page title
+        backArrow = findViewById(R.id.backArrow);
+        pageTitle = findViewById(R.id.pageTitle);
 
-        findViewById(R.id.nav_home).setOnClickListener(v -> {
-            // Redirect to Home Page (optional)
-        });
+        // Set up the back arrow click listener
+        backArrow.setOnClickListener(view -> finish()); // Finish the current activity and go back
 
-        findViewById(R.id.nav_request_order).setOnClickListener(v -> {
-            Intent intent = new Intent(CustomerHomePageActivity.this, RequestOrderActivity.class);
-            startActivity(intent);
-        });
+        // Set default fragment (HomeFragment)
+        setFragment(new HomeFragment(), "Home Page");
 
-        findViewById(R.id.nav_my_orders).setOnClickListener(v -> {
-            Intent intent = new Intent(CustomerHomePageActivity.this, MyOrdersActivity.class);
-            startActivity(intent);
-        });
+        // Navigation bar items click listeners
+        findViewById(R.id.nav_home).setOnClickListener(v -> setFragment(new HomeFragment(), "Home Page"));
+        findViewById(R.id.nav_request_order).setOnClickListener(v -> setFragment(new MakeOrderFragment(), "Make Orders"));
+//        findViewById(R.id.nav_my_orders).setOnClickListener(v -> setFragment(new MyOrdersFragment(), "My Orders"));
+        findViewById(R.id.nav_profile).setOnClickListener(v -> setFragment(new ProfileFragment(), "Profile"));
+    }
 
-        findViewById(R.id.nav_profile).setOnClickListener(v -> {
-            Intent intent = new Intent(CustomerHomePageActivity.this, ProfileActivity.class);
-            startActivity(intent);
-        });
+    private void setFragment(Fragment fragment, String title) {
+        // Update the page title
+        pageTitle.setText(title);
+
+        // Replace the fragment
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .commit();
     }
 }

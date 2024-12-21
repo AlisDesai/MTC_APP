@@ -37,6 +37,8 @@ public class CustomerLoginActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
 
         loginButton.setOnClickListener(view -> loginUser());
+
+        // Redirect to RegisterActivity when registerButton is clicked
         registerButton.setOnClickListener(view -> {
             Intent intent = new Intent(CustomerLoginActivity.this, RegisterActivity.class);
             startActivity(intent);

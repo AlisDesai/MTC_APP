@@ -8,6 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mtc_app.R;
+import com.example.mtc_app.helpAndSupport.HelpAndSupportActivity;
 import com.example.mtc_app.login.CustomerLoginActivity;
 
 public class SplashScreenActivity extends AppCompatActivity {
@@ -30,7 +31,7 @@ public class SplashScreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Navigate to Admin Login
-                Intent intent = new Intent(SplashScreenActivity.this, CustomerLoginActivity.class);
+                Intent intent = new Intent(SplashScreenActivity.this, HelpAndSupportActivity.class);
                 startActivity(intent);
             }
         });

@@ -3,8 +3,40 @@
     <color name="accentColor">#FF9800</color>  <!-- Orange -->
     <color name="successColor">#4CAF50</color> <!-- Green -->
     <color name="errorColor">#F44336</color>   <!-- Red -->
-    <color name="black">#000000</color>
-    <color name="white">#FFFFFF</color> <!-- White -->
-    <color name="purple">#9C27B0</color> <!-- Purple -->
+    <color name="purple">#8692f7</color>
     <color name="light_purple">#D1C4E9</color> <!-- Light Purple -->
+    <color name="gray">#9E9E9E</color> <!-- Gray -->
+
+        <color name="purple_200">#FFBB86FC</color>
+        <color name="purple_500">#FF6200EE</color>
+        <color name="purple_700">#FF3700B3</color>
+        <color name="teal_200">#FF03DAC5</color>
+        <color name="teal_700">#FF018786</color>
+        <color name="black">#FF000000</color>
+        <color name="white">#FFFFFFFF</color>
+        <color name="lavender">#8692f7</color>
+
+    <!-- Background Colors -->
+    <color name="backgroundColor">#F5F5F5</color> <!-- Light Background -->
+    <color name="appBarColor">#6200EE</color> <!-- AppBar Background -->
+
+    <!-- Divider Colors -->
+    <color name="divideColor">#D6D6D6</color> <!-- Tag Divider Color -->
+
+    <!-- Button Colors -->
+    <color name="secondaryColor">#54FFFFFF</color> <!-- Secondary Button Background -->
+
+    <!-- Text Colors -->
+    <color name="darkGrey">#212121</color> <!-- Dark gray for titles -->
+    <color name="lightGrey">#757575</color> <!-- Lighter gray for subtitles -->
+
+    <!-- Additional Colors -->
+    <color name="halfTransparentBackground">#55F0EEE2</color> <!-- Half Transparent Background -->
+
+    <!-- Neutral Tones -->
+    <color name="neutralLight">#E0E0E0</color> <!-- Light Neutral -->
+    <color name="neutralDark">#616161</color> <!-- Dark Neutral -->
+    <color name="background">#F5F5F5</color>
+    <color name="textSecondary">#757575</color>
+
 </resources>

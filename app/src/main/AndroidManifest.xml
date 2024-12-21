@@ -7,11 +7,32 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="MTC LAB"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MTC_APP"
         tools:targetApi="31">
+        <activity
+            android:name=".customer.orders.CustomerOrderDetails"
+            android:exported="false" />
+        <activity
+            android:name=".customer.CustomerOrderDetails"
+            android:exported="false" />
+        <activity
+            android:name=".customer.fragments.ProfileFragment"
+            android:exported="false" />
+        <activity
+            android:name=".customer.fragments.MyOrdersFragment"
+            android:exported="false" />
+        <activity
+            android:name=".customer.fragments.MakeOrderFragment"
+            android:exported="false" />
+        <activity
+            android:name=".customer.fragments.HomeFragment"
+            android:exported="false" />
+        <activity
+            android:name=".helpAndSupport.HelpAndSupportActivity"
+            android:exported="false" />
         <activity
             android:name=".order.MyOrdersActivity"
             android:exported="false" />
