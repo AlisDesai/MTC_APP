@@ -332,36 +332,58 @@
                                 android:inputType="number" />
                         </com.google.android.material.textfield.TextInputLayout>
 
-                        <!-- Sieve Analysis Checkbox -->
+                        <!-- FINENESS MODULUS BYGRADATION Checkbox -->
                         <CheckBox
-                            android:id="@+id/AGGREGATE_Fine_sieve_analysis"
+                            android:id="@+id/AGGREGATE_fineness_modulus_bygradation"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="30dp"
                             android:layout_marginTop="8dp"
-                            android:text="Sieve Analysis (Gradation) IS : 2386"
+                            android:text="FINENESS MODULUS BYGRADATION"
                             android:textColor="@color/gray"
                             android:visibility="gone" />
 
-                        <!-- Water Absorption Checkbox -->
+                        <!--  SILT CONTENT Checkbox -->
                         <CheckBox
-                            android:id="@+id/AGGREGATE_Fine_water_absorption"
+                            android:id="@+id/AGGREGATE_silt_content"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Water Absorption IS : 2386"
+                            android:text=" SILT CONTENT"
                             android:textColor="@color/gray"
                             android:visibility="gone" />
 
-                        <!-- Specific Gravity Checkbox -->
+                        <!-- SPECIFIC GRAVITY and WATER ABSORPTION Checkbox -->
                         <CheckBox
-                            android:id="@+id/AGGREGATE_Fine_specific_gravity"
+                            android:id="@+id/AGGREGATE_specific_gravity_and_water_absorption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Specific Gravity IS : 2386"
+                            android:text="SPECIFIC GRAVITY &amp; WATER ABSORPTION"
+                            android:textColor="@color/gray"
+                            android:visibility="gone" />
+
+                        <!-- SOUNDNESS Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AGGREGATE_soundness"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="SOUNDNESS"
+                            android:textColor="@color/gray"
+                            android:visibility="gone" />
+
+                        <!-- ALKALI REACTIVITY Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AGGREGATE_alkali_reactivity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="ALKALI REACTIVITY"
                             android:textColor="@color/gray"
                             android:visibility="gone" />
 
@@ -389,93 +411,94 @@
                                 android:inputType="number" />
                         </com.google.android.material.textfield.TextInputLayout>
 
-                        <!-- Sieve Analysis Checkbox -->
+                        <!-- GRADING OF AGGREGATE Checkbox -->
                         <CheckBox
-                            android:id="@+id/AGGREGATE_Coarse_sieve_analysis"
+                            android:id="@+id/AGGREGATE_grading_of_aggregate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="30dp"
                             android:layout_marginTop="8dp"
-                            android:text="Sieve Analysis (Gradation) IS : 2386 (Included in 250 /- Rs)"
+                            android:text="GRADING OF AGGREGATE"
                             android:textColor="@color/light_purple"
                             android:visibility="gone" />
 
-                        <!-- Impact Value Checkbox -->
+                        <!-- FLAKINESS INDEX AND ELONGATION INDEX Checkbox -->
                         <CheckBox
-                            android:id="@+id/AGGREGATE_Coarse_impact_value"
+                            android:id="@+id/AGGREGATE_flakiness_index_and_elongation_index"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Impact Value IS : 2386 (250 /- Rs)"
+                            android:text="FLAKINESS INDEX AND ELONGATION INDEX"
                             android:textColor="@color/light_purple"
                             android:visibility="gone" />
 
-                        <!-- Crushing Value Checkbox -->
+                        <!-- SPECIFIC GRAVITY & WATER ABSORPTION Checkbox -->
                         <CheckBox
-                            android:id="@+id/AGGREGATE_Coarse_crushing_value"
+                            android:id="@+id/AGGREGATE_specific_gravity_and_water_absorption_coarse"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Crushing Value IS : 2386 (350 /- Rs)"
+                            android:text="SPECIFIC GRAVITY &amp; WATER ABSORPTION"
                             android:textColor="@color/light_purple"
                             android:visibility="gone" />
 
-                        <!-- Water Absorption Checkbox -->
+                        <!-- IMPACT VALUE Checkbox -->
                         <CheckBox
-                            android:id="@+id/AGGREGATE_Coarse_water_absorption"
+                            android:id="@+id/AGGREGATE_impact_value_coarse"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Water Absorption IS : 2386 (Included in 350 /- Rs with Specific Gravity)"
+                            android:text="IMPACT VALUE"
                             android:textColor="@color/light_purple"
                             android:visibility="gone" />
 
-                        <!-- Specific Gravity Checkbox -->
+                        <!-- ABRASION VALUE Checkbox -->
                         <CheckBox
-                            android:id="@+id/AGGREGATE_Coarse_specific_gravity"
+                            android:id="@+id/AGGREGATE_abrasion_value_coarse"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Specific Gravity IS : 2386 (350 /- Rs)"
+                            android:text="ABRASION VALUE"
                             android:textColor="@color/light_purple"
                             android:visibility="gone" />
 
-                        <!-- Flakiness Index Checkbox -->
+                        <!-- CRUSHING VALUE Checkbox -->
                         <CheckBox
-                            android:id="@+id/AGGREGATE_Coarse_flakiness_index"
+                            android:id="@+id/AGGREGATE_crushing_value_coarse"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Flakiness Index IS : 2386 (Included in 350 /- Rs with Elongation Index)"
+                            android:text="CRUSHING VALUE"
                             android:textColor="@color/light_purple"
                             android:visibility="gone" />
 
-                        <!-- Elongation Index Checkbox -->
+                        <!-- SOUNDNESS Checkbox -->
                         <CheckBox
-                            android:id="@+id/AGGREGATE_Coarse_elongation_index"
+                            android:id="@+id/AGGREGATE_soundness_cycles_coarse"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Elongation Index IS : 2386 (350 /- Rs)"
+                            android:text="SOUNDNESS (5 Cycles)"
                             android:textColor="@color/light_purple"
                             android:visibility="gone" />
 
-                        <!-- Abrasion value Checkbox -->
+                        <!-- ALKALI REACTIVITY Checkbox -->
                         <CheckBox
-                            android:id="@+id/AGGREGATE_Coarse_abrasion_value"
+                            android:id="@+id/AGGREGATE_alkali_reactivity_coarse"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Abrasion value IS : 2386 (350 /- Rs)"
+                            android:text="ALKALI REACTIVITY"
                             android:textColor="@color/light_purple"
                             android:visibility="gone" />
+
 
                         <!-- POWER BLOCK -->
                         <CheckBox
@@ -562,42 +585,33 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Initial Setting Time IS : 4031"
+                            android:text="Initial Setting &amp; Final Setting"
                             android:textColor="@color/errorColor"
                             android:visibility="gone"/>
 
-                        <!-- Final Setting Time Checkbox -->
+
+                        <!--  FINENESS BY BLAIN AIR Checkbox -->
                         <CheckBox
-                            android:id="@+id/CEMENT_final_setting_time"
+                            android:id="@+id/CEMENT_finess_by_blain"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Final Setting Time IS : 4031 "
+                            android:text="FINENESS BY BLAIN AIR"
                             android:textColor="@color/errorColor"
                             android:visibility="gone"/>
 
-                        <!-- Soundness Checkbox -->
+                        <!--  SOUNDNESS Checkbox -->
                         <CheckBox
                             android:id="@+id/CEMENT_soundness"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Soundness (by Le-Chatelier) IS : 4031 "
+                            android:text="SOUNDNESS"
                             android:textColor="@color/errorColor"
                             android:visibility="gone"/>
 
-                        <!-- Fineness Checkbox -->
-                        <CheckBox
-                            android:id="@+id/CEMENT_fineness"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
-                            android:layout_marginTop="8dp"
-                            android:text="Fineness (by Dry Sieve Method) IS 4031 "
-                            android:textColor="@color/errorColor"
-                            android:visibility="gone"/>
 
                         <!-- Compressive Checkbox -->
                         <CheckBox
@@ -606,7 +620,40 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Compressive Strength IS : 4031 "
+                            android:text="COMPRESSIVE STRENGTH"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone"/>
+
+                        <!-- COMPRESSIVE STRENGTH OF CEMENT MORTAR Checkbox -->
+                        <CheckBox
+                            android:id="@+id/CEMENT_COMPRESSIVE_STRENGTH_MORTAR"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="COMPRESSIVE STRENGTH OF CEMENT MORTAR"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone"/>
+
+                        <!-- FINENESS BY SIEVING Checkbox -->
+                        <CheckBox
+                            android:id="@+id/CEMENT_fineness"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="FINENESS BY SIEVING"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone"/>
+
+                        <!-- CHEMICAL ANALYSIS Checkbox -->
+                        <CheckBox
+                            android:id="@+id/cement_chemical_analysis"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="CHEMICAL ANALYSIS"
                             android:textColor="@color/errorColor"
                             android:visibility="gone"/>
 
@@ -665,38 +712,50 @@
                                 android:inputType="number" />
                         </com.google.android.material.textfield.TextInputLayout>
 
-                        <!-- Compressive Strength Checkbox -->
-                        <CheckBox
-                            android:id="@+id/BRICK_compressive_strength"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
-                            android:layout_marginTop="8dp"
-                            android:text="Compressive Strength IS : 3495"
-                            android:textColor="@color/errorColor"
-                            android:visibility="gone" />
-
-                        <!-- Dimension Test Checkbox -->
+                        <!-- DIMENSION AND TOLERANCE Checkbox -->
                         <CheckBox
                             android:id="@+id/BRICK_dimension_test"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Dimension Test"
+                            android:text="DIMENSION &amp; TOLERANCE"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
-                        <!-- Water Absorption Checkbox -->
+                        <!-- COMPRESSIVE STRENGTH Checkbox -->
+                        <CheckBox
+                            android:id="@+id/BRICK_compressive_strength"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="COMPRESSIVE STRENGTH"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- WATER ABSORPTION Checkbox -->
                         <CheckBox
                             android:id="@+id/BRICK_Fine_water_absorption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Water Absorption IS : 3495 "
+                            android:text="WATER ABSORPTION"
                             android:textColor="@color/gray"
                             android:visibility="gone" />
+
+                        <!-- EFFLORESCENCE Checkbox -->
+                        <CheckBox
+                            android:id="@+id/BRICK_efflorescence"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="EFFLORESCENCE"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
 
                         <!-- SOIL -->
                         <CheckBox
@@ -720,80 +779,157 @@
                                 android:inputType="number" />
                         </com.google.android.material.textfield.TextInputLayout>
 
-                        <!-- Specific Gravity Checkbox -->
-                        <CheckBox
-                            android:id="@+id/SOIL_specific_gravity"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
-                            android:layout_marginTop="8dp"
-                            android:text="Specific Gravity IS : 2720 "
-                            android:textColor="@color/errorColor"
-                            android:visibility="gone" />
-
-                        <!-- Grain Size Analysis Checkbox -->
+                        <!-- GRAIN SIZE ANALYSIS Checkbox -->
                         <CheckBox
                             android:id="@+id/SOIL_grain_size_analysis"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Grain Size Analysis IS 2720"
+                            android:text="GRAIN SIZE ANALYSIS"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
-                        <!-- Liquid Limit Checkbox -->
-                        <CheckBox
-                            android:id="@+id/SOIL_liquid_limit"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
-                            android:layout_marginTop="8dp"
-                            android:text="Liquid Limit IS : 2720"
-                            android:textColor="@color/errorColor"
-                            android:visibility="gone" />
-
-                        <!-- Plastic Limit Checkbox -->
+                        <!-- PLASTICITY INDEX Checkbox -->
                         <CheckBox
                             android:id="@+id/SOIL_plastic_limit"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Plastic Limit IS : 2720"
+                            android:text="PLASTICITY INDEX"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
-                        <!-- Light Compaction test Checkbox -->
+                        <!-- LIGHT COMPACTION Checkbox -->
                         <CheckBox
                             android:id="@+id/SOIL_light_compaction_test"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Light Compaction test IS : 2720"
+                            android:text="LIGHT COMPACTION"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
-                        <!-- Heavy Compaction test Checkbox -->
+                        <!-- HEAVY COMPACTION Checkbox -->
                         <CheckBox
                             android:id="@+id/SOIL_heavy_compaction_test"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Heavy Compaction test IS : 2720 "
+                            android:text="HEAVY COMPACTION"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
-                        <!-- Free Swell Index Checkbox -->
+                        <!-- CBR TEST (UNSOAKED) Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_cbr_test_unsoaked"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="CBR TEST (UNSOAKED)"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- CBR TEST (SOAKED-96 HRS) Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_cbr_test_soaked"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="CBR TEST (SOAKED-96 HRS)"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- DIRECT SHEAR TEST Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_direct_shear"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="DIRECT SHEAR TEST"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- UNCONFINED COMPRESSION Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_unconfined_compression"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="UNCONFINED COMPRESSION"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- TRIAXIAL TEST (UU) Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_triaxial_test_uu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="TRIAXIAL TEST (UU)"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- TRIAXIAL TEST (CU) Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_triaxial_test_cu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="TRIAXIAL TEST (CU)"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- FREE SWELL INDEX Checkbox -->
                         <CheckBox
                             android:id="@+id/SOIL_free_swell_index"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Free Swell Index IS : 2720"
+                            android:text="FREE SWELL INDEX"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- CONSOLIDATION TEST (3-Jar) Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_consolidation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="CONSOLIDATION TEST (3-Jar)"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- SWELING PRESSURE Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_swelling_pressure"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="SWELING PRESSURE"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!--  SPECIFIC GRAVITY Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_specific_gravity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="SPECIFIC GRAVITY"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
@@ -805,17 +941,6 @@
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
                             android:text="California Bearing Ratio IS : 2720"
-                            android:textColor="@color/errorColor"
-                            android:visibility="gone" />
-
-                        <!-- Direct shear Checkbox -->
-                        <CheckBox
-                            android:id="@+id/SOIL_direct_shear"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
-                            android:layout_marginTop="8dp"
-                            android:text="Direct shear IS : 2720"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
@@ -849,17 +974,6 @@
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
                             android:text="Triaxial IS :2720"
-                            android:textColor="@color/errorColor"
-                            android:visibility="gone" />
-
-                        <!-- Consolidation Checkbox -->
-                        <CheckBox
-                            android:id="@+id/SOIL_consolidation"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
-                            android:layout_marginTop="8dp"
-                            android:text="Consolidation IS : 2720"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
@@ -1105,10 +1219,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
+                            android:layout_gravity="center"
                             android:text="Total Price: 0 /- Rs"
-                            android:textSize="18sp"
+                            android:textSize="20sp"
                             android:textStyle="bold"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/black"
+                            android:background="@drawable/rounded_background"
+                            android:padding="8dp" />
+
                     </LinearLayout>
 
                     <TextView

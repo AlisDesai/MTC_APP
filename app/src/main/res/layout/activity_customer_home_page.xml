@@ -107,31 +107,6 @@
                 android:textColor="#FFFFFF"
                 android:textSize="12sp" />
         </LinearLayout>
-
-        <!-- My Orders Icon -->
-<!--        <LinearLayout-->
-<!--            android:id="@+id/nav_my_orders"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="1"-->
-<!--            android:orientation="vertical"-->
-<!--            android:gravity="center"-->
-<!--            android:padding="10dp">-->
-
-<!--            <ImageView-->
-<!--                android:layout_width="30dp"-->
-<!--                android:layout_height="30dp"-->
-<!--                android:src="@drawable/cust_my_orders" />-->
-
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="My Orders"-->
-<!--                android:textColor="#FFFFFF"-->
-<!--                android:textSize="12sp" />-->
-<!--        </LinearLayout>-->
-
-        <!-- Profile Icon -->
         <LinearLayout
             android:id="@+id/nav_profile"
             android:layout_width="0dp"

@@ -40,7 +40,7 @@ public class CustomerLoginActivity extends AppCompatActivity {
 
         // Redirect to RegisterActivity when registerButton is clicked
         registerButton.setOnClickListener(view -> {
-            Intent intent = new Intent(CustomerLoginActivity.this, RegisterActivity.class);
+            Intent intent = new Intent(CustomerLoginActivity.this, CustomerHomePageActivity.class);
             startActivity(intent);
         });
     }

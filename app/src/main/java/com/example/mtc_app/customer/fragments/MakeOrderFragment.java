@@ -25,23 +25,23 @@ public class MakeOrderFragment extends Fragment {
     private CheckBox cbAggregateFine, cbAggregateCoarse, cbCement, cbNDT, cbBitumen;
 
     // Aggregate Fine
-    private CheckBox cbSieveAnalysisFine, cbWaterAbsorptionFine, cbSpecificGravityFine;
+    private CheckBox finenessModulusBygradationFine, siltContentFine, specificGravityAndWaterAbsorptionFine, soundnessFine, alkaliReactivityFine;
 
     //Aggregate Coarse
-    private CheckBox cbWaterAbsorptionCoarse, cbCrushingValueCoarse, cbFlakinessIndexCoarse, cbAbrasionValueCoarse, cbElongationIndexCoarse,  cbImpactValueCoarse, cbSieveAnalysisCoarse, cbSpecificGravityCoarse;
+    private CheckBox cbImpactValueCoarse, SpecificGravityAndWaterAbsorptionCoarse, cbCrushingValueCoarse, cbSoundnessCyclesCoarse,  cbFlakinessIndexAndElongationIndexCoarse, cbGradingOfAggregateCoarse, cbAbrasionValueCoarse, cbAlkaliReactivityCoarse;
 
     //Paver Block
     private CheckBox cbCompressiveStrengthPaver, cbWaterAbsorptionPaver;
 
     //Cement and last Concrete
-    private CheckBox cbSoundnessCement, cbFinalSettingTimeCement, cbInitialSettingTimeCement, cbConsistencyCement, cbCompressiveCement, cbFinenessCement, cbCompressiveStrengthConcrete;
+    private CheckBox cbFinessByBlainCement, cbInitialSettingTimeCement, cbConsistencyCement, cbCompressiveCement, cbFinenessCement,cbSoundenessCemenet, cbCementCompressiveStrengthMortar, cbCementChemicalAnalysis, cbCompressiveStrengthConcrete;
 
     //Brick
-    private CheckBox cbWaterAbsorptionBrick,cbDimensionTestBrick, cbCompressiveStrengthBrick;
+    private CheckBox cbWaterAbsorptionBrick,cbDimensionTestBrick, cbCompressiveStrengthBrick, cbBrickEfflorescence;
 
     //Soil
-    private CheckBox cbSpecificGravitySoil, cbGrainSizeAnalysisSoil, cbLiquidLimitSoil, cbPlasticLimitSoil,
-            cbLightCompactionTestSoil, cbHeavyCompactionTestSoil, cbFreeSwellIndexSoil, cbCaliforniaBearingRatioSoil,
+    private CheckBox cbSoilCBRTestUnsoaked, cbGrainSizeAnalysisSoil, cbTestSoaked, cbPlasticLimitSoil,
+            cbLightCompactionTestSoil, cbHeavyCompactionTestSoil, cbFreeSwellIndexSoil, cbUnconfinedCompressionSoil, cbTriaxialTestUUSoil, cbTriaxialTestCUSoil,  cbSwellingPressureSoil, cbSpecificGravitySoil, cbCaliforniaBearingRatioSoil,
             cbDirectShearSoil, cbFieldDensitySoil, cbUCSSoil, cbTriaxialSoil, cbConsolidationSoil;
 
     //Steel Reinforcement Bar & NDT
@@ -79,20 +79,23 @@ public class MakeOrderFragment extends Fragment {
         cbNDT = view.findViewById(R.id.cb_ndt);
 
         // Initialize Aggregate-Fine CheckBoxes
-        cbSieveAnalysisFine = view.findViewById(R.id.AGGREGATE_Fine_sieve_analysis);
-        cbWaterAbsorptionFine = view.findViewById(R.id.AGGREGATE_Fine_water_absorption);
-        cbSpecificGravityFine = view.findViewById(R.id.AGGREGATE_Fine_specific_gravity);
+        finenessModulusBygradationFine = view.findViewById(R.id.AGGREGATE_fineness_modulus_bygradation);
+        siltContentFine = view.findViewById(R.id.AGGREGATE_silt_content);
+        specificGravityAndWaterAbsorptionFine = view.findViewById(R.id.AGGREGATE_specific_gravity_and_water_absorption);
+        soundnessFine = view.findViewById(R.id.AGGREGATE_soundness);
+        alkaliReactivityFine = view.findViewById(R.id.AGGREGATE_alkali_reactivity);
+        cbSoundenessCemenet = view.findViewById(R.id.CEMENT_soundness);
 
         // Initialize AGGREGATE (COARSE) related checkboxes
-        cbSieveAnalysisCoarse = view.findViewById(R.id.AGGREGATE_Coarse_sieve_analysis);
-        cbImpactValueCoarse = view.findViewById(R.id.AGGREGATE_Coarse_impact_value);
-        cbCrushingValueCoarse = view.findViewById(R.id.AGGREGATE_Coarse_crushing_value);
-        cbWaterAbsorptionCoarse = view.findViewById(R.id.AGGREGATE_Coarse_water_absorption);
-        cbSpecificGravityCoarse = view.findViewById(R.id.AGGREGATE_Coarse_specific_gravity);
-        cbFlakinessIndexCoarse = view.findViewById(R.id.AGGREGATE_Coarse_flakiness_index);
-        cbElongationIndexCoarse = view.findViewById(R.id.AGGREGATE_Coarse_elongation_index);
-        cbAbrasionValueCoarse = view.findViewById(R.id.AGGREGATE_Coarse_abrasion_value);
+        cbGradingOfAggregateCoarse = view.findViewById(R.id.AGGREGATE_grading_of_aggregate);
+        cbFlakinessIndexAndElongationIndexCoarse = view.findViewById(R.id.AGGREGATE_flakiness_index_and_elongation_index);
+        SpecificGravityAndWaterAbsorptionCoarse = view.findViewById(R.id.AGGREGATE_specific_gravity_and_water_absorption_coarse);
+        cbImpactValueCoarse = view.findViewById(R.id.AGGREGATE_impact_value_coarse);
+        cbAbrasionValueCoarse = view.findViewById(R.id.AGGREGATE_abrasion_value_coarse);
+        cbCrushingValueCoarse = view.findViewById(R.id.AGGREGATE_crushing_value_coarse);
+        cbSoundnessCyclesCoarse = view.findViewById(R.id.AGGREGATE_soundness_cycles_coarse);
         tvTotalPrice = view.findViewById(R.id.tv_total_price);
+        cbAlkaliReactivityCoarse = view.findViewById(R.id.AGGREGATE_alkali_reactivity_coarse);
 
         // Initialize related checkboxes for PAVER category
         cbCompressiveStrengthPaver = view.findViewById(R.id.PAVER_compressive_strength);
@@ -113,10 +116,12 @@ public class MakeOrderFragment extends Fragment {
         // Initialize Cement checkbox
         cbConsistencyCement = view.findViewById(R.id.CEMENT_consistency);
         cbInitialSettingTimeCement = view.findViewById(R.id.CEMENT_initial_setting_time);
-        cbFinalSettingTimeCement = view.findViewById(R.id.CEMENT_final_setting_time);
-        cbSoundnessCement = view.findViewById(R.id.CEMENT_soundness);
+        cbFinessByBlainCement = view.findViewById(R.id.CEMENT_finess_by_blain);
         cbFinenessCement = view.findViewById(R.id.CEMENT_fineness);
         cbCompressiveCement = view.findViewById(R.id.CEMENT_compressive);
+        cbSoundenessCemenet = view.findViewById(R.id.CEMENT_soundness);
+        cbCementCompressiveStrengthMortar = view.findViewById(R.id.CEMENT_COMPRESSIVE_STRENGTH_MORTAR);
+        cbCementChemicalAnalysis = view.findViewById(R.id.cement_chemical_analysis);
 
         // Initialize Concrete checkbox
         cbCompressiveStrengthConcrete = view.findViewById(R.id.CONCRETE_compressive_strength);
@@ -125,11 +130,12 @@ public class MakeOrderFragment extends Fragment {
         cbCompressiveStrengthBrick = view.findViewById(R.id.BRICK_compressive_strength);
         cbDimensionTestBrick = view.findViewById(R.id.BRICK_dimension_test);
         cbWaterAbsorptionBrick = view.findViewById(R.id.BRICK_Fine_water_absorption);
+        cbBrickEfflorescence = view.findViewById(R.id.BRICK_efflorescence);
 
         // Initialize Soil checkbox and its related checkboxes
-        cbSpecificGravitySoil = view.findViewById(R.id.SOIL_specific_gravity);
+        cbSoilCBRTestUnsoaked = view.findViewById(R.id.SOIL_cbr_test_unsoaked);
         cbGrainSizeAnalysisSoil = view.findViewById(R.id.SOIL_grain_size_analysis);
-        cbLiquidLimitSoil = view.findViewById(R.id.SOIL_liquid_limit);
+        cbTestSoaked = view.findViewById(R.id.SOIL_cbr_test_soaked);
         cbPlasticLimitSoil = view.findViewById(R.id.SOIL_plastic_limit);
         cbLightCompactionTestSoil = view.findViewById(R.id.SOIL_light_compaction_test);
         cbHeavyCompactionTestSoil = view.findViewById(R.id.SOIL_heavy_compaction_test);
@@ -140,6 +146,15 @@ public class MakeOrderFragment extends Fragment {
         cbUCSSoil = view.findViewById(R.id.SOIL_ucs);
         cbTriaxialSoil = view.findViewById(R.id.SOIL_triaxial);
         cbConsolidationSoil = view.findViewById(R.id.SOIL_consolidation);
+        cbUnconfinedCompressionSoil = view.findViewById(R.id.SOIL_unconfined_compression);
+        cbTriaxialTestUUSoil = view.findViewById(R.id.SOIL_triaxial_test_uu);
+        cbTriaxialTestCUSoil = view.findViewById(R.id.SOIL_triaxial_test_cu);
+        cbSwellingPressureSoil = view.findViewById(R.id.SOIL_swelling_pressure);
+        cbSpecificGravitySoil = view.findViewById(R.id.SOIL_specific_gravity);
+
+        cbConsolidationSoil = view.findViewById(R.id.SOIL_consolidation);
+        cbUnconfinedCompressionSoil = view.findViewById(R.id.SOIL_unconfined_compression);
+
 
         // Initialize Bar checkboxes
         cbUltimateTensileStrengthBar = view.findViewById(R.id.BAR_Ultimate_tensile_strength);
@@ -173,20 +188,22 @@ public class MakeOrderFragment extends Fragment {
         setUpCheckboxListener(cbNDT, tilNDTQuantity);
 
         //price Aggregate Fine listeners
-        setupPriceChangeListener(cbSpecificGravityFine, 250);
-        setupPriceChangeListener(cbWaterAbsorptionFine, 350);
-        setupPriceChangeListener(cbSieveAnalysisFine, 350);
-        setupPriceChangeListener(cbElongationIndexCoarse, 350);
+        setupPriceChangeListener(finenessModulusBygradationFine, 350);
+        setupPriceChangeListener(siltContentFine, 350);
+        setupPriceChangeListener(specificGravityAndWaterAbsorptionFine, 250);
+        setupPriceChangeListener(soundnessFine, 350);
+        setupPriceChangeListener(alkaliReactivityFine, 350);
 
         //price Aggregate Coarse listeners
-        setupPriceChangeListener(cbSieveAnalysisCoarse, 250);
-        setupPriceChangeListener(cbImpactValueCoarse, 250);
+        setupPriceChangeListener(cbGradingOfAggregateCoarse, 250);
+        setupPriceChangeListener(cbFlakinessIndexAndElongationIndexCoarse, 250);
+        setupPriceChangeListener(SpecificGravityAndWaterAbsorptionCoarse, 350);
         setupPriceChangeListener(cbCrushingValueCoarse, 350);
-        setupPriceChangeListener(cbFlakinessIndexCoarse, 350);
-        setupPriceChangeListener(cbElongationIndexCoarse, 350);
+        setupPriceChangeListener(cbSoundnessCyclesCoarse, 350);
         setupPriceChangeListener(cbAbrasionValueCoarse, 350);
-        setupPriceChangeListener(cbWaterAbsorptionCoarse, 350);
-        setupPriceChangeListener(cbSpecificGravityCoarse, 350);
+        setupPriceChangeListener(cbImpactValueCoarse, 350);
+        setupPriceChangeListener(cbAbrasionValueCoarse, 350);
+        setupPriceChangeListener(cbAlkaliReactivityCoarse, 400);
 
         //price Power Block listeners
         setupPriceChangeListener(cbWaterAbsorptionPaver, 250);
@@ -195,10 +212,13 @@ public class MakeOrderFragment extends Fragment {
         //price Cement listeners
         setupPriceChangeListener(cbConsistencyCement, 250);
         setupPriceChangeListener(cbInitialSettingTimeCement, 350);
-        setupPriceChangeListener(cbFinalSettingTimeCement, 350);
-        setupPriceChangeListener(cbSoundnessCement, 350);
+        setupPriceChangeListener(cbFinessByBlainCement, 350);
         setupPriceChangeListener(cbFinenessCement, 350);
         setupPriceChangeListener(cbCompressiveCement, 350);
+        setupPriceChangeListener(cbSoundenessCemenet, 350);
+        setupPriceChangeListener(cbCementCompressiveStrengthMortar, 350);
+        setupPriceChangeListener(cbCementChemicalAnalysis, 350);
+
 
         //price Hardened Concrete listeners
         setupPriceChangeListener(cbCompressiveStrengthConcrete, 250);
@@ -207,11 +227,12 @@ public class MakeOrderFragment extends Fragment {
         setupPriceChangeListener(cbCompressiveStrengthBrick, 350);
         setupPriceChangeListener(cbDimensionTestBrick, 350);
         setupPriceChangeListener(cbWaterAbsorptionBrick, 350);
+        setupPriceChangeListener(cbBrickEfflorescence, 400);
 
         //price Soil listeners
-        setupPriceChangeListener(cbSpecificGravitySoil, 250);
+        setupPriceChangeListener(cbSoilCBRTestUnsoaked, 250);
         setupPriceChangeListener(cbGrainSizeAnalysisSoil, 350);
-        setupPriceChangeListener(cbLiquidLimitSoil, 350);
+        setupPriceChangeListener(cbTestSoaked, 350);
         setupPriceChangeListener(cbPlasticLimitSoil, 350);
         setupPriceChangeListener(cbLightCompactionTestSoil, 350);
         setupPriceChangeListener(cbHeavyCompactionTestSoil, 350);
@@ -222,6 +243,15 @@ public class MakeOrderFragment extends Fragment {
         setupPriceChangeListener(cbUCSSoil, 350);
         setupPriceChangeListener(cbTriaxialSoil, 350);
         setupPriceChangeListener(cbConsolidationSoil, 350);
+        setupPriceChangeListener(cbUnconfinedCompressionSoil, 400);
+        setupPriceChangeListener(cbTriaxialTestUUSoil, 350);
+        setupPriceChangeListener(cbTriaxialTestCUSoil, 350);
+        setupPriceChangeListener(cbSwellingPressureSoil, 350);
+
+        setupPriceChangeListener(cbUCSSoil, 350);
+        setupPriceChangeListener(cbTriaxialSoil, 350);
+        setupPriceChangeListener(cbConsolidationSoil, 350);
+        setupPriceChangeListener(cbUnconfinedCompressionSoil, 400);
 
         //price Steel Bar listeners
         setupPriceChangeListener(cbUltimateTensileStrengthBar, 250);
@@ -250,20 +280,28 @@ public class MakeOrderFragment extends Fragment {
             if (isChecked) {
                 // Show the Aggregate Fine quantity input and other checkboxes
                 tilAggregateFineQuantity.setVisibility(View.VISIBLE);
-                cbSieveAnalysisFine.setVisibility(View.VISIBLE);
-                cbWaterAbsorptionFine.setVisibility(View.VISIBLE);
-                cbSpecificGravityFine.setVisibility(View.VISIBLE);
+                finenessModulusBygradationFine.setVisibility(View.VISIBLE);
+                siltContentFine.setVisibility(View.VISIBLE);
+                specificGravityAndWaterAbsorptionFine.setVisibility(View.VISIBLE);
+                soundnessFine.setVisibility(View.VISIBLE);
+                alkaliReactivityFine.setVisibility(View.VISIBLE);
+
+
             } else {
                 // Hide the Aggregate Fine quantity input and other checkboxes
                 tilAggregateFineQuantity.setVisibility(View.GONE);
-                cbSieveAnalysisFine.setVisibility(View.GONE);
-                cbWaterAbsorptionFine.setVisibility(View.GONE);
-                cbSpecificGravityFine.setVisibility(View.GONE);
+                finenessModulusBygradationFine.setVisibility(View.GONE);
+                siltContentFine.setVisibility(View.GONE);
+                specificGravityAndWaterAbsorptionFine.setVisibility(View.GONE);
+                soundnessFine.setVisibility(View.GONE);
+                alkaliReactivityFine.setVisibility(View.GONE);
 
                 // Uncheck the additional checkboxes when hiding them
-                cbSieveAnalysisFine.setChecked(false);
-                cbWaterAbsorptionFine.setChecked(false);
-                cbSpecificGravityFine.setChecked(false);
+                finenessModulusBygradationFine.setChecked(false);
+                siltContentFine.setChecked(false);
+                specificGravityAndWaterAbsorptionFine.setChecked(false);
+                soundnessFine.setChecked(false);
+                alkaliReactivityFine.setChecked(false);
             }
         });
 
@@ -272,34 +310,34 @@ public class MakeOrderFragment extends Fragment {
             if (isChecked) {
                 // Show all the related checkboxes
                 tilAggregateCoarseQuantity.setVisibility(View.VISIBLE);
-                cbSieveAnalysisCoarse.setVisibility(View.VISIBLE);
+                cbGradingOfAggregateCoarse.setVisibility(View.VISIBLE);
+                cbFlakinessIndexAndElongationIndexCoarse.setVisibility(View.VISIBLE);
+                SpecificGravityAndWaterAbsorptionCoarse.setVisibility(View.VISIBLE);
                 cbImpactValueCoarse.setVisibility(View.VISIBLE);
-                cbCrushingValueCoarse.setVisibility(View.VISIBLE);
-                cbWaterAbsorptionCoarse.setVisibility(View.VISIBLE);
-                cbSpecificGravityCoarse.setVisibility(View.VISIBLE);
-                cbFlakinessIndexCoarse.setVisibility(View.VISIBLE);
-                cbElongationIndexCoarse.setVisibility(View.VISIBLE);
                 cbAbrasionValueCoarse.setVisibility(View.VISIBLE);
+                cbCrushingValueCoarse.setVisibility(View.VISIBLE);
+                cbSoundnessCyclesCoarse.setVisibility(View.VISIBLE);
+                cbAlkaliReactivityCoarse.setVisibility(View.VISIBLE);
             } else {
                 // Hide all the related checkboxes and uncheck them
                 tilAggregateCoarseQuantity.setVisibility(View.GONE);
-                cbSieveAnalysisCoarse.setVisibility(View.GONE);
+                cbGradingOfAggregateCoarse.setVisibility(View.GONE);
+                cbFlakinessIndexAndElongationIndexCoarse.setVisibility(View.GONE);
+                SpecificGravityAndWaterAbsorptionCoarse.setVisibility(View.GONE);
                 cbImpactValueCoarse.setVisibility(View.GONE);
-                cbCrushingValueCoarse.setVisibility(View.GONE);
-                cbWaterAbsorptionCoarse.setVisibility(View.GONE);
-                cbSpecificGravityCoarse.setVisibility(View.GONE);
-                cbFlakinessIndexCoarse.setVisibility(View.GONE);
-                cbElongationIndexCoarse.setVisibility(View.GONE);
                 cbAbrasionValueCoarse.setVisibility(View.GONE);
+                cbCrushingValueCoarse.setVisibility(View.GONE);
+                cbSoundnessCyclesCoarse.setVisibility(View.GONE);
+                cbAlkaliReactivityCoarse.setVisibility(View.GONE);
 
-                cbSieveAnalysisCoarse.setChecked(false);
+                cbGradingOfAggregateCoarse.setChecked(false);
+                cbFlakinessIndexAndElongationIndexCoarse.setChecked(false);
+                SpecificGravityAndWaterAbsorptionCoarse.setChecked(false);
                 cbImpactValueCoarse.setChecked(false);
-                cbCrushingValueCoarse.setChecked(false);
-                cbWaterAbsorptionCoarse.setChecked(false);
-                cbSpecificGravityCoarse.setChecked(false);
-                cbFlakinessIndexCoarse.setChecked(false);
-                cbElongationIndexCoarse.setChecked(false);
                 cbAbrasionValueCoarse.setChecked(false);
+                cbCrushingValueCoarse.setChecked(false);
+                cbSoundnessCyclesCoarse.setChecked(false);
+                cbAlkaliReactivityCoarse.setChecked(false);
             }
         });
 
@@ -329,27 +367,33 @@ public class MakeOrderFragment extends Fragment {
                 tilCementQuantity.setVisibility(View.VISIBLE);
                 cbConsistencyCement.setVisibility(View.VISIBLE);
                 cbInitialSettingTimeCement.setVisibility(View.VISIBLE);
-                cbFinalSettingTimeCement.setVisibility(View.VISIBLE);
-                cbSoundnessCement.setVisibility(View.VISIBLE);
+                cbFinessByBlainCement.setVisibility(View.VISIBLE);
                 cbFinenessCement.setVisibility(View.VISIBLE);
                 cbCompressiveCement.setVisibility(View.VISIBLE);
+                cbSoundenessCemenet.setVisibility(View.VISIBLE);
+                cbCementCompressiveStrengthMortar.setVisibility(View.VISIBLE);
+                cbCementChemicalAnalysis.setVisibility(View.VISIBLE);
             } else {
                 // Hide all related checkboxes when cbCement is unchecked
                 tilCementQuantity.setVisibility(View.GONE);
                 cbConsistencyCement.setVisibility(View.GONE);
                 cbInitialSettingTimeCement.setVisibility(View.GONE);
-                cbFinalSettingTimeCement.setVisibility(View.GONE);
-                cbSoundnessCement.setVisibility(View.GONE);
+                cbFinessByBlainCement.setVisibility(View.GONE);
                 cbFinenessCement.setVisibility(View.GONE);
                 cbCompressiveCement.setVisibility(View.GONE);
+                cbSoundenessCemenet.setVisibility(View.GONE);
+                cbCementCompressiveStrengthMortar.setVisibility(View.GONE);
+                cbCementChemicalAnalysis.setVisibility(View.GONE);
 
                 // Uncheck them as well
                 cbConsistencyCement.setChecked(false);
                 cbInitialSettingTimeCement.setChecked(false);
-                cbFinalSettingTimeCement.setChecked(false);
-                cbSoundnessCement.setChecked(false);
+                cbFinessByBlainCement.setChecked(false);
                 cbFinenessCement.setChecked(false);
                 cbCompressiveCement.setChecked(false);
+                cbSoundenessCemenet.setChecked(false);
+                cbCementCompressiveStrengthMortar.setChecked(false);
+                cbCementChemicalAnalysis.setChecked(false);
             }
         });
 
@@ -376,17 +420,20 @@ public class MakeOrderFragment extends Fragment {
                 cbCompressiveStrengthBrick.setVisibility(View.VISIBLE);
                 cbDimensionTestBrick.setVisibility(View.VISIBLE);
                 cbWaterAbsorptionBrick.setVisibility(View.VISIBLE);
+                cbBrickEfflorescence.setVisibility(View.VISIBLE);
             } else {
                 // Hide all Brick-related checkboxes when cbBrick is unchecked
                 tilBrickQuantity.setVisibility(View.GONE);
                 cbCompressiveStrengthBrick.setVisibility(View.GONE);
                 cbDimensionTestBrick.setVisibility(View.GONE);
                 cbWaterAbsorptionBrick.setVisibility(View.GONE);
+                cbBrickEfflorescence.setVisibility(View.GONE);
 
                 // Uncheck all related checkboxes
                 cbCompressiveStrengthBrick.setChecked(false);
                 cbDimensionTestBrick.setChecked(false);
                 cbWaterAbsorptionBrick.setChecked(false);
+                cbBrickEfflorescence.setChecked(false);
             }
         });
 
@@ -395,9 +442,9 @@ public class MakeOrderFragment extends Fragment {
             if (isChecked) {
                 // Show all Soil-related checkboxes when cbSoil is checked
                 tilSoilQuantity.setVisibility(View.VISIBLE);
-                cbSpecificGravitySoil.setVisibility(View.VISIBLE);
+                cbSoilCBRTestUnsoaked.setVisibility(View.VISIBLE);
                 cbGrainSizeAnalysisSoil.setVisibility(View.VISIBLE);
-                cbLiquidLimitSoil.setVisibility(View.VISIBLE);
+                cbTestSoaked.setVisibility(View.VISIBLE);
                 cbPlasticLimitSoil.setVisibility(View.VISIBLE);
                 cbLightCompactionTestSoil.setVisibility(View.VISIBLE);
                 cbHeavyCompactionTestSoil.setVisibility(View.VISIBLE);
@@ -408,12 +455,19 @@ public class MakeOrderFragment extends Fragment {
                 cbUCSSoil.setVisibility(View.VISIBLE);
                 cbTriaxialSoil.setVisibility(View.VISIBLE);
                 cbConsolidationSoil.setVisibility(View.VISIBLE);
+                cbUnconfinedCompressionSoil.setVisibility(View.VISIBLE);
+                cbTriaxialTestUUSoil.setVisibility(View.VISIBLE);
+                cbTriaxialTestCUSoil.setVisibility(View.VISIBLE);
+                cbSwellingPressureSoil.setVisibility(View.VISIBLE);
+                cbSpecificGravitySoil.setVisibility(View.VISIBLE);
+
+                cbUnconfinedCompressionSoil.setVisibility(View.VISIBLE);
             } else {
                 // Hide all Soil-related checkboxes when cbSoil is unchecked
                 tilSoilQuantity.setVisibility(View.GONE);
-                cbSpecificGravitySoil.setVisibility(View.GONE);
+                cbSoilCBRTestUnsoaked.setVisibility(View.GONE);
                 cbGrainSizeAnalysisSoil.setVisibility(View.GONE);
-                cbLiquidLimitSoil.setVisibility(View.GONE);
+                cbTestSoaked.setVisibility(View.GONE);
                 cbPlasticLimitSoil.setVisibility(View.GONE);
                 cbLightCompactionTestSoil.setVisibility(View.GONE);
                 cbHeavyCompactionTestSoil.setVisibility(View.GONE);
@@ -424,6 +478,37 @@ public class MakeOrderFragment extends Fragment {
                 cbUCSSoil.setVisibility(View.GONE);
                 cbTriaxialSoil.setVisibility(View.GONE);
                 cbConsolidationSoil.setVisibility(View.GONE);
+                cbUnconfinedCompressionSoil.setVisibility(View.GONE);
+                cbTriaxialTestUUSoil.setVisibility(View.GONE);
+                cbTriaxialTestCUSoil.setVisibility(View.GONE);
+                cbSwellingPressureSoil.setVisibility(View.GONE);
+                cbSpecificGravitySoil.setVisibility(View.GONE);
+
+                cbConsolidationSoil.setVisibility(View.GONE);
+                cbUnconfinedCompressionSoil.setVisibility(View.GONE);
+
+
+                cbSoilCBRTestUnsoaked.setChecked(false);
+                cbGrainSizeAnalysisSoil.setChecked(false);
+                cbTestSoaked.setChecked(false);
+                cbPlasticLimitSoil.setChecked(false);
+                cbLightCompactionTestSoil.setChecked(false);
+                cbHeavyCompactionTestSoil.setChecked(false);
+                cbFreeSwellIndexSoil.setChecked(false);
+                cbCaliforniaBearingRatioSoil.setChecked(false);
+                cbDirectShearSoil.setChecked(false);
+                cbFieldDensitySoil.setChecked(false);
+                cbUCSSoil.setChecked(false);
+                cbTriaxialSoil.setChecked(false);
+                cbConsolidationSoil.setChecked(false);
+                cbUnconfinedCompressionSoil.setChecked(false);
+                cbTriaxialTestUUSoil.setChecked(false);
+                cbTriaxialTestCUSoil.setChecked(false);
+                cbSwellingPressureSoil.setChecked(false);
+                cbSpecificGravitySoil.setChecked(false);
+
+                cbConsolidationSoil.setChecked(false);
+                cbUnconfinedCompressionSoil.setChecked(false);
             }
         });
 
@@ -447,6 +532,13 @@ public class MakeOrderFragment extends Fragment {
                 cbBendTestBar.setVisibility(View.GONE);
                 cbReBendTestBar.setVisibility(View.GONE);
                 cbWeightMeterBar.setVisibility(View.GONE);
+
+                cbUltimateTensileStrengthBar.setChecked(false);
+                cbYieldStrengthBar.setChecked(false);
+                cbElongationBar.setChecked(false);
+                cbBendTestBar.setChecked(false);
+                cbReBendTestBar.setChecked(false);
+                cbWeightMeterBar.setChecked(false);
             }
         });
 
@@ -472,6 +564,14 @@ public class MakeOrderFragment extends Fragment {
                 cbDuctilityBitumen.setVisibility(View.GONE);
                 cbSpecificGravityBitumen.setVisibility(View.GONE);
                 cbLossOnHeatingBitumen.setVisibility(View.GONE);
+
+                cbAbsoluteViscosityBitumen.setChecked(false);
+                cbKinematicViscosityBitumen.setChecked(false);
+                cbPenetrationValueBitumen.setChecked(false);
+                cbSofteningPointBitumen.setChecked(false);
+                cbDuctilityBitumen.setChecked(false);
+                cbSpecificGravityBitumen.setChecked(false);
+                cbLossOnHeatingBitumen.setChecked(false);
             }
             calculateTotalPrice();
         });
@@ -487,11 +587,18 @@ public class MakeOrderFragment extends Fragment {
                 tilNDTQuantity.setVisibility(View.GONE);
                 cbUltrasonicPulseVelocityNDT.setVisibility(View.GONE);
                 cbReboundHammerTestNDT.setVisibility(View.GONE);
+
+                cbUltrasonicPulseVelocityNDT.setChecked(false);
+                cbReboundHammerTestNDT.setChecked(false);
             }
         });
 
 
         return view;
+    }
+
+    private CheckBox getSpecificGravityAndWaterAbsorptionFine() {
+        return specificGravityAndWaterAbsorptionFine;
     }
 
     private void setupPriceChangeListener(CheckBox checkBox, int price) {
