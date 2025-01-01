@@ -612,6 +612,238 @@
                             android:textColor="@color/errorColor"
                             android:visibility="gone"/>
 
+                        <!-- STEEL -->
+                        <CheckBox
+                            android:id="@+id/cb_steel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="STEEL (Up to 25 MM)"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_steel_quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter Quantity Set's"
+                            app:boxBackgroundMode="outline"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- UNIT WAIT Checkbox -->
+                        <CheckBox
+                            android:id="@+id/STEEL_unit_wait"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="UNIT WAIT"
+                            android:textColor="@color/teal_700"
+                            android:visibility="gone" />
+
+                        <!-- TENSILE TEST, YIELD AND ELOGATION TEST Checkbox -->
+                        <CheckBox
+                            android:id="@+id/STEEL_ensile_test_yield_and_elogation_test"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="TENSILE TEST, YIELD &amp; ELOGATION TEST"
+                            android:textColor="@color/teal_700"
+                            android:visibility="gone" />
+
+                        <!-- BEND TEST Checkbox -->
+                        <CheckBox
+                            android:id="@+id/STEEL_bend_test"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="BEND TEST"
+                            android:textColor="@color/teal_700"
+                            android:visibility="gone" />
+
+                        <!-- REBEND TEST Checkbox -->
+                        <CheckBox
+                            android:id="@+id/STEEL_rebend_test"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="REBEND TEST"
+                            android:textColor="@color/teal_700"
+                            android:visibility="gone" />
+
+                        <!-- CHEMICAL ANALYSIS Checkbox -->
+                        <CheckBox
+                            android:id="@+id/STEEL_chemical_analysis"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="CHEMICAL ANALYSIS"
+                            android:textColor="@color/teal_700"
+                            android:visibility="gone" />
+
+                        <!-- CEMENT CONC.CUBE BLOCK -->
+                        <CheckBox
+                            android:id="@+id/cb_cement_cube"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CEMENT CONC.CUBE"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_cement_cube_quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter Quantity in Number's"
+                            app:boxBackgroundMode="outline"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- SCOMPRESSIVE STRENGTH OF CUBE Checkbox -->
+                        <CheckBox
+                            android:id="@+id/CUBE_compressive_strength_of_cube"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="COMPRESSIVE STRENGTH OF CUBE"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!--  CASTING & PREPARING CUBES OF GIVEN MIX Checkbox -->
+                        <CheckBox
+                            android:id="@+id/CUBE_casting_preparing_cubes_of_given_mix"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text=" CASTING &amp; PREPARING CUBES OF GIVEN MIX"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!--  FLEXURER STRENGTH OF BEAM Checkbox -->
+                        <CheckBox
+                            android:id="@+id/CUBE_flexurer_strength_of_beam"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="FLEXURER STRENGTH OF BEAM"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!--  CASTING & PREPARING BEAM Checkbox -->
+                        <CheckBox
+                            android:id="@+id/CUBE_casting_preparing_beam"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="CASTING &amp; PREPARING BEAM"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+
+                        <!-- AAC BLOCK -->
+                        <CheckBox
+                            android:id="@+id/cb_aac_block"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="AAC BLOCK"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_aac_block_quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter Quantity in Number's"
+                            app:boxBackgroundMode="outline"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- MEASUREMENT OF DIMENSIONS Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AAC_measurement_of_dimensions"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="MEASUREMENT OF DIMENSIONS"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- COMPRESSIVE STRENGTH Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AAC_compressive_strength"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="COMPRESSIVE STRENGTH"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!--  BLOCKS DENSITY Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AAC_blocks_density"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="BLOCKS DENSITY"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!--  WATER ABSORPTION Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AAC_water_absorption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="WATER ABSORPTION"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- DRYING SHRINKAGE Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AAC_drying_shrinkage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="DRYING SHRINKAGE"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- MOISTURE MOVEMENT Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AAC_moisture_movement"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="MOISTURE MOVEMENT"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
 
                         <!-- CONCRETE POWER BLOCK -->
                         <CheckBox
@@ -657,39 +889,6 @@
                             android:textColor="@color/teal_700"
                             android:visibility="gone" />
 
-
-                        <!-- STEEL -->
-                        <CheckBox
-                            android:id="@+id/cb_steel"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="STEEL (Up to 25 MM)"
-                            android:textColor="@color/black" />
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/til_steel_quantity"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Enter Quantity Set's"
-                            app:boxBackgroundMode="outline"
-                            android:visibility="gone">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:inputType="number" />
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <!-- Compressive Strength Checkbox -->
-                        <CheckBox
-                            android:id="@+id/CONCRETE_compressive_strength"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
-                            android:layout_marginTop="8dp"
-                            android:text="Compressive Strength IS : 516 – 1959 "
-                            android:textColor="@color/teal_700"
-                            android:visibility="gone" />
 
                         <!-- BRICK -->
                         <CheckBox
@@ -978,20 +1177,65 @@
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
-
-                        <!-- AAC BLOCK -->
+                        <!-- NDT -->
                         <CheckBox
-                            android:id="@+id/cb_aac_block"
+                            android:id="@+id/cb_ndt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="AAC BLOCK"
+                            android:text="NDT"
                             android:textColor="@color/black" />
 
                         <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/til_aac_block_quantity"
+                            android:id="@+id/til_ndt_quantity"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Enter Quantity in Number's"
+                            app:boxBackgroundMode="outline"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_ndt_quantity"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- Rebound Hammer Test Checkbox -->
+                        <CheckBox
+                            android:id="@+id/NDT_rebound_hammer_test"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="REBOUND HAMMER TEST IS 516"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- Ultrasonic Pulse velocity Checkbox -->
+                        <CheckBox
+                            android:id="@+id/NDT_ultrasonic_pulse_velocity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="ULTRASONIC PULSE VELOCITY IS 516"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+
+                        <!-- CONST. WATER -->
+                        <CheckBox
+                            android:id="@+id/cb_const_water"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CONST. WATER"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_const_water_quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Const Water Quantity in Kg's"
                             app:boxBackgroundMode="outline"
                             android:visibility="gone">
 
@@ -1001,69 +1245,169 @@
                                 android:inputType="number" />
                         </com.google.android.material.textfield.TextInputLayout>
 
-                        <!-- MEASUREMENT OF DIMENSIONS Checkbox -->
+                        <!-- Sulphates SO4 Checkbox -->
                         <CheckBox
-                            android:id="@+id/AAC_measurement_of_dimensions"
+                            android:id="@+id/C_WATER_sulphates_so4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="MEASUREMENT OF DIMENSIONS"
+                            android:text="SULPHATES SO4"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
-                        <!-- COMPRESSIVE STRENGTH Checkbox -->
+                        <!-- Alkalinity Checkbox -->
                         <CheckBox
-                            android:id="@+id/AAC_compressive_strength"
+                            android:id="@+id/C_WATER_alkalinity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="COMPRESSIVE STRENGTH"
+                            android:text="ALKALINITY"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
-                        <!--  BLOCKS DENSITY Checkbox -->
+                        <!-- PH VALUE Checkbox -->
                         <CheckBox
-                            android:id="@+id/AAC_blocks_density"
+                            android:id="@+id/C_WATER_ph_value"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="BLOCKS DENSITY"
+                            android:text="PH VALUE"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
-                        <!--  WATER ABSORPTION Checkbox -->
+                        <!-- ORGANIC IMPURITIES Checkbox -->
                         <CheckBox
-                            android:id="@+id/AAC_water_absorption"
+                            android:id="@+id/C_WATER_organic_impurities"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="WATER ABSORPTION"
+                            android:text="ORGANIC IMPURITIES"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
-                        <!-- DRYING SHRINKAGE Checkbox -->
+                        <!-- INORGANIC IMPURITIES Checkbox -->
                         <CheckBox
-                            android:id="@+id/AAC_drying_shrinkage"
+                            android:id="@+id/C_WATER_inorganic_impurities"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="DRYING SHRINKAGE"
+                            android:text="INORGANIC IMPURITIES"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
-                        <!-- MOISTURE MOVEMENT Checkbox -->
+                        <!-- CHLORIDE AS CL Checkbox -->
                         <CheckBox
-                            android:id="@+id/AAC_moisture_movement"
+                            android:id="@+id/C_WATER_chloride_as_cl"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="MOISTURE MOVEMENT"
+                            android:text="CHLORIDE AS CL"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- SUSPENDED MATTER Checkbox -->
+                        <CheckBox
+                            android:id="@+id/C_WATER_suspended_matter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="SUSPENDED MATTER"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- TDS (TOTAL DISSOLVED SOLIDS) Checkbox -->
+                        <CheckBox
+                            android:id="@+id/C_WATER_tds_total_dissolved_solids"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="TDS (TOTAL DISSOLVED SOLIDS)"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+
+                        <!-- WASTE WATER -->
+                        <CheckBox
+                            android:id="@+id/cb_waste_water"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="WASTE WATER"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_waste_water_quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Waste Water Quantity in Kg's"
+                            app:boxBackgroundMode="outline"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- CHLORIDE AS CL Checkbox -->
+                        <CheckBox
+                            android:id="@+id/WASTE_WATER_chloride_as_cl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="CHLORIDE AS CL"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- PH VALUE Checkbox -->
+                        <CheckBox
+                            android:id="@+id/WASTE_WATER_ph_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="PH VALUE"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- SULPHATES SO4 Checkbox -->
+                        <CheckBox
+                            android:id="@+id/WASTE_WATER_sulphates_so4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="SULPHATES SO4"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- TDS (TOTAL DISSOLVED SOLIDS) Checkbox -->
+                        <CheckBox
+                            android:id="@+id/WASTE_WATER_tds_total_dissolved_solids"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="TDS (TOTAL DISSOLVED SOLIDS)"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- TSS (TOTAL SUSPENDED SOLIDS) Checkbox -->
+                        <CheckBox
+                            android:id="@+id/WASTE_WATER_tss_total_suspended_solids"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="TSS (TOTAL SUSPENDED SOLIDS)"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
@@ -1169,50 +1513,6 @@
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
-                        <!-- NDT -->
-                        <CheckBox
-                            android:id="@+id/cb_ndt"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="NDT"
-                            android:textColor="@color/black" />
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/til_ndt_quantity"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Enter Quantity in Number's"
-                            app:boxBackgroundMode="outline"
-                            android:visibility="gone">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/et_ndt_quantity"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:inputType="number" />
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <!-- Ultrasonic Pulse velocity Checkbox -->
-                        <CheckBox
-                            android:id="@+id/NDT_ultrasonic_pulse_velocity"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
-                            android:layout_marginTop="8dp"
-                            android:text="Ultrasonic Pulse velocity IS 516"
-                            android:textColor="@color/errorColor"
-                            android:visibility="gone" />
-
-                        <!-- Rebound Hammer Test Checkbox -->
-                        <CheckBox
-                            android:id="@+id/NDT_rebound_hammer_test"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
-                            android:layout_marginTop="8dp"
-                            android:text="Rebound Hammer Test IS 516"
-                            android:textColor="@color/errorColor"
-                            android:visibility="gone" />
 
                         <!-- Total Price Display -->
                         <TextView

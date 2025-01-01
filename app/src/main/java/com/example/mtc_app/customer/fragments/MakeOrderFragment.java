@@ -21,7 +21,7 @@ import java.util.Map;
 
 public class MakeOrderFragment extends Fragment {
 
-    private CheckBox cbPowerBlock, cbSteel, cbBrick, cbSoil, cbAacBlock;
+    private CheckBox cbCementCube, cbPowerBlock, cbSteel, cbBrick, cbSoil, cbAacBlock, cbConstWater, cbWasteWater;
     private CheckBox cbAggregateFine, cbAggregateCoarse, cbCement, cbNDT, cbBitumen;
 
     // Aggregate Fine
@@ -33,26 +33,37 @@ public class MakeOrderFragment extends Fragment {
     //Paver Block
     private CheckBox cbCompressiveStrengthPaver, cbWaterAbsorptionPaver;
 
-    //Cement and last Concrete
-    private CheckBox cbFinessByBlainCement, cbInitialSettingTimeCement, cbConsistencyCement, cbCompressiveCement, cbFinenessCement,cbSoundenessCemenet, cbCementCompressiveStrengthMortar, cbCementChemicalAnalysis, cbCompressiveStrengthConcrete;
+    //Cement
+    private CheckBox cbFinessByBlainCement, cbInitialSettingTimeCement, cbConsistencyCement, cbCompressiveCement, cbFinenessCement,cbSoundenessCemenet, cbCompressiveStrengthMortarCement, cbChemicalAnalysisCement;
 
+    //Steel
+    private CheckBox cbUnitWaitSteel, cbEnsileTestYieldAndElogationTestSteel, cbBendTestSteel, cbRebendTestSteel, cbChemicalAnalysisSteel;
     //Brick
-    private CheckBox cbWaterAbsorptionBrick,cbDimensionTestBrick, cbCompressiveStrengthBrick, cbBrickEfflorescence;
+    private CheckBox cbWaterAbsorptionBrick,cbDimensionTestBrick, cbCompressiveStrengthBrick, cbEfflorescenceBrick;
 
     //Soil
-    private CheckBox cbSoilCBRTestUnsoaked, cbGrainSizeAnalysisSoil, cbTestSoaked, cbPlasticLimitSoil,
+    private CheckBox cbCBRTestUnsoakedSoil, cbGrainSizeAnalysisSoil, cbTestSoakedSoil, cbPlasticLimitSoil,
             cbLightCompactionTestSoil, cbHeavyCompactionTestSoil, cbFreeSwellIndexSoil, cbUnconfinedCompressionSoil, cbTriaxialTestUUSoil, cbTriaxialTestCUSoil,  cbSwellingPressureSoil, cbSpecificGravitySoil, cbShrinkageLimitSoil,
             cbDirectShearSoil, cbPermeabilityTestSoil, cbRelativeDensitySoil, cbFieldDensityAndMoistureContentSoil, cbConsolidationSoil;
 
-    //Steel Reinforcement Bar & NDT
+    //AAC & NDT
     private CheckBox cbMeasurementOfDimensionsAac, cbCompressiveStrengthAac, cbBlocksDensityAac, cbWaterAbsorptionAac,
             cbDryingShrinkageAac, cbMoistureMovementAac,cbUltrasonicPulseVelocityNDT, cbReboundHammerTestNDT;
+
+    //CEMENT CONC.CUBE
+    private CheckBox cbCompressiveStrengthOfCube, cbCastingPreparingCubesOfGivenMixCube, cbFlexurerStrengthOfBeamCube, cbCastingPreparingBeamCube;
+
+    //Const. Water
+    private CheckBox cbSulphatesSO4CWater, cbAlkalinityCWater, cbPHValueCWater, cbOrganicImpuritiesCWater, cbInorganicImpuritiesCWater, cbChlorideAsClCWater, cbSuspendedMatterCWater, cbTDSTotalDissolvedSolidsCWater;
+
+    //Waste Water
+    private CheckBox cbChlorideAsClWasteWater, cbPhValueWasteWater, cbSulphatesSo4WasteWater, cbTdsTotalDissolvedSolidsWasteWater, cbTssTotalSuspendedSolidsWasteWater;
 
     // Bitumen
     private CheckBox cbAbsoluteViscosityBitumen, cbKinematicViscosityBitumen, cbPenetrationValueBitumen,
             cbSofteningPointBitumen, cbDuctilityBitumen, cbSpecificGravityBitumen, cbLossOnHeatingBitumen;
-    private TextInputLayout tilPowerBlockQuantity, tilSteelQuantity, tilBrickQuantity, tilSoilQuantity, tilAacBlockQuantity;
-    private TextInputLayout tilAggregateFineQuantity, tilAggregateCoarseQuantity, tilCementQuantity, tilBitumenQuantity, tilNDTQuantity;
+    private TextInputLayout tilPowerBlockQuantity, tilSteelQuantity, tillCemenetCubeQuantity, tilBrickQuantity, tilSoilQuantity, tilAacBlockQuantity;
+    private TextInputLayout tilAggregateFineQuantity, tilAggregateCoarseQuantity, tilCementQuantity, tillConstWaterQuantity, tilWasteWaterQuantity, tilBitumenQuantity, tilNDTQuantity;
 
 
     // Prices for each item
@@ -69,8 +80,11 @@ public class MakeOrderFragment extends Fragment {
         // Initialize CheckBoxes
         cbPowerBlock = view.findViewById(R.id.cb_power_block);
         cbSteel = view.findViewById(R.id.cb_steel);
+        cbConstWater = view.findViewById(R.id.cb_const_water);
+        cbWasteWater = view.findViewById(R.id.cb_waste_water);
         cbBrick = view.findViewById(R.id.cb_brick);
         cbSoil = view.findViewById(R.id.cb_soil);
+        cbCementCube = view.findViewById(R.id.cb_cement_cube);
         cbAacBlock = view.findViewById(R.id.cb_aac_block);
         cbAggregateFine = view.findViewById(R.id.cb_aggregate_fine);
         cbAggregateCoarse = view.findViewById(R.id.cb_aggregate_coarse);
@@ -97,19 +111,23 @@ public class MakeOrderFragment extends Fragment {
         tvTotalPrice = view.findViewById(R.id.tv_total_price);
         cbAlkaliReactivityCoarse = view.findViewById(R.id.AGGREGATE_alkali_reactivity_coarse);
 
-        // Initialize related checkboxes for PAVER category
+        // Initialize Paver Block checkboxes
         cbCompressiveStrengthPaver = view.findViewById(R.id.PAVER_compressive_strength);
         cbWaterAbsorptionPaver = view.findViewById(R.id.PAVER_water_absorption);
 
-        // Initialize TextInputLayouts for Quantity
+        // Initialize TextInputLayouts for All Quantity
         tilPowerBlockQuantity = view.findViewById(R.id.til_power_block_quantity);
         tilSteelQuantity = view.findViewById(R.id.til_steel_quantity);
+        tillConstWaterQuantity = view.findViewById(R.id.til_const_water_quantity);
         tilBrickQuantity = view.findViewById(R.id.til_brick_quantity);
         tilSoilQuantity = view.findViewById(R.id.til_soil_quantity);
         tilAacBlockQuantity = view.findViewById(R.id.til_aac_block_quantity);
+        tillCemenetCubeQuantity = view.findViewById(R.id.til_cement_cube_quantity);
         tilAggregateFineQuantity = view.findViewById(R.id.til_aggregate_fine_quantity);
         tilAggregateCoarseQuantity = view.findViewById(R.id.til_aggregate_coarse_quantity);
         tilCementQuantity = view.findViewById(R.id.til_cement_quantity);
+        tillConstWaterQuantity = view.findViewById(R.id.til_const_water_quantity);
+        tilWasteWaterQuantity = view.findViewById(R.id.til_waste_water_quantity);
         tilBitumenQuantity = view.findViewById(R.id.til_bitumen_quantity);
         tilNDTQuantity = view.findViewById(R.id.til_ndt_quantity);
 
@@ -120,22 +138,26 @@ public class MakeOrderFragment extends Fragment {
         cbFinenessCement = view.findViewById(R.id.CEMENT_fineness);
         cbCompressiveCement = view.findViewById(R.id.CEMENT_compressive);
         cbSoundenessCemenet = view.findViewById(R.id.CEMENT_soundness);
-        cbCementCompressiveStrengthMortar = view.findViewById(R.id.CEMENT_COMPRESSIVE_STRENGTH_MORTAR);
-        cbCementChemicalAnalysis = view.findViewById(R.id.cement_chemical_analysis);
+        cbCompressiveStrengthMortarCement = view.findViewById(R.id.CEMENT_COMPRESSIVE_STRENGTH_MORTAR);
+        cbChemicalAnalysisCement = view.findViewById(R.id.cement_chemical_analysis);
 
-        // Initialize Concrete checkbox
-        cbCompressiveStrengthConcrete = view.findViewById(R.id.CONCRETE_compressive_strength);
+        // Initialize Steel checkbox
+        cbUnitWaitSteel = view.findViewById(R.id.STEEL_unit_wait);
+        cbEnsileTestYieldAndElogationTestSteel = view.findViewById(R.id.STEEL_ensile_test_yield_and_elogation_test);
+        cbBendTestSteel = view.findViewById(R.id.STEEL_bend_test);
+        cbRebendTestSteel = view.findViewById(R.id.STEEL_rebend_test);
+        cbChemicalAnalysisSteel = view.findViewById(R.id.STEEL_chemical_analysis);
 
         // Initialize Brick checkbox
         cbCompressiveStrengthBrick = view.findViewById(R.id.BRICK_compressive_strength);
         cbDimensionTestBrick = view.findViewById(R.id.BRICK_dimension_test);
         cbWaterAbsorptionBrick = view.findViewById(R.id.BRICK_Fine_water_absorption);
-        cbBrickEfflorescence = view.findViewById(R.id.BRICK_efflorescence);
+        cbEfflorescenceBrick = view.findViewById(R.id.BRICK_efflorescence);
 
         // Initialize Soil checkbox and its related checkboxes
-        cbSoilCBRTestUnsoaked = view.findViewById(R.id.SOIL_cbr_test_unsoaked);
+        cbCBRTestUnsoakedSoil = view.findViewById(R.id.SOIL_cbr_test_unsoaked);
         cbGrainSizeAnalysisSoil = view.findViewById(R.id.SOIL_grain_size_analysis);
-        cbTestSoaked = view.findViewById(R.id.SOIL_cbr_test_soaked);
+        cbTestSoakedSoil = view.findViewById(R.id.SOIL_cbr_test_soaked);
         cbPlasticLimitSoil = view.findViewById(R.id.SOIL_plastic_limit);
         cbLightCompactionTestSoil = view.findViewById(R.id.SOIL_light_compaction_test);
         cbHeavyCompactionTestSoil = view.findViewById(R.id.SOIL_heavy_compaction_test);
@@ -152,17 +174,36 @@ public class MakeOrderFragment extends Fragment {
         cbSwellingPressureSoil = view.findViewById(R.id.SOIL_swelling_pressure);
         cbSpecificGravitySoil = view.findViewById(R.id.SOIL_specific_gravity);
 
-        cbConsolidationSoil = view.findViewById(R.id.SOIL_consolidation);
-        cbUnconfinedCompressionSoil = view.findViewById(R.id.SOIL_unconfined_compression);
-
-
-        // Initialize Bar checkboxes
+        // Initialize AAC checkboxes
         cbMeasurementOfDimensionsAac = view.findViewById(R.id.AAC_measurement_of_dimensions);
         cbCompressiveStrengthAac = view.findViewById(R.id.AAC_compressive_strength);
         cbBlocksDensityAac = view.findViewById(R.id.AAC_blocks_density);
         cbWaterAbsorptionAac = view.findViewById(R.id.AAC_water_absorption);
         cbDryingShrinkageAac = view.findViewById(R.id.AAC_drying_shrinkage);
         cbMoistureMovementAac = view.findViewById(R.id.AAC_moisture_movement);
+
+        // Initialize Cement Cube checkboxes
+        cbCompressiveStrengthOfCube = view.findViewById(R.id.CUBE_compressive_strength_of_cube);
+        cbCastingPreparingCubesOfGivenMixCube = view.findViewById(R.id.CUBE_casting_preparing_cubes_of_given_mix);
+        cbFlexurerStrengthOfBeamCube = view.findViewById(R.id.CUBE_flexurer_strength_of_beam);
+        cbCastingPreparingBeamCube = view.findViewById(R.id.CUBE_casting_preparing_beam);
+
+        // Initialize Constant Water checkbox
+        cbSulphatesSO4CWater = view.findViewById(R.id.C_WATER_sulphates_so4);
+        cbAlkalinityCWater = view.findViewById(R.id.C_WATER_alkalinity);
+        cbPHValueCWater = view.findViewById(R.id.C_WATER_ph_value);
+        cbOrganicImpuritiesCWater = view.findViewById(R.id.C_WATER_organic_impurities);
+        cbInorganicImpuritiesCWater = view.findViewById(R.id.C_WATER_inorganic_impurities);
+        cbChlorideAsClCWater = view.findViewById(R.id.C_WATER_chloride_as_cl);
+        cbSuspendedMatterCWater = view.findViewById(R.id.C_WATER_suspended_matter);
+        cbTDSTotalDissolvedSolidsCWater = view.findViewById(R.id.C_WATER_tds_total_dissolved_solids);
+
+        // Initialize Waste Water checkbox
+        cbChlorideAsClWasteWater = view.findViewById(R.id.WASTE_WATER_chloride_as_cl);
+        cbPhValueWasteWater = view.findViewById(R.id.WASTE_WATER_ph_value);
+        cbSulphatesSo4WasteWater = view.findViewById(R.id.WASTE_WATER_sulphates_so4);
+        cbTdsTotalDissolvedSolidsWasteWater = view.findViewById(R.id.WASTE_WATER_tds_total_dissolved_solids);
+        cbTssTotalSuspendedSolidsWasteWater = view.findViewById(R.id.WASTE_WATER_tss_total_suspended_solids);
 
         // Bitumen checkboxes
         cbAbsoluteViscosityBitumen = view.findViewById(R.id.BITUMEN_absolute_viscosity);
@@ -177,14 +218,17 @@ public class MakeOrderFragment extends Fragment {
         cbUltrasonicPulseVelocityNDT = view.findViewById(R.id.NDT_ultrasonic_pulse_velocity);
         cbReboundHammerTestNDT = view.findViewById(R.id.NDT_rebound_hammer_test);
 
-        // Set up listeners for checkboxes
+        // Set up for All checkboxes
         setUpCheckboxListener(cbPowerBlock, tilPowerBlockQuantity);
         setUpCheckboxListener(cbSteel, tilSteelQuantity);
         setUpCheckboxListener(cbBrick, tilBrickQuantity);
         setUpCheckboxListener(cbSoil, tilSoilQuantity);
         setUpCheckboxListener(cbAacBlock, tilAacBlockQuantity);
+        setUpCheckboxListener(cbCementCube, tillCemenetCubeQuantity);
         setUpCheckboxListener(cbAggregateCoarse, tilAggregateCoarseQuantity);
         setUpCheckboxListener(cbCement, tilCementQuantity);
+        setUpCheckboxListener(cbConstWater, tillConstWaterQuantity);
+        setUpCheckboxListener(cbWasteWater, tilWasteWaterQuantity);
         setUpCheckboxListener(cbNDT, tilNDTQuantity);
 
         //price Aggregate Fine listeners
@@ -216,23 +260,27 @@ public class MakeOrderFragment extends Fragment {
         setupPriceChangeListener(cbFinenessCement, 350);
         setupPriceChangeListener(cbCompressiveCement, 350);
         setupPriceChangeListener(cbSoundenessCemenet, 350);
-        setupPriceChangeListener(cbCementCompressiveStrengthMortar, 350);
-        setupPriceChangeListener(cbCementChemicalAnalysis, 350);
+        setupPriceChangeListener(cbCompressiveStrengthMortarCement, 350);
+        setupPriceChangeListener(cbChemicalAnalysisCement, 350);
 
 
-        //price Hardened Concrete listeners
-        setupPriceChangeListener(cbCompressiveStrengthConcrete, 250);
+        //price Steel listeners
+        setupPriceChangeListener(cbUnitWaitSteel, 250);
+        setupPriceChangeListener(cbEnsileTestYieldAndElogationTestSteel, 250);
+        setupPriceChangeListener(cbBendTestSteel, 250);
+        setupPriceChangeListener(cbRebendTestSteel, 250);
+        setupPriceChangeListener(cbChemicalAnalysisSteel, 250);
 
         //price Brick listeners
         setupPriceChangeListener(cbCompressiveStrengthBrick, 350);
         setupPriceChangeListener(cbDimensionTestBrick, 350);
         setupPriceChangeListener(cbWaterAbsorptionBrick, 350);
-        setupPriceChangeListener(cbBrickEfflorescence, 400);
+        setupPriceChangeListener(cbEfflorescenceBrick, 400);
 
         //price Soil listeners
-        setupPriceChangeListener(cbSoilCBRTestUnsoaked, 250);
+        setupPriceChangeListener(cbCBRTestUnsoakedSoil, 250);
         setupPriceChangeListener(cbGrainSizeAnalysisSoil, 350);
-        setupPriceChangeListener(cbTestSoaked, 350);
+        setupPriceChangeListener(cbTestSoakedSoil, 350);
         setupPriceChangeListener(cbPlasticLimitSoil, 350);
         setupPriceChangeListener(cbLightCompactionTestSoil, 350);
         setupPriceChangeListener(cbHeavyCompactionTestSoil, 350);
@@ -249,13 +297,36 @@ public class MakeOrderFragment extends Fragment {
         setupPriceChangeListener(cbSpecificGravitySoil, 500);
         setupPriceChangeListener(cbSwellingPressureSoil, 350);
 
-        //price Steel Bar listeners
+        //price AAC listeners
         setupPriceChangeListener(cbMeasurementOfDimensionsAac, 250);
         setupPriceChangeListener(cbCompressiveStrengthAac, 350);
         setupPriceChangeListener(cbBlocksDensityAac, 350);
         setupPriceChangeListener(cbWaterAbsorptionAac, 350);
         setupPriceChangeListener(cbDryingShrinkageAac, 350);
         setupPriceChangeListener(cbMoistureMovementAac, 350);
+
+        //price Const Water listeners
+        setupPriceChangeListener(cbSulphatesSO4CWater, 250);
+        setupPriceChangeListener(cbAlkalinityCWater, 250);
+        setupPriceChangeListener(cbPHValueCWater, 250);
+        setupPriceChangeListener(cbOrganicImpuritiesCWater, 250);
+        setupPriceChangeListener(cbInorganicImpuritiesCWater, 250);
+        setupPriceChangeListener(cbChlorideAsClCWater, 250);
+        setupPriceChangeListener(cbSuspendedMatterCWater, 250);
+        setupPriceChangeListener(cbTDSTotalDissolvedSolidsCWater, 250);
+
+        //price Waste Water listeners
+        setupPriceChangeListener(cbChlorideAsClWasteWater, 250);
+        setupPriceChangeListener(cbPhValueWasteWater, 250);
+        setupPriceChangeListener(cbSulphatesSo4WasteWater, 250);
+        setupPriceChangeListener(cbTdsTotalDissolvedSolidsWasteWater, 250);
+        setupPriceChangeListener(cbTssTotalSuspendedSolidsWasteWater, 250);
+
+        //price Cement Cube listeners
+        setupPriceChangeListener(cbCompressiveStrengthOfCube, 250);
+        setupPriceChangeListener(cbCastingPreparingCubesOfGivenMixCube, 350);
+        setupPriceChangeListener(cbFlexurerStrengthOfBeamCube, 350);
+        setupPriceChangeListener(cbCastingPreparingBeamCube, 350);
 
         //price Bitumen listeners
         setupPriceChangeListener(cbAbsoluteViscosityBitumen, 250);
@@ -367,8 +438,8 @@ public class MakeOrderFragment extends Fragment {
                 cbFinenessCement.setVisibility(View.VISIBLE);
                 cbCompressiveCement.setVisibility(View.VISIBLE);
                 cbSoundenessCemenet.setVisibility(View.VISIBLE);
-                cbCementCompressiveStrengthMortar.setVisibility(View.VISIBLE);
-                cbCementChemicalAnalysis.setVisibility(View.VISIBLE);
+                cbCompressiveStrengthMortarCement.setVisibility(View.VISIBLE);
+                cbChemicalAnalysisCement.setVisibility(View.VISIBLE);
             } else {
                 // Hide all related checkboxes when cbCement is unchecked
                 tilCementQuantity.setVisibility(View.GONE);
@@ -378,8 +449,8 @@ public class MakeOrderFragment extends Fragment {
                 cbFinenessCement.setVisibility(View.GONE);
                 cbCompressiveCement.setVisibility(View.GONE);
                 cbSoundenessCemenet.setVisibility(View.GONE);
-                cbCementCompressiveStrengthMortar.setVisibility(View.GONE);
-                cbCementChemicalAnalysis.setVisibility(View.GONE);
+                cbCompressiveStrengthMortarCement.setVisibility(View.GONE);
+                cbChemicalAnalysisCement.setVisibility(View.GONE);
 
                 // Uncheck them as well
                 cbConsistencyCement.setChecked(false);
@@ -388,27 +459,43 @@ public class MakeOrderFragment extends Fragment {
                 cbFinenessCement.setChecked(false);
                 cbCompressiveCement.setChecked(false);
                 cbSoundenessCemenet.setChecked(false);
-                cbCementCompressiveStrengthMortar.setChecked(false);
-                cbCementChemicalAnalysis.setChecked(false);
+                cbCompressiveStrengthMortarCement.setChecked(false);
+                cbChemicalAnalysisCement.setChecked(false);
             }
         });
 
+        // Set up listener for the Steel checkbox
         cbSteel.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 // Show the Compressive Strength checkbox when cbConcrete is checked
                 tilSteelQuantity.setVisibility(View.VISIBLE);
-                cbCompressiveStrengthConcrete.setVisibility(View.VISIBLE);
+                cbUnitWaitSteel.setVisibility(View.VISIBLE);
+                cbEnsileTestYieldAndElogationTestSteel.setVisibility(View.VISIBLE);
+                cbBendTestSteel.setVisibility(View.VISIBLE);
+                cbRebendTestSteel.setVisibility(View.VISIBLE);
+                cbChemicalAnalysisSteel.setVisibility(View.VISIBLE);
+
             } else {
                 // Hide the Compressive Strength checkbox when cbConcrete is unchecked
                 tilSteelQuantity.setVisibility(View.GONE);
-                cbCompressiveStrengthConcrete.setVisibility(View.GONE);
+                cbUnitWaitSteel.setVisibility(View.GONE);
+                cbEnsileTestYieldAndElogationTestSteel.setVisibility(View.GONE);
+                cbBendTestSteel.setVisibility(View.GONE);
+                cbRebendTestSteel.setVisibility(View.GONE);
+                cbChemicalAnalysisSteel.setVisibility(View.GONE);
+
 
                 // Uncheck it as well
-                cbCompressiveStrengthConcrete.setChecked(false);
+                cbUnitWaitSteel.setChecked(false);
+                cbEnsileTestYieldAndElogationTestSteel.setChecked(false);
+                cbBendTestSteel.setChecked(false);
+                cbRebendTestSteel.setChecked(false);
+                cbChemicalAnalysisSteel.setChecked(false);
+
             }
         });
 
-        // Set up listener for the Brick checkbox
+        // Set up listener for Brick checkbox
         cbBrick.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 // Show all Brick-related checkboxes when cbBrick is checked
@@ -416,20 +503,20 @@ public class MakeOrderFragment extends Fragment {
                 cbCompressiveStrengthBrick.setVisibility(View.VISIBLE);
                 cbDimensionTestBrick.setVisibility(View.VISIBLE);
                 cbWaterAbsorptionBrick.setVisibility(View.VISIBLE);
-                cbBrickEfflorescence.setVisibility(View.VISIBLE);
+                cbEfflorescenceBrick.setVisibility(View.VISIBLE);
             } else {
                 // Hide all Brick-related checkboxes when cbBrick is unchecked
                 tilBrickQuantity.setVisibility(View.GONE);
                 cbCompressiveStrengthBrick.setVisibility(View.GONE);
                 cbDimensionTestBrick.setVisibility(View.GONE);
                 cbWaterAbsorptionBrick.setVisibility(View.GONE);
-                cbBrickEfflorescence.setVisibility(View.GONE);
+                cbEfflorescenceBrick.setVisibility(View.GONE);
 
                 // Uncheck all related checkboxes
                 cbCompressiveStrengthBrick.setChecked(false);
                 cbDimensionTestBrick.setChecked(false);
                 cbWaterAbsorptionBrick.setChecked(false);
-                cbBrickEfflorescence.setChecked(false);
+                cbEfflorescenceBrick.setChecked(false);
             }
         });
 
@@ -438,9 +525,9 @@ public class MakeOrderFragment extends Fragment {
             if (isChecked) {
                 // Show all Soil-related checkboxes when cbSoil is checked
                 tilSoilQuantity.setVisibility(View.VISIBLE);
-                cbSoilCBRTestUnsoaked.setVisibility(View.VISIBLE);
+                cbCBRTestUnsoakedSoil.setVisibility(View.VISIBLE);
                 cbGrainSizeAnalysisSoil.setVisibility(View.VISIBLE);
-                cbTestSoaked.setVisibility(View.VISIBLE);
+                cbTestSoakedSoil.setVisibility(View.VISIBLE);
                 cbPlasticLimitSoil.setVisibility(View.VISIBLE);
                 cbLightCompactionTestSoil.setVisibility(View.VISIBLE);
                 cbHeavyCompactionTestSoil.setVisibility(View.VISIBLE);
@@ -460,9 +547,9 @@ public class MakeOrderFragment extends Fragment {
             } else {
                 // Hide all Soil-related checkboxes when cbSoil is unchecked
                 tilSoilQuantity.setVisibility(View.GONE);
-                cbSoilCBRTestUnsoaked.setVisibility(View.GONE);
+                cbCBRTestUnsoakedSoil.setVisibility(View.GONE);
                 cbGrainSizeAnalysisSoil.setVisibility(View.GONE);
-                cbTestSoaked.setVisibility(View.GONE);
+                cbTestSoakedSoil.setVisibility(View.GONE);
                 cbPlasticLimitSoil.setVisibility(View.GONE);
                 cbLightCompactionTestSoil.setVisibility(View.GONE);
                 cbHeavyCompactionTestSoil.setVisibility(View.GONE);
@@ -479,9 +566,9 @@ public class MakeOrderFragment extends Fragment {
                 cbSwellingPressureSoil.setVisibility(View.GONE);
                 cbSpecificGravitySoil.setVisibility(View.GONE);
 
-                cbSoilCBRTestUnsoaked.setChecked(false);
+                cbCBRTestUnsoakedSoil.setChecked(false);
                 cbGrainSizeAnalysisSoil.setChecked(false);
-                cbTestSoaked.setChecked(false);
+                cbTestSoakedSoil.setChecked(false);
                 cbPlasticLimitSoil.setChecked(false);
                 cbLightCompactionTestSoil.setChecked(false);
                 cbHeavyCompactionTestSoil.setChecked(false);
@@ -500,7 +587,7 @@ public class MakeOrderFragment extends Fragment {
             }
         });
 
-        // Set up listeners for the Bar checkboxes if needed
+        // Set up listeners for the AAC checkboxes if needed
         cbAacBlock.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 // Show all Bar-related checkboxes when Ultimate Tensile Strength is checked
@@ -527,6 +614,120 @@ public class MakeOrderFragment extends Fragment {
                 cbWaterAbsorptionAac.setChecked(false);
                 cbDryingShrinkageAac.setChecked(false);
                 cbMoistureMovementAac.setChecked(false);
+            }
+        });
+
+        // Set up listeners for the Cement Cube checkboxes if needed
+        cbCementCube.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                // Show all Bar-related checkboxes when Ultimate Tensile Strength is checked
+                tillCemenetCubeQuantity.setVisibility(View.VISIBLE);
+                cbCompressiveStrengthOfCube.setVisibility(View.VISIBLE);
+                cbCastingPreparingCubesOfGivenMixCube.setVisibility(View.VISIBLE);
+                cbFlexurerStrengthOfBeamCube.setVisibility(View.VISIBLE);
+                cbCastingPreparingBeamCube.setVisibility(View.VISIBLE);
+
+            } else {
+                // Hide all Bar-related checkboxes when it's unchecked
+                tillCemenetCubeQuantity.setVisibility(View.GONE);
+                cbCompressiveStrengthOfCube.setVisibility(View.GONE);
+                cbCastingPreparingCubesOfGivenMixCube.setVisibility(View.GONE);
+                cbFlexurerStrengthOfBeamCube.setVisibility(View.GONE);
+                cbCastingPreparingBeamCube.setVisibility(View.GONE);
+
+                cbCompressiveStrengthOfCube.setChecked(false);
+                cbCastingPreparingCubesOfGivenMixCube.setChecked(false);
+                cbFlexurerStrengthOfBeamCube.setChecked(false);
+                cbCastingPreparingBeamCube.setChecked(false);
+
+            }
+        });
+
+        // Set up listeners for Const Water checkboxes
+        cbConstWater.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                // Show all Bar-related checkboxes when Ultimate Tensile Strength is checked
+                tillConstWaterQuantity.setVisibility(View.VISIBLE);
+                cbSulphatesSO4CWater.setVisibility(View.VISIBLE);
+                cbAlkalinityCWater.setVisibility(View.VISIBLE);
+                cbPHValueCWater.setVisibility(View.VISIBLE);
+                cbOrganicImpuritiesCWater.setVisibility(View.VISIBLE);
+                cbInorganicImpuritiesCWater.setVisibility(View.VISIBLE);
+                cbChlorideAsClCWater.setVisibility(View.VISIBLE);
+                cbSuspendedMatterCWater.setVisibility(View.VISIBLE);
+                cbTDSTotalDissolvedSolidsCWater.setVisibility(View.VISIBLE);
+            } else {
+                // Hide all Bar-related checkboxes when it's unchecked
+                tillConstWaterQuantity.setVisibility(View.GONE);
+                cbSulphatesSO4CWater.setVisibility(View.GONE);
+                cbAlkalinityCWater.setVisibility(View.GONE);
+                cbPHValueCWater.setVisibility(View.GONE);
+                cbOrganicImpuritiesCWater.setVisibility(View.GONE);
+                cbInorganicImpuritiesCWater.setVisibility(View.GONE);
+                cbChlorideAsClCWater.setVisibility(View.GONE);
+                cbSuspendedMatterCWater.setVisibility(View.GONE);
+                cbTDSTotalDissolvedSolidsCWater.setVisibility(View.GONE);
+
+                cbSulphatesSO4CWater.setChecked(false);
+                cbAlkalinityCWater.setChecked(false);
+                cbPHValueCWater.setChecked(false);
+                cbOrganicImpuritiesCWater.setChecked(false);
+                cbInorganicImpuritiesCWater.setChecked(false);
+                cbChlorideAsClCWater.setChecked(false);
+                cbSuspendedMatterCWater.setChecked(false);
+                cbTDSTotalDissolvedSolidsCWater.setChecked(false);
+            }
+        });
+
+        // Set up listeners for Waste Water checkboxes
+        cbWasteWater.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                // Show all Bar-related checkboxes when Ultimate Tensile Strength is checked
+                tilWasteWaterQuantity.setVisibility(View.VISIBLE);
+                cbChlorideAsClWasteWater.setVisibility(View.VISIBLE);
+                cbPhValueWasteWater.setVisibility(View.VISIBLE);
+                cbSulphatesSo4WasteWater.setVisibility(View.VISIBLE);
+                cbTdsTotalDissolvedSolidsWasteWater.setVisibility(View.VISIBLE);
+                cbTssTotalSuspendedSolidsWasteWater.setVisibility(View.VISIBLE);
+
+            } else {
+                // Hide all Bar-related checkboxes when it's unchecked
+                tilWasteWaterQuantity.setVisibility(View.GONE);
+                cbChlorideAsClWasteWater.setVisibility(View.GONE);
+                cbPhValueWasteWater.setVisibility(View.GONE);
+                cbSulphatesSo4WasteWater.setVisibility(View.GONE);
+                cbTdsTotalDissolvedSolidsWasteWater.setVisibility(View.GONE);
+                cbTssTotalSuspendedSolidsWasteWater.setVisibility(View.GONE);
+
+                cbChlorideAsClWasteWater.setChecked(false);
+                cbPhValueWasteWater.setChecked(false);
+                cbSulphatesSo4WasteWater.setChecked(false);
+                cbTdsTotalDissolvedSolidsWasteWater.setChecked(false);
+                cbTssTotalSuspendedSolidsWasteWater.setChecked(false);
+
+            }
+        });
+
+        // Set up listeners for CONCRETE MIX DESIGN checkboxes
+        cbWasteWater.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                // Show all Bar-related checkboxes when Ultimate Tensile Strength is checked
+                tilWasteWaterQuantity.setVisibility(View.VISIBLE);
+                cbChlorideAsClWasteWater.setVisibility(View.VISIBLE);
+                cbPhValueWasteWater.setVisibility(View.VISIBLE);
+                cbSulphatesSo4WasteWater.setVisibility(View.VISIBLE);
+
+            } else {
+                // Hide all Bar-related checkboxes when it's unchecked
+                tilWasteWaterQuantity.setVisibility(View.GONE);
+                cbChlorideAsClWasteWater.setVisibility(View.GONE);
+                cbPhValueWasteWater.setVisibility(View.GONE);
+                cbSulphatesSo4WasteWater.setVisibility(View.GONE);
+
+                cbChlorideAsClWasteWater.setChecked(false);
+                cbPhValueWasteWater.setChecked(false);
+                cbSulphatesSo4WasteWater.setChecked(false);
+
             }
         });
 
