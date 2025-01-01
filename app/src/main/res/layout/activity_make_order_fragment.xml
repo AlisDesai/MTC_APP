@@ -393,7 +393,7 @@
                             android:id="@+id/cb_aggregate_coarse"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="AGGREGATE (COARSE) (250 /- Rs for 1 BAG 50 KG)"
+                            android:text="AGGREGATE (COARSE)"
                             android:textColor="@color/black" />
 
                         <com.google.android.material.textfield.TextInputLayout
@@ -499,51 +499,6 @@
                             android:textColor="@color/light_purple"
                             android:visibility="gone" />
 
-
-                        <!-- POWER BLOCK -->
-                        <CheckBox
-                            android:id="@+id/cb_power_block"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="POWER BLOCK"
-                            android:textColor="@color/black" />
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/til_power_block_quantity"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Enter Quantity in Number's"
-                            app:boxBackgroundMode="outline"
-                            android:visibility="gone">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:inputType="number" />
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <!-- Compressive Strength Checkbox -->
-                        <CheckBox
-                            android:id="@+id/PAVER_compressive_strength"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
-                            android:layout_marginTop="8dp"
-                            android:text="Compressive Strength IS 15658:2006 "
-                            android:textColor="@color/teal_700"
-                            android:visibility="gone" />
-
-                        <!-- Water Absorption Checkbox -->
-                        <CheckBox
-                            android:id="@+id/PAVER_water_absorption"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
-                            android:layout_marginTop="8dp"
-                            android:text="Water Absorption IS 15658: 2006"
-                            android:textColor="@color/teal_700"
-                            android:visibility="gone" />
-
                         <!-- CEMENT -->
                         <CheckBox
                             android:id="@+id/cb_cement"
@@ -574,7 +529,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Consistency IS : 4031 "
+                            android:text="CONSISTENCY"
                             android:textColor="@color/errorColor"
                             android:visibility="gone"/>
 
@@ -585,7 +540,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Initial Setting &amp; Final Setting"
+                            android:text="INITIAL &amp; FINAL SETTING"
                             android:textColor="@color/errorColor"
                             android:visibility="gone"/>
 
@@ -657,16 +612,62 @@
                             android:textColor="@color/errorColor"
                             android:visibility="gone"/>
 
-                        <!-- HARDENED CONCRETE -->
+
+                        <!-- CONCRETE POWER BLOCK -->
                         <CheckBox
-                            android:id="@+id/cb_hardened_concrete"
+                            android:id="@+id/cb_power_block"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="HARDENED CONCRETE"
+                            android:text="CONCRETE POWER BLOCK"
                             android:textColor="@color/black" />
 
                         <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/til_hardened_concrete_quantity"
+                            android:id="@+id/til_power_block_quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter Quantity in Number's"
+                            app:boxBackgroundMode="outline"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!--  COMPRESSIVE STRENGTH Checkbox -->
+                        <CheckBox
+                            android:id="@+id/PAVER_compressive_strength"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text=" COMPRESSIVE STRENGTH"
+                            android:textColor="@color/teal_700"
+                            android:visibility="gone" />
+
+                        <!-- WATER ABSORPTION Checkbox -->
+                        <CheckBox
+                            android:id="@+id/PAVER_water_absorption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="WATER ABSORPTION"
+                            android:textColor="@color/teal_700"
+                            android:visibility="gone" />
+
+
+                        <!-- STEEL -->
+                        <CheckBox
+                            android:id="@+id/cb_steel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="STEEL (Up to 25 MM)"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_steel_quantity"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Enter Quantity Set's"
@@ -933,61 +934,61 @@
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
-                        <!-- California Bearing Ratio Checkbox -->
+                        <!-- SHRINKAGE LIMIT Checkbox -->
                         <CheckBox
-                            android:id="@+id/SOIL_california_bearing_ratio"
+                            android:id="@+id/SOIL_shrinkage_limit"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="California Bearing Ratio IS : 2720"
+                            android:text="SHRINKAGE LIMIT"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
-                        <!-- Field density Checkbox -->
+                        <!-- PERMEABILITY TEST Checkbox -->
                         <CheckBox
-                            android:id="@+id/SOIL_field_density"
+                            android:id="@+id/SOIL_permeability_test"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Field density IS : 2720"
+                            android:text="PERMEABILITY TEST"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
-                        <!-- UCS Checkbox -->
+                        <!-- RELATIVE DENSITY Checkbox -->
                         <CheckBox
-                            android:id="@+id/SOIL_ucs"
+                            android:id="@+id/SOIL_relative_density"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="UCS IS :2720-1991"
+                            android:text="RELATIVE DENSITY"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
-                        <!-- Triaxial Checkbox -->
+                        <!--  FIELD DENSITY AND MOISTURE CONTENT Checkbox -->
                         <CheckBox
-                            android:id="@+id/SOIL_triaxial"
+                            android:id="@+id/SOIL_field_density_and_moisture_content"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Triaxial IS :2720"
+                            android:text="FIELD DENSITY &amp; MOISTURE CONTENT"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
 
-                        <!-- STEEL REINFORCEMENT BAR -->
+                        <!-- AAC BLOCK -->
                         <CheckBox
-                            android:id="@+id/cb_steel_bar"
+                            android:id="@+id/cb_aac_block"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="STEEL REINFORCEMENT BAR"
+                            android:text="AAC BLOCK"
                             android:textColor="@color/black" />
 
                         <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/til_steel_bar_quantity"
+                            android:id="@+id/til_aac_block_quantity"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Enter Quantity in Number's"
@@ -1000,69 +1001,69 @@
                                 android:inputType="number" />
                         </com.google.android.material.textfield.TextInputLayout>
 
-                        <!-- Ultimate Tensile Strength Checkbox -->
+                        <!-- MEASUREMENT OF DIMENSIONS Checkbox -->
                         <CheckBox
-                            android:id="@+id/BAR_Ultimate_tensile_strength"
+                            android:id="@+id/AAC_measurement_of_dimensions"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Ultimate Tensile Strength IS : 1608-2010"
+                            android:text="MEASUREMENT OF DIMENSIONS"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
-                        <!-- Yield Strength Checkbox -->
+                        <!-- COMPRESSIVE STRENGTH Checkbox -->
                         <CheckBox
-                            android:id="@+id/BAR_yield_strength"
+                            android:id="@+id/AAC_compressive_strength"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Yield Strength IS : 1608-2010"
+                            android:text="COMPRESSIVE STRENGTH"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
-                        <!-- Elongation Checkbox -->
+                        <!--  BLOCKS DENSITY Checkbox -->
                         <CheckBox
-                            android:id="@+id/BAR_elongation"
+                            android:id="@+id/AAC_blocks_density"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Elongation IS : 1608-2010"
+                            android:text="BLOCKS DENSITY"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
-                        <!-- Bend Test Checkbox -->
+                        <!--  WATER ABSORPTION Checkbox -->
                         <CheckBox
-                            android:id="@+id/BAR_bend_test"
+                            android:id="@+id/AAC_water_absorption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Bend Test IS 1599:1985"
+                            android:text="WATER ABSORPTION"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
-                        <!-- Re-Bend Test Checkbox -->
+                        <!-- DRYING SHRINKAGE Checkbox -->
                         <CheckBox
-                            android:id="@+id/BAR_re_bend_test"
+                            android:id="@+id/AAC_drying_shrinkage"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Re- Bend Test IS 1786:2008"
+                            android:text="DRYING SHRINKAGE"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
-                        <!-- Weight/meter Checkbox -->
+                        <!-- MOISTURE MOVEMENT Checkbox -->
                         <CheckBox
-                            android:id="@+id/BAR_weight_meter"
+                            android:id="@+id/AAC_moisture_movement"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
-                            android:text="Weight/Meter IS 1786-2013"
+                            android:text="MOISTURE MOVEMENT"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
@@ -1543,5 +1544,4 @@
     </LinearLayout>
 
 </ScrollView>
-
 
