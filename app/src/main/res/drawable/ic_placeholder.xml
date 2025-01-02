@@ -1,0 +1,14 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#CCCCCC" />
+            <stroke
+                android:width="8dp"
+                android:color="@color/white" />        </shape>
+    </item>
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/profile" />
+    </item>
+</layer-list>
