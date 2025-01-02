@@ -53,6 +53,9 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
+        <activity
+            android:name=".customerRepresentative.CrMain"
+            android:exported="true" />
     </application>
 
 </manifest>
