@@ -33,14 +33,21 @@ android {
 }
 
 dependencies {
-
+    // Libraries
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+
+    // Firebase
     implementation(libs.firebase.auth)
     implementation(libs.firebase.firestore)
+
+    // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    // Additional Dependency
+    implementation("com.google.android.material:material:1.9.0")
 }
