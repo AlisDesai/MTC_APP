@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
-
+android:id="@+id/fragment_customerDetails"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -126,20 +126,12 @@
                     android:text="Delete"
                     android:textColor="@android:color/holo_red_light"
                     app:icon="@android:drawable/ic_delete"
+                    app:iconTint="@color/errorColor"
                     app:iconGravity="textStart"
                     app:iconPadding="8dp" />
 
                 <!-- Order Details Button -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/orderDetailsButton"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Order Details"
-                    android:textColor="@color/Lavender"
-                    app:icon="@android:drawable/ic_menu_view"
-                    app:iconGravity="textStart"
-                    app:iconPadding="8dp" />
+
 
                 <!-- Add Order Button -->
                 <com.google.android.material.button.MaterialButton
@@ -339,6 +331,25 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="HOS: Manish Sir" />
+
+                    <!-- Add Order Details Button -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:layout_marginTop="-35dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/orderDetailsButton3"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Order Details"
+                            android:textColor="@color/Lavender"
+                            app:icon="@android:drawable/ic_menu_view"
+                            app:iconGravity="textStart"
+                            app:iconPadding="8dp" />
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -382,7 +393,26 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="HOS: Manish Sir" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:layout_marginTop="-35dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/orderDetailsButton4"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Order Details"
+                            android:textColor="@color/Lavender"
+                            app:icon="@android:drawable/ic_menu_view"
+                            app:iconGravity="textStart"
+                            app:iconPadding="8dp" />
+                    </LinearLayout>
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -424,6 +454,24 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="HOS: Manish Sir" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:layout_marginTop="-35dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/orderDetailsButton5"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Order Details"
+                            android:textColor="@color/Lavender"
+                            app:icon="@android:drawable/ic_menu_view"
+                            app:iconGravity="textStart"
+                            app:iconPadding="8dp" />
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -466,6 +514,24 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="HOS: Manish Sir" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:layout_marginTop="-35dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/orderDetailsButton6"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Order Details"
+                            android:textColor="@color/Lavender"
+                            app:icon="@android:drawable/ic_menu_view"
+                            app:iconGravity="textStart"
+                            app:iconPadding="8dp" />
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -508,6 +574,24 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="HOS: Manish Sir" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:layout_marginTop="-35dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/orderDetailsButton7"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Order Details"
+                            android:textColor="@color/Lavender"
+                            app:icon="@android:drawable/ic_menu_view"
+                            app:iconGravity="textStart"
+                            app:iconPadding="8dp" />
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -550,6 +634,24 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="HOS: Manish Sir" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:layout_marginTop="-35dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/orderDetailsButton8"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Order Details"
+                            android:textColor="@color/Lavender"
+                            app:icon="@android:drawable/ic_menu_view"
+                            app:iconGravity="textStart"
+                            app:iconPadding="8dp" />
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
