@@ -1,28 +1,39 @@
 package com.example.mtc_app.customer.fragments;
-
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.mtc_app.MainActivity;
 import com.example.mtc_app.R;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class MakeOrderFragment extends Fragment {
 
-    private CheckBox cbCementCube, cbPowerBlock, cbSteel, cbBrick, cbSoil, cbAacBlock, cbConstWater, cbWasteWater;
-    private CheckBox cbAggregateFine, cbAggregateCoarse, cbCement, cbNDT, cbBitumen;
+    private CheckBox cbCementCube, cbPowerBlock, cbSteel, cbBrick, cbSoil, cbAacBlock, cbConstWater, cbWasteWater, cbMixDesign;
+    private CheckBox cbAggregateFine, cbAggregateCoarse, cbCement, cbNDT, cbFlyAsh, cbBitumen;
 
     // Aggregate Fine
     private CheckBox finenessModulusBygradationFine, siltContentFine, specificGravityAndWaterAbsorptionFine, soundnessFine, alkaliReactivityFine;
@@ -59,29 +70,72 @@ public class MakeOrderFragment extends Fragment {
     //Waste Water
     private CheckBox cbChlorideAsClWasteWater, cbPhValueWasteWater, cbSulphatesSo4WasteWater, cbTdsTotalDissolvedSolidsWasteWater, cbTssTotalSuspendedSolidsWasteWater;
 
+    // Concrete Mix Design
+    private CheckBox cbWithCubeMixDesign, cbWithFlexurerStrengthMixDesign, cbWithAdmixtureMixDesign;
+
+    // FLY ASH Checkbox
+    private CheckBox cbSpecificGravityFlyAsh, cbSoundnessFlyAsh, cbCompressiveStrengthFlyAsh;
+
     // Bitumen
-    private CheckBox cbAbsoluteViscosityBitumen, cbKinematicViscosityBitumen, cbPenetrationValueBitumen,
-            cbSofteningPointBitumen, cbDuctilityBitumen, cbSpecificGravityBitumen, cbLossOnHeatingBitumen;
+    private CheckBox  cbPenetrationValueBitumen, cbSofteningPointBitumen, cbDuctilityBitumen, cbSpecificGravityBitumen;
     private TextInputLayout tilPowerBlockQuantity, tilSteelQuantity, tillCemenetCubeQuantity, tilBrickQuantity, tilSoilQuantity, tilAacBlockQuantity;
-    private TextInputLayout tilAggregateFineQuantity, tilAggregateCoarseQuantity, tilCementQuantity, tillConstWaterQuantity, tilWasteWaterQuantity, tilBitumenQuantity, tilNDTQuantity;
+    private TextInputLayout tilAggregateFineQuantity, tilAggregateCoarseQuantity, tilCementQuantity, tillConstWaterQuantity, tilWasteWaterQuantity, tillFlyAsh, tilMixDesignQuantity, tilBitumenQuantity, tilNDTQuantity;
 
-
+    // Date Input
     // Prices for each item
     private final Map<CheckBox, Integer> priceMap = new HashMap<>();
     private TextView tvTotalPrice;
     private int totalPrice = 0;
 
+    //Database variables
+    private EditText customerNameField, dispatchAddressField, mobileNumberField, emailField;
+    private RadioGroup modeOfDispatchGroup;
+    private Button submitButton;
+    private EditText termsAndConditionsField;
+    private LinearLayout pointsGroup; // Assuming pointsGroup contains CheckBoxes in a LinearLayout
+    private RadioGroup sampleConditionGroup;
+    private RadioGroup complianceStatementGroup;
+    private RadioGroup standardDeviationGroup;
+    private boolean isSubmitting = false;
+    private FirebaseFirestore db;
+
     @SuppressLint("MissingInflatedId")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.activity_make_order_fragment, container, false);
+
+        // Initialize Firestore
+        db = FirebaseFirestore.getInstance();
+
+        // Initialize views
+        customerNameField = view.findViewById(R.id.customer_name);
+        dispatchAddressField = view.findViewById(R.id.dispatch_address);
+        mobileNumberField = view.findViewById(R.id.mobile_number);
+        emailField = view.findViewById(R.id.email);
+        termsAndConditionsField = view.findViewById(R.id.terms_and_conditions);
+        modeOfDispatchGroup = view.findViewById(R.id.mode_of_dispatch_group);
+        pointsGroup = view.findViewById(R.id.points_group);
+        sampleConditionGroup = view.findViewById(R.id.sample_condition_group);
+        complianceStatementGroup = view.findViewById(R.id.compliance_statement_group);
+        standardDeviationGroup = view.findViewById(R.id.standard_deviation_group);
+        submitButton = view.findViewById(R.id.submit_button);
+
+        // Set click listener for the button
+        submitButton.setOnClickListener(v -> {
+            if (!isSubmitting) {
+                submitData();
+            }
+        });
 
         // Initialize CheckBoxes
         cbPowerBlock = view.findViewById(R.id.cb_power_block);
         cbSteel = view.findViewById(R.id.cb_steel);
         cbConstWater = view.findViewById(R.id.cb_const_water);
         cbWasteWater = view.findViewById(R.id.cb_waste_water);
+        cbFlyAsh = view.findViewById(R.id.cb_fly_ash);
+        cbMixDesign = view.findViewById(R.id.cb_mix_design);
         cbBrick = view.findViewById(R.id.cb_brick);
         cbSoil = view.findViewById(R.id.cb_soil);
         cbCementCube = view.findViewById(R.id.cb_cement_cube);
@@ -128,6 +182,8 @@ public class MakeOrderFragment extends Fragment {
         tilCementQuantity = view.findViewById(R.id.til_cement_quantity);
         tillConstWaterQuantity = view.findViewById(R.id.til_const_water_quantity);
         tilWasteWaterQuantity = view.findViewById(R.id.til_waste_water_quantity);
+        tillFlyAsh = view.findViewById(R.id.til_fly_ash_quantity);
+        tilMixDesignQuantity = view.findViewById(R.id.til_mix_water_quantity);
         tilBitumenQuantity = view.findViewById(R.id.til_bitumen_quantity);
         tilNDTQuantity = view.findViewById(R.id.til_ndt_quantity);
 
@@ -205,14 +261,21 @@ public class MakeOrderFragment extends Fragment {
         cbTdsTotalDissolvedSolidsWasteWater = view.findViewById(R.id.WASTE_WATER_tds_total_dissolved_solids);
         cbTssTotalSuspendedSolidsWasteWater = view.findViewById(R.id.WASTE_WATER_tss_total_suspended_solids);
 
+        // Initialize Concrete Mix Design checkbox
+        cbWithCubeMixDesign = view.findViewById(R.id.MIX_DESIGN_with_cube);
+        cbWithFlexurerStrengthMixDesign = view.findViewById(R.id.MIX_DESIGN_with_flexurer_strength);
+        cbWithAdmixtureMixDesign = view.findViewById(R.id.MIX_DESIGN_with_admixture);
+
+        // Initialize Fly Ash checkbox
+        cbSpecificGravityFlyAsh = view.findViewById(R.id.FLY_ASH_specific_gravity);
+        cbSoundnessFlyAsh = view.findViewById(R.id.FLY_ASH_soundness);
+        cbCompressiveStrengthFlyAsh = view.findViewById(R.id.FLY_ASH_compressive_strength);
+
         // Bitumen checkboxes
-        cbAbsoluteViscosityBitumen = view.findViewById(R.id.BITUMEN_absolute_viscosity);
-        cbKinematicViscosityBitumen = view.findViewById(R.id.BITUMEN_Kinematic_viscosity);
         cbPenetrationValueBitumen = view.findViewById(R.id.BITUMEN_penetration_value);
         cbSofteningPointBitumen = view.findViewById(R.id.BITUMEN_softening_point);
         cbDuctilityBitumen = view.findViewById(R.id.BITUMEN_ductility);
         cbSpecificGravityBitumen = view.findViewById(R.id.BITUMEN_specific_gravity);
-        cbLossOnHeatingBitumen = view.findViewById(R.id.BITUMEN_Loss_on_heating);
 
         // Initialize NDT checkboxes
         cbUltrasonicPulseVelocityNDT = view.findViewById(R.id.NDT_ultrasonic_pulse_velocity);
@@ -229,117 +292,125 @@ public class MakeOrderFragment extends Fragment {
         setUpCheckboxListener(cbCement, tilCementQuantity);
         setUpCheckboxListener(cbConstWater, tillConstWaterQuantity);
         setUpCheckboxListener(cbWasteWater, tilWasteWaterQuantity);
+        setUpCheckboxListener(cbMixDesign, tilMixDesignQuantity);
+        setUpCheckboxListener(cbFlyAsh, tillFlyAsh);
         setUpCheckboxListener(cbNDT, tilNDTQuantity);
 
         //price Aggregate Fine listeners
-        setupPriceChangeListener(finenessModulusBygradationFine, 350);
-        setupPriceChangeListener(siltContentFine, 350);
-        setupPriceChangeListener(specificGravityAndWaterAbsorptionFine, 250);
-        setupPriceChangeListener(soundnessFine, 350);
-        setupPriceChangeListener(alkaliReactivityFine, 350);
+        setupPriceChangeListener(finenessModulusBygradationFine, 250);
+        setupPriceChangeListener(siltContentFine, 200);
+        setupPriceChangeListener(specificGravityAndWaterAbsorptionFine, 350);
+        setupPriceChangeListener(soundnessFine, 1200);
+        setupPriceChangeListener(alkaliReactivityFine, 1500);
 
         //price Aggregate Coarse listeners
         setupPriceChangeListener(cbGradingOfAggregateCoarse, 250);
-        setupPriceChangeListener(cbFlakinessIndexAndElongationIndexCoarse, 250);
+        setupPriceChangeListener(cbFlakinessIndexAndElongationIndexCoarse, 350);
         setupPriceChangeListener(SpecificGravityAndWaterAbsorptionCoarse, 350);
         setupPriceChangeListener(cbCrushingValueCoarse, 350);
-        setupPriceChangeListener(cbSoundnessCyclesCoarse, 350);
+        setupPriceChangeListener(cbSoundnessCyclesCoarse, 1200);
         setupPriceChangeListener(cbAbrasionValueCoarse, 350);
-        setupPriceChangeListener(cbImpactValueCoarse, 350);
-        setupPriceChangeListener(cbAbrasionValueCoarse, 350);
-        setupPriceChangeListener(cbAlkaliReactivityCoarse, 400);
+        setupPriceChangeListener(cbImpactValueCoarse, 250);
+        setupPriceChangeListener(cbAlkaliReactivityCoarse, 1500);
 
         //price Power Block listeners
-        setupPriceChangeListener(cbWaterAbsorptionPaver, 250);
-        setupPriceChangeListener(cbCompressiveStrengthPaver, 350);
+        setupPriceChangeListener(cbWaterAbsorptionPaver, 200);
+        setupPriceChangeListener(cbCompressiveStrengthPaver, 700);
 
         //price Cement listeners
-        setupPriceChangeListener(cbConsistencyCement, 250);
-        setupPriceChangeListener(cbInitialSettingTimeCement, 350);
-        setupPriceChangeListener(cbFinessByBlainCement, 350);
-        setupPriceChangeListener(cbFinenessCement, 350);
-        setupPriceChangeListener(cbCompressiveCement, 350);
-        setupPriceChangeListener(cbSoundenessCemenet, 350);
-        setupPriceChangeListener(cbCompressiveStrengthMortarCement, 350);
-        setupPriceChangeListener(cbChemicalAnalysisCement, 350);
+        setupPriceChangeListener(cbConsistencyCement, 300);
+        setupPriceChangeListener(cbInitialSettingTimeCement, 400);
+        setupPriceChangeListener(cbFinessByBlainCement, 600);
+        setupPriceChangeListener(cbFinenessCement, 250);
+        setupPriceChangeListener(cbCompressiveCement, 550);
+        setupPriceChangeListener(cbSoundenessCemenet, 250);
+        setupPriceChangeListener(cbCompressiveStrengthMortarCement, 200);
+        setupPriceChangeListener(cbChemicalAnalysisCement, 2250);
 
 
         //price Steel listeners
-        setupPriceChangeListener(cbUnitWaitSteel, 250);
-        setupPriceChangeListener(cbEnsileTestYieldAndElogationTestSteel, 250);
-        setupPriceChangeListener(cbBendTestSteel, 250);
-        setupPriceChangeListener(cbRebendTestSteel, 250);
-        setupPriceChangeListener(cbChemicalAnalysisSteel, 250);
+        setupPriceChangeListener(cbUnitWaitSteel, 50);
+        setupPriceChangeListener(cbEnsileTestYieldAndElogationTestSteel, 400);
+        setupPriceChangeListener(cbBendTestSteel, 150);
+        setupPriceChangeListener(cbRebendTestSteel, 150);
+        setupPriceChangeListener(cbChemicalAnalysisSteel, 900);
 
         //price Brick listeners
-        setupPriceChangeListener(cbCompressiveStrengthBrick, 350);
-        setupPriceChangeListener(cbDimensionTestBrick, 350);
-        setupPriceChangeListener(cbWaterAbsorptionBrick, 350);
-        setupPriceChangeListener(cbEfflorescenceBrick, 400);
+        setupPriceChangeListener(cbCompressiveStrengthBrick, 400);
+        setupPriceChangeListener(cbDimensionTestBrick, 150);
+        setupPriceChangeListener(cbWaterAbsorptionBrick, 250);
+        setupPriceChangeListener(cbEfflorescenceBrick, 200);
 
         //price Soil listeners
-        setupPriceChangeListener(cbCBRTestUnsoakedSoil, 250);
-        setupPriceChangeListener(cbGrainSizeAnalysisSoil, 350);
-        setupPriceChangeListener(cbTestSoakedSoil, 350);
+        setupPriceChangeListener(cbCBRTestUnsoakedSoil, 600);
+        setupPriceChangeListener(cbGrainSizeAnalysisSoil, 300);
+        setupPriceChangeListener(cbTestSoakedSoil, 900);
         setupPriceChangeListener(cbPlasticLimitSoil, 350);
-        setupPriceChangeListener(cbLightCompactionTestSoil, 350);
-        setupPriceChangeListener(cbHeavyCompactionTestSoil, 350);
-        setupPriceChangeListener(cbFreeSwellIndexSoil, 250);
-        setupPriceChangeListener(cbShrinkageLimitSoil, 350);
-        setupPriceChangeListener(cbDirectShearSoil, 350);
-        setupPriceChangeListener(cbPermeabilityTestSoil, 350);
-        setupPriceChangeListener(cbRelativeDensitySoil, 350);
-        setupPriceChangeListener(cbFieldDensityAndMoistureContentSoil, 350);
-        setupPriceChangeListener(cbConsolidationSoil, 350);
-        setupPriceChangeListener(cbUnconfinedCompressionSoil, 400);
-        setupPriceChangeListener(cbTriaxialTestUUSoil, 350);
-        setupPriceChangeListener(cbTriaxialTestCUSoil, 350);
-        setupPriceChangeListener(cbSpecificGravitySoil, 500);
-        setupPriceChangeListener(cbSwellingPressureSoil, 350);
+        setupPriceChangeListener(cbLightCompactionTestSoil, 600);
+        setupPriceChangeListener(cbHeavyCompactionTestSoil, 900);
+        setupPriceChangeListener(cbFreeSwellIndexSoil, 150);
+        setupPriceChangeListener(cbShrinkageLimitSoil, 300);
+        setupPriceChangeListener(cbDirectShearSoil, 700);
+        setupPriceChangeListener(cbPermeabilityTestSoil, 900);
+        setupPriceChangeListener(cbRelativeDensitySoil, 200);
+        setupPriceChangeListener(cbFieldDensityAndMoistureContentSoil, 600);
+        setupPriceChangeListener(cbConsolidationSoil, 1200);
+        setupPriceChangeListener(cbUnconfinedCompressionSoil, 300);
+        setupPriceChangeListener(cbTriaxialTestUUSoil, 900);
+        setupPriceChangeListener(cbTriaxialTestCUSoil, 1500);
+        setupPriceChangeListener(cbSpecificGravitySoil, 200);
+        setupPriceChangeListener(cbSwellingPressureSoil, 900);
 
         //price AAC listeners
-        setupPriceChangeListener(cbMeasurementOfDimensionsAac, 250);
-        setupPriceChangeListener(cbCompressiveStrengthAac, 350);
-        setupPriceChangeListener(cbBlocksDensityAac, 350);
-        setupPriceChangeListener(cbWaterAbsorptionAac, 350);
+        setupPriceChangeListener(cbMeasurementOfDimensionsAac, 1200);
+        setupPriceChangeListener(cbCompressiveStrengthAac, 1200);
+        setupPriceChangeListener(cbBlocksDensityAac, 1200);
+        setupPriceChangeListener(cbWaterAbsorptionAac, 1200);
         setupPriceChangeListener(cbDryingShrinkageAac, 350);
-        setupPriceChangeListener(cbMoistureMovementAac, 350);
+        setupPriceChangeListener(cbMoistureMovementAac, 200);
 
         //price Const Water listeners
-        setupPriceChangeListener(cbSulphatesSO4CWater, 250);
-        setupPriceChangeListener(cbAlkalinityCWater, 250);
-        setupPriceChangeListener(cbPHValueCWater, 250);
-        setupPriceChangeListener(cbOrganicImpuritiesCWater, 250);
-        setupPriceChangeListener(cbInorganicImpuritiesCWater, 250);
-        setupPriceChangeListener(cbChlorideAsClCWater, 250);
-        setupPriceChangeListener(cbSuspendedMatterCWater, 250);
-        setupPriceChangeListener(cbTDSTotalDissolvedSolidsCWater, 250);
+        setupPriceChangeListener(cbSulphatesSO4CWater, 900);
+        setupPriceChangeListener(cbAlkalinityCWater, 900);
+        setupPriceChangeListener(cbPHValueCWater, 900);
+        setupPriceChangeListener(cbOrganicImpuritiesCWater, 900);
+        setupPriceChangeListener(cbInorganicImpuritiesCWater, 900);
+        setupPriceChangeListener(cbChlorideAsClCWater, 900);
+        setupPriceChangeListener(cbSuspendedMatterCWater, 900);
+        setupPriceChangeListener(cbTDSTotalDissolvedSolidsCWater, 900);
 
         //price Waste Water listeners
-        setupPriceChangeListener(cbChlorideAsClWasteWater, 250);
-        setupPriceChangeListener(cbPhValueWasteWater, 250);
-        setupPriceChangeListener(cbSulphatesSo4WasteWater, 250);
-        setupPriceChangeListener(cbTdsTotalDissolvedSolidsWasteWater, 250);
-        setupPriceChangeListener(cbTssTotalSuspendedSolidsWasteWater, 250);
+        setupPriceChangeListener(cbChlorideAsClWasteWater, 700);
+        setupPriceChangeListener(cbPhValueWasteWater, 700);
+        setupPriceChangeListener(cbSulphatesSo4WasteWater, 700);
+        setupPriceChangeListener(cbTdsTotalDissolvedSolidsWasteWater, 700);
+        setupPriceChangeListener(cbTssTotalSuspendedSolidsWasteWater, 700);
+
+        //price Concrete Mix Design listeners
+        setupPriceChangeListener(cbWithCubeMixDesign, 6000);
+        setupPriceChangeListener(cbWithFlexurerStrengthMixDesign, 7500);
+        setupPriceChangeListener(cbWithAdmixtureMixDesign, 9000);
 
         //price Cement Cube listeners
-        setupPriceChangeListener(cbCompressiveStrengthOfCube, 250);
-        setupPriceChangeListener(cbCastingPreparingCubesOfGivenMixCube, 350);
-        setupPriceChangeListener(cbFlexurerStrengthOfBeamCube, 350);
-        setupPriceChangeListener(cbCastingPreparingBeamCube, 350);
+        setupPriceChangeListener(cbCompressiveStrengthOfCube, 400);
+        setupPriceChangeListener(cbCastingPreparingCubesOfGivenMixCube, 1000);
+        setupPriceChangeListener(cbFlexurerStrengthOfBeamCube, 450);
+        setupPriceChangeListener(cbCastingPreparingBeamCube, 900);
+
+        //price Fly Ash listeners
+        setupPriceChangeListener(cbSpecificGravityFlyAsh, 200);
+        setupPriceChangeListener(cbSoundnessFlyAsh, 250);
+        setupPriceChangeListener(cbCompressiveStrengthFlyAsh, 550);
 
         //price Bitumen listeners
-        setupPriceChangeListener(cbAbsoluteViscosityBitumen, 250);
-        setupPriceChangeListener(cbKinematicViscosityBitumen, 350);
-        setupPriceChangeListener(cbPenetrationValueBitumen, 350);
-        setupPriceChangeListener(cbSofteningPointBitumen, 350);
-        setupPriceChangeListener(cbDuctilityBitumen, 350);
+        setupPriceChangeListener(cbPenetrationValueBitumen, 1100);
+        setupPriceChangeListener(cbSofteningPointBitumen, 1500);
+        setupPriceChangeListener(cbDuctilityBitumen, 1050);
         setupPriceChangeListener(cbSpecificGravityBitumen, 350);
-        setupPriceChangeListener(cbLossOnHeatingBitumen, 350);
 
         //price NDT listeners
-        setupPriceChangeListener(cbUltrasonicPulseVelocityNDT, 250);
-        setupPriceChangeListener(cbReboundHammerTestNDT, 350);
+        setupPriceChangeListener(cbUltrasonicPulseVelocityNDT, 300);
+        setupPriceChangeListener(cbReboundHammerTestNDT, 300);
 
 
         // Special setup for Aggregate Fine checkbox
@@ -704,30 +775,49 @@ public class MakeOrderFragment extends Fragment {
                 cbSulphatesSo4WasteWater.setChecked(false);
                 cbTdsTotalDissolvedSolidsWasteWater.setChecked(false);
                 cbTssTotalSuspendedSolidsWasteWater.setChecked(false);
-
             }
         });
 
         // Set up listeners for CONCRETE MIX DESIGN checkboxes
-        cbWasteWater.setOnCheckedChangeListener((buttonView, isChecked) -> {
+        cbMixDesign.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                tilMixDesignQuantity.setVisibility(View.VISIBLE);
+                cbWithCubeMixDesign.setVisibility(View.VISIBLE);
+                cbWithFlexurerStrengthMixDesign.setVisibility(View.VISIBLE);
+                cbWithAdmixtureMixDesign.setVisibility(View.VISIBLE);
+
+            } else {
+                tilMixDesignQuantity.setVisibility(View.GONE);
+                cbWithCubeMixDesign.setVisibility(View.GONE);
+                cbWithFlexurerStrengthMixDesign.setVisibility(View.GONE);
+                cbWithAdmixtureMixDesign.setVisibility(View.GONE);
+
+                cbWithCubeMixDesign.setChecked(false);
+                cbWithFlexurerStrengthMixDesign.setChecked(false);
+                cbWithAdmixtureMixDesign.setChecked(false);
+
+            }
+        });
+
+        // Set up listeners for Fly Ash checkboxes
+        cbFlyAsh.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 // Show all Bar-related checkboxes when Ultimate Tensile Strength is checked
-                tilWasteWaterQuantity.setVisibility(View.VISIBLE);
-                cbChlorideAsClWasteWater.setVisibility(View.VISIBLE);
-                cbPhValueWasteWater.setVisibility(View.VISIBLE);
-                cbSulphatesSo4WasteWater.setVisibility(View.VISIBLE);
+                tillFlyAsh.setVisibility(View.VISIBLE);
+                cbSpecificGravityFlyAsh.setVisibility(View.VISIBLE);
+                cbSoundnessFlyAsh.setVisibility(View.VISIBLE);
+                cbCompressiveStrengthFlyAsh.setVisibility(View.VISIBLE);
 
             } else {
                 // Hide all Bar-related checkboxes when it's unchecked
-                tilWasteWaterQuantity.setVisibility(View.GONE);
-                cbChlorideAsClWasteWater.setVisibility(View.GONE);
-                cbPhValueWasteWater.setVisibility(View.GONE);
-                cbSulphatesSo4WasteWater.setVisibility(View.GONE);
+                tillFlyAsh.setVisibility(View.GONE);
+                cbSpecificGravityFlyAsh.setVisibility(View.GONE);
+                cbSoundnessFlyAsh.setVisibility(View.GONE);
+                cbCompressiveStrengthFlyAsh.setVisibility(View.GONE);
 
-                cbChlorideAsClWasteWater.setChecked(false);
-                cbPhValueWasteWater.setChecked(false);
-                cbSulphatesSo4WasteWater.setChecked(false);
-
+                cbSpecificGravityFlyAsh.setChecked(false);
+                cbSoundnessFlyAsh.setChecked(false);
+                cbCompressiveStrengthFlyAsh.setChecked(false);
             }
         });
 
@@ -736,31 +826,22 @@ public class MakeOrderFragment extends Fragment {
             if (isChecked) {
                 // Show all Bitumen-related checkboxes and quantity input when cbBitumen is checked
                 tilBitumenQuantity.setVisibility(View.VISIBLE);
-                cbAbsoluteViscosityBitumen.setVisibility(View.VISIBLE);
-                cbKinematicViscosityBitumen.setVisibility(View.VISIBLE);
                 cbPenetrationValueBitumen.setVisibility(View.VISIBLE);
                 cbSofteningPointBitumen.setVisibility(View.VISIBLE);
                 cbDuctilityBitumen.setVisibility(View.VISIBLE);
                 cbSpecificGravityBitumen.setVisibility(View.VISIBLE);
-                cbLossOnHeatingBitumen.setVisibility(View.VISIBLE);
             } else {
                 // Hide all Bitumen-related checkboxes and quantity input when cbBitumen is unchecked
                 tilBitumenQuantity.setVisibility(View.GONE);
-                cbAbsoluteViscosityBitumen.setVisibility(View.GONE);
-                cbKinematicViscosityBitumen.setVisibility(View.GONE);
                 cbPenetrationValueBitumen.setVisibility(View.GONE);
                 cbSofteningPointBitumen.setVisibility(View.GONE);
                 cbDuctilityBitumen.setVisibility(View.GONE);
                 cbSpecificGravityBitumen.setVisibility(View.GONE);
-                cbLossOnHeatingBitumen.setVisibility(View.GONE);
 
-                cbAbsoluteViscosityBitumen.setChecked(false);
-                cbKinematicViscosityBitumen.setChecked(false);
                 cbPenetrationValueBitumen.setChecked(false);
                 cbSofteningPointBitumen.setChecked(false);
                 cbDuctilityBitumen.setChecked(false);
                 cbSpecificGravityBitumen.setChecked(false);
-                cbLossOnHeatingBitumen.setChecked(false);
             }
             calculateTotalPrice();
         });
@@ -781,10 +862,144 @@ public class MakeOrderFragment extends Fragment {
                 cbReboundHammerTestNDT.setChecked(false);
             }
         });
-
-
         return view;
     }
+
+    private void submitData() {
+        // Disable the button and show progress
+        isSubmitting = true;
+        submitButton.setEnabled(false);
+
+        // Collect data
+        String customerName = customerNameField.getText().toString().trim();
+        String dispatchAddress = dispatchAddressField.getText().toString().trim();
+        String mobileNumber = mobileNumberField.getText().toString().trim();
+        String email = emailField.getText().toString().trim();
+        String termsAndConditions = termsAndConditionsField.getText().toString().trim();
+
+        // Validation
+        if (customerName.isEmpty()) {
+            showError("Please enter the customer's name");
+            return;
+        }
+        if (dispatchAddress.isEmpty()) {
+            showError("Please enter the dispatch address");
+            return;
+        }
+        if (mobileNumber.isEmpty() || !mobileNumber.matches("\\d{10}")) {
+            showError("Please enter a valid 10-digit mobile number");
+            return;
+        }
+        if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            showError("Please enter a valid email address");
+            return;
+        }
+        if (termsAndConditions.isEmpty()) {
+            showError("Please accept the terms and conditions");
+            return;
+        }
+
+        // Get selected radio button for modeOfDispatch
+        String modeOfDispatch = getSelectedRadioButtonText(modeOfDispatchGroup);
+        if (modeOfDispatch.equals("")) {
+            showError("Please select a mode of dispatch");
+            return;
+        }
+
+        // Get selected checkboxes for pointsGroup
+        ArrayList<String> selectedPoints = new ArrayList<>();
+        for (int i = 0; i < pointsGroup.getChildCount(); i++) {
+            View child = pointsGroup.getChildAt(i);
+            if (child instanceof CheckBox) {
+                CheckBox checkBox = (CheckBox) child;
+                if (checkBox.isChecked()) {
+                    selectedPoints.add(checkBox.getText().toString());
+                }
+            }
+        }
+
+        // Get selected radio buttons for each group
+        String sampleCondition = getSelectedRadioButtonText(sampleConditionGroup);
+        if (sampleCondition.equals("")) {
+            showError("Please select a sample condition");
+            return;
+        }
+
+        String complianceStatement = getSelectedRadioButtonText(complianceStatementGroup);
+        if (complianceStatement.equals("")) {
+            showError("Please select a compliance statement");
+            return;
+        }
+
+        String standardDeviation = getSelectedRadioButtonText(standardDeviationGroup);
+        if (standardDeviation.equals("")) {
+            showError("Please select a standard deviation");
+            return;
+        }
+
+        // Prepare data for Firestore in the correct order
+        Map<String, Object> data = new HashMap<>();
+        data.put("customerName", customerName);
+        data.put("dispatchAddress", dispatchAddress);
+        data.put("email", email);
+        data.put("mobileNumber", mobileNumber);
+        data.put("modeOfDispatch", modeOfDispatch);
+        data.put("termsAndConditions", termsAndConditions);
+        data.put("sampleCondition", sampleCondition);
+        data.put("complianceStatement", complianceStatement);
+        data.put("standardDeviation", standardDeviation);
+
+        // Store data in Firestore
+        db.collection("Total Orders")
+                .add(data)
+                .addOnSuccessListener(documentReference -> {
+                    Toast.makeText(requireContext(), "Data submitted successfully", Toast.LENGTH_SHORT).show();
+                    clearForm();
+                })
+                .addOnFailureListener(e ->
+                        Toast.makeText(requireContext(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show())
+                .addOnCompleteListener(task -> {
+                    // Re-enable the button and hide progress
+                    isSubmitting = false;
+                    submitButton.setEnabled(true);
+                });
+    }
+
+    private String getSelectedRadioButtonText(RadioGroup radioGroup) {
+        int selectedId = radioGroup.getCheckedRadioButtonId();
+        if (selectedId != -1) {
+            RadioButton radioButton = radioGroup.findViewById(selectedId);
+            return radioButton.getText().toString();
+        }
+        return "";
+    }
+
+
+    private void clearForm() {
+        customerNameField.setText("");
+        dispatchAddressField.setText("");
+        mobileNumberField.setText("");
+        emailField.setText("");
+        termsAndConditionsField.setText("");
+        for (int i = 0; i < pointsGroup.getChildCount(); i++) {
+            View child = pointsGroup.getChildAt(i);
+            if (child instanceof CheckBox) {
+                ((CheckBox) child).setChecked(false);
+            }
+        }
+        sampleConditionGroup.clearCheck();
+        complianceStatementGroup.clearCheck();
+        standardDeviationGroup.clearCheck();
+    }
+
+    private void showError(String message) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show();
+        isSubmitting = false;
+        submitButton.setEnabled(true);
+    }
+
+
+
 
     private CheckBox getSpecificGravityAndWaterAbsorptionFine() {
         return specificGravityAndWaterAbsorptionFine;

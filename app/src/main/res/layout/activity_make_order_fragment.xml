@@ -11,7 +11,7 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Customer Details Section -->
+        <!-- Name and Address -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,6 +23,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginBottom="20dp">
 
+            <!-- Title TextView -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -32,6 +33,7 @@
                 android:textStyle="bold"
                 android:paddingBottom="8dp" />
 
+            <!-- Input Field -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -43,6 +45,7 @@
                 app:boxCornerRadiusBottomEnd="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/customer_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Customer Name and Address"
@@ -57,22 +60,23 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@drawable/card_background"
-            android:padding="16dp"
+            android:padding="14dp"
+            android:elevation="4dp"
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
-            android:elevation="4dp"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="20dp">
 
+            <!-- Title TextView -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2. NAME AND ADDRESS FOR DISPATCHING THE REPORT"
                 android:textColor="@color/black"
                 android:textSize="18sp"
-                android:layout_marginTop="20dp"
                 android:textStyle="bold"
                 android:paddingBottom="8dp" />
 
+            <!-- Input Field -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -84,50 +88,11 @@
                 app:boxCornerRadiusBottomEnd="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/dispatch_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Dispatch Address"
                     android:inputType="textMultiLine"
-                    android:textColorHint="@color/gray" />
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
-
-        <!-- Date Section -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/card_background"
-            android:padding="16dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp"
-            android:elevation="4dp"
-            android:layout_marginBottom="16dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="DATE"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:paddingBottom="8dp" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:boxBackgroundMode="outline"
-                app:boxStrokeColor="@color/teal_700"
-                app:boxCornerRadiusTopStart="16dp"
-                app:boxCornerRadiusTopEnd="16dp"
-                app:boxCornerRadiusBottomStart="16dp"
-                app:boxCornerRadiusBottomEnd="16dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Enter Date"
-                    android:inputType="date"
                     android:textColorHint="@color/gray" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
@@ -138,21 +103,23 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@drawable/card_background"
-            android:padding="16dp"
+            android:padding="14dp"
+            android:elevation="4dp"
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
-            android:elevation="4dp"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="20dp">
 
+            <!-- Title TextView -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CONTACT DETAILS"
+                android:text="3. CONTACT DETAILS"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:paddingBottom="8dp" />
 
+            <!-- Input Field -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -164,53 +131,38 @@
                 app:boxCornerRadiusBottomEnd="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/mobile_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Contact Person"
-                    android:textColorHint="@color/gray" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:boxBackgroundMode="outline"
-                app:boxStrokeColor="@color/teal_700"
-                app:boxCornerRadiusTopStart="16dp"
-                app:boxCornerRadiusTopEnd="16dp"
-                app:boxCornerRadiusBottomStart="16dp"
-                app:boxCornerRadiusBottomEnd="16dp"
-                android:layout_marginTop="8dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Phone/Mobile"
-                    android:inputType="phone"
+                    android:hint="Enter Mobile Number"
+                    android:inputType="textMultiLine"
                     android:textColorHint="@color/gray" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
-        <!-- Email Section -->
+        <!-- email Section -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@drawable/card_background"
-            android:padding="16dp"
+            android:padding="14dp"
+            android:elevation="4dp"
             android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
-            android:elevation="4dp"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="20dp">
 
+            <!-- Title TextView -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="EMAIL"
+                android:text="4. EMAIL ADDRESS"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:paddingBottom="8dp" />
 
+            <!-- Input Field -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -222,13 +174,16 @@
                 app:boxCornerRadiusBottomEnd="16dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email Address"
-                    android:inputType="textEmailAddress"
+                    android:inputType="textMultiLine"
                     android:textColorHint="@color/gray" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -266,6 +221,7 @@
                         android:textStyle="bold" />
 
                     <RadioGroup
+                        android:id="@+id/mode_of_dispatch_group"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
@@ -332,15 +288,15 @@
                                 android:inputType="number" />
                         </com.google.android.material.textfield.TextInputLayout>
 
-                        <!-- FINENESS MODULUS BYGRADATION Checkbox -->
+                        <!-- FINENESS MODULUS BY GRADATION Checkbox -->
                         <CheckBox
                             android:id="@+id/AGGREGATE_fineness_modulus_bygradation"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="30dp"
+                            android:layout_marginStart="10dp"
                             android:layout_marginTop="8dp"
-                            android:text="FINENESS MODULUS BYGRADATION"
-                            android:textColor="@color/gray"
+                            android:text="FINENESS MODULUS BY GRADATION"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!--  SILT CONTENT Checkbox -->
@@ -348,10 +304,10 @@
                             android:id="@+id/AGGREGATE_silt_content"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="10dp"
                             android:layout_marginTop="8dp"
-                            android:text=" SILT CONTENT"
-                            android:textColor="@color/gray"
+                            android:text="SILT CONTENT"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!-- SPECIFIC GRAVITY and WATER ABSORPTION Checkbox -->
@@ -359,10 +315,10 @@
                             android:id="@+id/AGGREGATE_specific_gravity_and_water_absorption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="10dp"
                             android:layout_marginTop="8dp"
                             android:text="SPECIFIC GRAVITY &amp; WATER ABSORPTION"
-                            android:textColor="@color/gray"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!-- SOUNDNESS Checkbox -->
@@ -370,10 +326,10 @@
                             android:id="@+id/AGGREGATE_soundness"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="10dp"
                             android:layout_marginTop="8dp"
                             android:text="SOUNDNESS"
-                            android:textColor="@color/gray"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!-- ALKALI REACTIVITY Checkbox -->
@@ -381,10 +337,10 @@
                             android:id="@+id/AGGREGATE_alkali_reactivity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="10dp"
                             android:layout_marginTop="8dp"
                             android:text="ALKALI REACTIVITY"
-                            android:textColor="@color/gray"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
 
@@ -416,10 +372,10 @@
                             android:id="@+id/AGGREGATE_grading_of_aggregate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="30dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="GRADING OF AGGREGATE"
-                            android:textColor="@color/light_purple"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!-- FLAKINESS INDEX AND ELONGATION INDEX Checkbox -->
@@ -427,10 +383,10 @@
                             android:id="@+id/AGGREGATE_flakiness_index_and_elongation_index"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="FLAKINESS INDEX AND ELONGATION INDEX"
-                            android:textColor="@color/light_purple"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!-- SPECIFIC GRAVITY & WATER ABSORPTION Checkbox -->
@@ -438,10 +394,10 @@
                             android:id="@+id/AGGREGATE_specific_gravity_and_water_absorption_coarse"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="SPECIFIC GRAVITY &amp; WATER ABSORPTION"
-                            android:textColor="@color/light_purple"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!-- IMPACT VALUE Checkbox -->
@@ -449,10 +405,10 @@
                             android:id="@+id/AGGREGATE_impact_value_coarse"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="IMPACT VALUE"
-                            android:textColor="@color/light_purple"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!-- ABRASION VALUE Checkbox -->
@@ -460,10 +416,10 @@
                             android:id="@+id/AGGREGATE_abrasion_value_coarse"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="ABRASION VALUE"
-                            android:textColor="@color/light_purple"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!-- CRUSHING VALUE Checkbox -->
@@ -471,10 +427,10 @@
                             android:id="@+id/AGGREGATE_crushing_value_coarse"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="CRUSHING VALUE"
-                            android:textColor="@color/light_purple"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!-- SOUNDNESS Checkbox -->
@@ -482,10 +438,10 @@
                             android:id="@+id/AGGREGATE_soundness_cycles_coarse"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="SOUNDNESS (5 Cycles)"
-                            android:textColor="@color/light_purple"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!-- ALKALI REACTIVITY Checkbox -->
@@ -493,10 +449,10 @@
                             android:id="@+id/AGGREGATE_alkali_reactivity_coarse"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="ALKALI REACTIVITY"
-                            android:textColor="@color/light_purple"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!-- CEMENT -->
@@ -527,10 +483,10 @@
                             android:id="@+id/CEMENT_consistency"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="CONSISTENCY"
-                            android:textColor="@color/errorColor"
+                            android:textColor="@color/purple"
                             android:visibility="gone"/>
 
                         <!-- Initial Setting Time Checkbox -->
@@ -538,10 +494,10 @@
                             android:id="@+id/CEMENT_initial_setting_time"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="INITIAL &amp; FINAL SETTING"
-                            android:textColor="@color/errorColor"
+                            android:textColor="@color/purple"
                             android:visibility="gone"/>
 
 
@@ -550,10 +506,10 @@
                             android:id="@+id/CEMENT_finess_by_blain"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="FINENESS BY BLAIN AIR"
-                            android:textColor="@color/errorColor"
+                            android:textColor="@color/purple"
                             android:visibility="gone"/>
 
                         <!--  SOUNDNESS Checkbox -->
@@ -561,10 +517,10 @@
                             android:id="@+id/CEMENT_soundness"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="SOUNDNESS"
-                            android:textColor="@color/errorColor"
+                            android:textColor="@color/purple"
                             android:visibility="gone"/>
 
 
@@ -573,10 +529,10 @@
                             android:id="@+id/CEMENT_compressive"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="COMPRESSIVE STRENGTH"
-                            android:textColor="@color/errorColor"
+                            android:textColor="@color/purple"
                             android:visibility="gone"/>
 
                         <!-- COMPRESSIVE STRENGTH OF CEMENT MORTAR Checkbox -->
@@ -584,10 +540,10 @@
                             android:id="@+id/CEMENT_COMPRESSIVE_STRENGTH_MORTAR"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="COMPRESSIVE STRENGTH OF CEMENT MORTAR"
-                            android:textColor="@color/errorColor"
+                            android:textColor="@color/purple"
                             android:visibility="gone"/>
 
                         <!-- FINENESS BY SIEVING Checkbox -->
@@ -595,10 +551,10 @@
                             android:id="@+id/CEMENT_fineness"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="FINENESS BY SIEVING"
-                            android:textColor="@color/errorColor"
+                            android:textColor="@color/purple"
                             android:visibility="gone"/>
 
                         <!-- CHEMICAL ANALYSIS Checkbox -->
@@ -606,10 +562,10 @@
                             android:id="@+id/cement_chemical_analysis"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="CHEMICAL ANALYSIS"
-                            android:textColor="@color/errorColor"
+                            android:textColor="@color/purple"
                             android:visibility="gone"/>
 
                         <!-- STEEL -->
@@ -639,10 +595,10 @@
                             android:id="@+id/STEEL_unit_wait"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="UNIT WAIT"
-                            android:textColor="@color/teal_700"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!-- TENSILE TEST, YIELD AND ELOGATION TEST Checkbox -->
@@ -650,10 +606,10 @@
                             android:id="@+id/STEEL_ensile_test_yield_and_elogation_test"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="TENSILE TEST, YIELD &amp; ELOGATION TEST"
-                            android:textColor="@color/teal_700"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!-- BEND TEST Checkbox -->
@@ -661,10 +617,10 @@
                             android:id="@+id/STEEL_bend_test"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="BEND TEST"
-                            android:textColor="@color/teal_700"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!-- REBEND TEST Checkbox -->
@@ -672,10 +628,10 @@
                             android:id="@+id/STEEL_rebend_test"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="REBEND TEST"
-                            android:textColor="@color/teal_700"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!-- CHEMICAL ANALYSIS Checkbox -->
@@ -683,10 +639,10 @@
                             android:id="@+id/STEEL_chemical_analysis"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="CHEMICAL ANALYSIS"
-                            android:textColor="@color/teal_700"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!-- CEMENT CONC.CUBE BLOCK -->
@@ -716,10 +672,10 @@
                             android:id="@+id/CUBE_compressive_strength_of_cube"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="COMPRESSIVE STRENGTH OF CUBE"
-                            android:textColor="@color/errorColor"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!--  CASTING & PREPARING CUBES OF GIVEN MIX Checkbox -->
@@ -727,10 +683,10 @@
                             android:id="@+id/CUBE_casting_preparing_cubes_of_given_mix"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text=" CASTING &amp; PREPARING CUBES OF GIVEN MIX"
-                            android:textColor="@color/errorColor"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!--  FLEXURER STRENGTH OF BEAM Checkbox -->
@@ -738,10 +694,10 @@
                             android:id="@+id/CUBE_flexurer_strength_of_beam"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="FLEXURER STRENGTH OF BEAM"
-                            android:textColor="@color/errorColor"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!--  CASTING & PREPARING BEAM Checkbox -->
@@ -749,10 +705,10 @@
                             android:id="@+id/CUBE_casting_preparing_beam"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="CASTING &amp; PREPARING BEAM"
-                            android:textColor="@color/errorColor"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
 
@@ -783,10 +739,10 @@
                             android:id="@+id/AAC_measurement_of_dimensions"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="MEASUREMENT OF DIMENSIONS"
-                            android:textColor="@color/errorColor"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!-- COMPRESSIVE STRENGTH Checkbox -->
@@ -794,10 +750,10 @@
                             android:id="@+id/AAC_compressive_strength"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="COMPRESSIVE STRENGTH"
-                            android:textColor="@color/errorColor"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!--  BLOCKS DENSITY Checkbox -->
@@ -805,10 +761,10 @@
                             android:id="@+id/AAC_blocks_density"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="BLOCKS DENSITY"
-                            android:textColor="@color/errorColor"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!--  WATER ABSORPTION Checkbox -->
@@ -816,10 +772,10 @@
                             android:id="@+id/AAC_water_absorption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="WATER ABSORPTION"
-                            android:textColor="@color/errorColor"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!-- DRYING SHRINKAGE Checkbox -->
@@ -830,7 +786,7 @@
                             android:layout_marginStart="40dp"
                             android:layout_marginTop="8dp"
                             android:text="DRYING SHRINKAGE"
-                            android:textColor="@color/errorColor"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!-- MOISTURE MOVEMENT Checkbox -->
@@ -838,10 +794,10 @@
                             android:id="@+id/AAC_moisture_movement"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="MOISTURE MOVEMENT"
-                            android:textColor="@color/errorColor"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
 
@@ -872,10 +828,10 @@
                             android:id="@+id/PAVER_compressive_strength"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text=" COMPRESSIVE STRENGTH"
-                            android:textColor="@color/teal_700"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!-- WATER ABSORPTION Checkbox -->
@@ -883,10 +839,10 @@
                             android:id="@+id/PAVER_water_absorption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="WATER ABSORPTION"
-                            android:textColor="@color/teal_700"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
 
@@ -917,10 +873,10 @@
                             android:id="@+id/BRICK_dimension_test"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="DIMENSION &amp; TOLERANCE"
-                            android:textColor="@color/errorColor"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!-- COMPRESSIVE STRENGTH Checkbox -->
@@ -928,10 +884,10 @@
                             android:id="@+id/BRICK_compressive_strength"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="COMPRESSIVE STRENGTH"
-                            android:textColor="@color/errorColor"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!-- WATER ABSORPTION Checkbox -->
@@ -939,10 +895,10 @@
                             android:id="@+id/BRICK_Fine_water_absorption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="WATER ABSORPTION"
-                            android:textColor="@color/gray"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
                         <!-- EFFLORESCENCE Checkbox -->
@@ -950,10 +906,10 @@
                             android:id="@+id/BRICK_efflorescence"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="EFFLORESCENCE"
-                            android:textColor="@color/errorColor"
+                            android:textColor="@color/purple"
                             android:visibility="gone" />
 
 
@@ -984,7 +940,7 @@
                             android:id="@+id/SOIL_grain_size_analysis"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="GRAIN SIZE ANALYSIS"
                             android:textColor="@color/errorColor"
@@ -995,7 +951,7 @@
                             android:id="@+id/SOIL_plastic_limit"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="PLASTICITY INDEX"
                             android:textColor="@color/errorColor"
@@ -1006,7 +962,7 @@
                             android:id="@+id/SOIL_light_compaction_test"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="LIGHT COMPACTION"
                             android:textColor="@color/errorColor"
@@ -1017,7 +973,7 @@
                             android:id="@+id/SOIL_heavy_compaction_test"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="HEAVY COMPACTION"
                             android:textColor="@color/errorColor"
@@ -1028,7 +984,7 @@
                             android:id="@+id/SOIL_cbr_test_unsoaked"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="CBR TEST (UNSOAKED)"
                             android:textColor="@color/errorColor"
@@ -1039,7 +995,7 @@
                             android:id="@+id/SOIL_cbr_test_soaked"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="CBR TEST (SOAKED-96 HRS)"
                             android:textColor="@color/errorColor"
@@ -1050,7 +1006,7 @@
                             android:id="@+id/SOIL_direct_shear"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="DIRECT SHEAR TEST"
                             android:textColor="@color/errorColor"
@@ -1061,7 +1017,7 @@
                             android:id="@+id/SOIL_unconfined_compression"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="UNCONFINED COMPRESSION"
                             android:textColor="@color/errorColor"
@@ -1072,7 +1028,7 @@
                             android:id="@+id/SOIL_triaxial_test_uu"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="TRIAXIAL TEST (UU)"
                             android:textColor="@color/errorColor"
@@ -1083,7 +1039,7 @@
                             android:id="@+id/SOIL_triaxial_test_cu"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="TRIAXIAL TEST (CU)"
                             android:textColor="@color/errorColor"
@@ -1094,7 +1050,7 @@
                             android:id="@+id/SOIL_free_swell_index"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="FREE SWELL INDEX"
                             android:textColor="@color/errorColor"
@@ -1105,7 +1061,7 @@
                             android:id="@+id/SOIL_consolidation"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="CONSOLIDATION TEST (3-Jar)"
                             android:textColor="@color/errorColor"
@@ -1116,7 +1072,7 @@
                             android:id="@+id/SOIL_swelling_pressure"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="SWELING PRESSURE"
                             android:textColor="@color/errorColor"
@@ -1127,7 +1083,7 @@
                             android:id="@+id/SOIL_specific_gravity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="SPECIFIC GRAVITY"
                             android:textColor="@color/errorColor"
@@ -1138,7 +1094,7 @@
                             android:id="@+id/SOIL_shrinkage_limit"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="SHRINKAGE LIMIT"
                             android:textColor="@color/errorColor"
@@ -1149,7 +1105,7 @@
                             android:id="@+id/SOIL_permeability_test"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="PERMEABILITY TEST"
                             android:textColor="@color/errorColor"
@@ -1160,7 +1116,7 @@
                             android:id="@+id/SOIL_relative_density"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="RELATIVE DENSITY"
                             android:textColor="@color/errorColor"
@@ -1171,7 +1127,7 @@
                             android:id="@+id/SOIL_field_density_and_moisture_content"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="FIELD DENSITY &amp; MOISTURE CONTENT"
                             android:textColor="@color/errorColor"
@@ -1205,7 +1161,7 @@
                             android:id="@+id/NDT_rebound_hammer_test"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="REBOUND HAMMER TEST IS 516"
                             android:textColor="@color/errorColor"
@@ -1216,7 +1172,7 @@
                             android:id="@+id/NDT_ultrasonic_pulse_velocity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="ULTRASONIC PULSE VELOCITY IS 516"
                             android:textColor="@color/errorColor"
@@ -1250,7 +1206,7 @@
                             android:id="@+id/C_WATER_sulphates_so4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="SULPHATES SO4"
                             android:textColor="@color/errorColor"
@@ -1261,7 +1217,7 @@
                             android:id="@+id/C_WATER_alkalinity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="ALKALINITY"
                             android:textColor="@color/errorColor"
@@ -1272,7 +1228,7 @@
                             android:id="@+id/C_WATER_ph_value"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="PH VALUE"
                             android:textColor="@color/errorColor"
@@ -1283,7 +1239,7 @@
                             android:id="@+id/C_WATER_organic_impurities"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="ORGANIC IMPURITIES"
                             android:textColor="@color/errorColor"
@@ -1294,7 +1250,7 @@
                             android:id="@+id/C_WATER_inorganic_impurities"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="INORGANIC IMPURITIES"
                             android:textColor="@color/errorColor"
@@ -1305,7 +1261,7 @@
                             android:id="@+id/C_WATER_chloride_as_cl"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="CHLORIDE AS CL"
                             android:textColor="@color/errorColor"
@@ -1316,7 +1272,7 @@
                             android:id="@+id/C_WATER_suspended_matter"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="SUSPENDED MATTER"
                             android:textColor="@color/errorColor"
@@ -1327,7 +1283,7 @@
                             android:id="@+id/C_WATER_tds_total_dissolved_solids"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="TDS (TOTAL DISSOLVED SOLIDS)"
                             android:textColor="@color/errorColor"
@@ -1361,7 +1317,7 @@
                             android:id="@+id/WASTE_WATER_chloride_as_cl"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="CHLORIDE AS CL"
                             android:textColor="@color/errorColor"
@@ -1372,7 +1328,7 @@
                             android:id="@+id/WASTE_WATER_ph_value"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="PH VALUE"
                             android:textColor="@color/errorColor"
@@ -1383,7 +1339,7 @@
                             android:id="@+id/WASTE_WATER_sulphates_so4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="SULPHATES SO4"
                             android:textColor="@color/errorColor"
@@ -1394,7 +1350,7 @@
                             android:id="@+id/WASTE_WATER_tds_total_dissolved_solids"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="TDS (TOTAL DISSOLVED SOLIDS)"
                             android:textColor="@color/errorColor"
@@ -1405,10 +1361,122 @@
                             android:id="@+id/WASTE_WATER_tss_total_suspended_solids"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
                             android:text="TSS (TOTAL SUSPENDED SOLIDS)"
                             android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+
+                        <!-- CONCRETE MIX DESIGN -->
+                        <CheckBox
+                            android:id="@+id/cb_mix_design"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CONCRETE MIX DESIGN"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_mix_water_quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter Quantity Set's"
+                            app:boxBackgroundMode="outline"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- WITH CUBE Checkbox -->
+                        <CheckBox
+                            android:id="@+id/MIX_DESIGN_with_cube"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="WITH CUBE"
+                            android:textColor="@color/teal_700"
+                            android:visibility="gone" />
+
+                        <!-- WITH FLEXURER STRENGTH Checkbox -->
+                        <CheckBox
+                            android:id="@+id/MIX_DESIGN_with_flexurer_strength"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="WITH FLEXURER STRENGTH"
+                            android:textColor="@color/teal_700"
+                            android:visibility="gone" />
+
+                        <!-- WITH ADMIXTURE Checkbox -->
+                        <CheckBox
+                            android:id="@+id/MIX_DESIGN_with_admixture"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="WITH ADMIXTURE"
+                            android:textColor="@color/teal_700"
+                            android:visibility="gone" />
+
+
+                        <!-- FLY ASH DESIGN -->
+                        <CheckBox
+                            android:id="@+id/cb_fly_ash"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="FLY ASH"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_fly_ash_quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter Quantity Set's"
+                            app:boxBackgroundMode="outline"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- SPECIFIC GRAVITY Checkbox -->
+                        <CheckBox
+                            android:id="@+id/FLY_ASH_specific_gravity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="WITH CUBE"
+                            android:textColor="@color/teal_700"
+                            android:visibility="gone" />
+
+                        <!-- SOUNDNESS Checkbox -->
+                        <CheckBox
+                            android:id="@+id/FLY_ASH_soundness"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="SOUNDNESS"
+                            android:textColor="@color/teal_700"
+                            android:visibility="gone" />
+
+                        <!-- COMPRESSIVE STRENGTH Checkbox -->
+                        <CheckBox
+                            android:id="@+id/FLY_ASH_compressive_strength"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="COMPRESSIVE STRENGTH"
+                            android:textColor="@color/teal_700"
                             android:visibility="gone" />
 
 
@@ -1435,81 +1503,47 @@
                                 android:inputType="number" />
                         </com.google.android.material.textfield.TextInputLayout>
 
-                        <!-- Absolute viscosity Checkbox -->
-                        <CheckBox
-                            android:id="@+id/BITUMEN_absolute_viscosity"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
-                            android:layout_marginTop="8dp"
-                            android:text="Absolute viscosity IS 1206"
-                            android:textColor="@color/errorColor"
-                            android:visibility="gone" />
-
-                        <!-- Kinematic viscosity Checkbox -->
-                        <CheckBox
-                            android:id="@+id/BITUMEN_Kinematic_viscosity"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
-                            android:layout_marginTop="8dp"
-                            android:text="Kinematic viscosity IS 1206"
-                            android:textColor="@color/errorColor"
-                            android:visibility="gone" />
-
-                        <!-- Penetration Value Checkbox -->
+                        <!-- PENETRATION Value Checkbox -->
                         <CheckBox
                             android:id="@+id/BITUMEN_penetration_value"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
-                            android:text="Penetration Value IS 1203"
+                            android:text="PENETRATION VALUE"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
-
-                        <!-- Softening point Checkbox -->
-                        <CheckBox
-                            android:id="@+id/BITUMEN_softening_point"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
-                            android:layout_marginTop="8dp"
-                            android:text="Softening point IS 1205"
-                            android:textColor="@color/errorColor"
-                            android:visibility="gone" />
-
-                        <!-- Ductility Checkbox -->
+                        <!-- DUCTILITY Checkbox -->
                         <CheckBox
                             android:id="@+id/BITUMEN_ductility"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
-                            android:text="Ductility IS 1208"
+                            android:text="DUCTILITY"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
-                        <!-- Specific gravity Checkbox -->
+                        <!-- SOFTNING POINT Checkbox -->
+                        <CheckBox
+                            android:id="@+id/BITUMEN_softening_point"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="SOFTNING POINT"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- SPECIFIC GRAVITY Checkbox -->
                         <CheckBox
                             android:id="@+id/BITUMEN_specific_gravity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="8dp"
-                            android:text="Specific gravity IS 1202"
-                            android:textColor="@color/errorColor"
-                            android:visibility="gone" />
-
-                        <!-- Loss on heating Checkbox -->
-                        <CheckBox
-                            android:id="@+id/BITUMEN_Loss_on_heating"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="40dp"
-                            android:layout_marginTop="8dp"
-                            android:text="Loss on heating IS 1212"
+                            android:text="SPECIFIC GRAVITY"
                             android:textColor="@color/errorColor"
                             android:visibility="gone" />
 
@@ -1572,6 +1606,7 @@
                         app:boxStrokeColor="@color/teal_700">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/terms_and_conditions"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Details"
@@ -1624,6 +1659,7 @@
                         android:layout_marginBottom="8dp" />
 
                     <RadioGroup
+                        android:id="@+id/sample_condition_group"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
@@ -1642,12 +1678,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="5. Do you Require Statement of Compliance on Test Report – YES / NO"
+                        android:text="5. Do you Require Statement of Compliance on Test Report ?"
                         android:textColor="@color/black"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="8dp" />
 
                     <RadioGroup
+                        android:id="@+id/compliance_statement_group"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
@@ -1672,6 +1709,7 @@
                         android:layout_marginBottom="8dp" />
 
                     <RadioGroup
+                        android:id="@+id/standard_deviation_group"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
@@ -1696,6 +1734,7 @@
                         android:layout_marginBottom="4dp" />
 
                     <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/points_group"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:boxBackgroundMode="outline"
@@ -1828,18 +1867,18 @@
 
 
 
-        <!-- Submit Button -->
-        <Button
-            android:layout_width="match_parent"
-            android:id="@+id/submit_button"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/teal_700"
-            android:text="Submit"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:elevation="4dp"
-            android:layout_marginTop="16dp" />
+            <!-- Submit Button -->
+            <Button
+                android:layout_width="match_parent"
+                android:id="@+id/submit_button"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/teal_700"
+                android:text="Submit"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:elevation="4dp"
+                android:layout_marginTop="16dp" />
 
     </LinearLayout>
 
