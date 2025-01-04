@@ -1,6 +1,5 @@
 package com.example.mtc_app.customer.fragments;
 import android.annotation.SuppressLint;
-import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +8,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -19,14 +17,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.mtc_app.MainActivity;
 import com.example.mtc_app.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -89,15 +85,24 @@ public class MakeOrderFragment extends Fragment {
 
     //Database variables
     private EditText customerNameField, dispatchAddressField, mobileNumberField, emailField;
-    private RadioGroup modeOfDispatchGroup;
+    RadioGroup modeOfDispatchGroup;
     private Button submitButton;
     private EditText termsAndConditionsField;
     private LinearLayout pointsGroup; // Assuming pointsGroup contains CheckBoxes in a LinearLayout
     private RadioGroup sampleConditionGroup;
     private RadioGroup complianceStatementGroup;
     private RadioGroup standardDeviationGroup;
-    private boolean isSubmitting = false;
+
+    // LinearLayout and other UI elements
+    private CheckBox cbOnemethedOfTEsting, cbTwoTestingService, cbThreeTermsAndCondition;
+    private TextInputEditText deviationInput, discussionInput;
+
+    // Firestore Database instance
     private FirebaseFirestore db;
+
+    // State management
+    private boolean isSubmitting = false;
+
 
     @SuppressLint("MissingInflatedId")
     @Nullable
@@ -109,23 +114,28 @@ public class MakeOrderFragment extends Fragment {
         // Initialize Firestore
         db = FirebaseFirestore.getInstance();
 
-        // Initialize views
+        // Initialize UI elements
         customerNameField = view.findViewById(R.id.customer_name);
-        dispatchAddressField = view.findViewById(R.id.dispatch_address);
+        dispatchAddressField = view.findViewById(R.id.dispatch_address); // Ensure this exists in XML
         mobileNumberField = view.findViewById(R.id.mobile_number);
         emailField = view.findViewById(R.id.email);
         termsAndConditionsField = view.findViewById(R.id.terms_and_conditions);
         modeOfDispatchGroup = view.findViewById(R.id.mode_of_dispatch_group);
-        pointsGroup = view.findViewById(R.id.points_group);
         sampleConditionGroup = view.findViewById(R.id.sample_condition_group);
         complianceStatementGroup = view.findViewById(R.id.compliance_statement_group);
         standardDeviationGroup = view.findViewById(R.id.standard_deviation_group);
-        submitButton = view.findViewById(R.id.submit_button);
 
-        // Set click listener for the button
+        cbOnemethedOfTEsting = view.findViewById(R.id.OnemethedOfTEsting);
+        cbTwoTestingService = view.findViewById(R.id.TwoTestingService);
+        cbThreeTermsAndCondition = view.findViewById(R.id.ThreeTermsAndCondition);
+
+        deviationInput = view.findViewById(R.id.deviation_input);
+        discussionInput = view.findViewById(R.id.discussion_input);
+
+        submitButton = view.findViewById(R.id.submit_button);
         submitButton.setOnClickListener(v -> {
             if (!isSubmitting) {
-                submitData();
+                submitData(view);
             }
         });
 
@@ -865,89 +875,76 @@ public class MakeOrderFragment extends Fragment {
         return view;
     }
 
-    private void submitData() {
-        // Disable the button and show progress
+    private void setListeners(View view) {
+        // Set the OnClickListener for the submit button
+        submitButton.setOnClickListener(v -> submitData(view));
+    }
+
+    private void submitData(View view) {
+        // Disable button to prevent multiple submissions
         isSubmitting = true;
         submitButton.setEnabled(false);
 
-        // Collect data
+        // Collect data from checkboxes
+        boolean isCheckbox1Checked = cbOnemethedOfTEsting.isChecked();
+        boolean isCheckbox2Checked = cbTwoTestingService.isChecked();
+        boolean isCheckbox3Checked = cbThreeTermsAndCondition.isChecked();
+
+        // Collect text from input fields
         String customerName = customerNameField.getText().toString().trim();
         String dispatchAddress = dispatchAddressField.getText().toString().trim();
         String mobileNumber = mobileNumberField.getText().toString().trim();
         String email = emailField.getText().toString().trim();
         String termsAndConditions = termsAndConditionsField.getText().toString().trim();
 
-        // Validation
-        if (customerName.isEmpty()) {
-            showError("Please enter the customer's name");
+        // Collect radio button selections
+        String modeOfDispatch = getSelectedRadioButtonText(modeOfDispatchGroup);
+        String sampleCondition = getSelectedRadioButtonText(sampleConditionGroup);
+        String complianceStatement = getSelectedRadioButtonText(complianceStatementGroup);
+        String standardDeviation = getSelectedRadioButtonText(standardDeviationGroup);
+
+        // Validate inputs
+        if (customerName.isEmpty() || dispatchAddress.isEmpty() || mobileNumber.isEmpty() || email.isEmpty() || termsAndConditions.isEmpty()) {
+            showError("All fields are required");
             return;
         }
-        if (dispatchAddress.isEmpty()) {
-            showError("Please enter the dispatch address");
-            return;
-        }
-        if (mobileNumber.isEmpty() || !mobileNumber.matches("\\d{10}")) {
+
+        if (!mobileNumber.matches("\\d{10}")) {
             showError("Please enter a valid 10-digit mobile number");
             return;
         }
-        if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             showError("Please enter a valid email address");
             return;
         }
-        if (termsAndConditions.isEmpty()) {
-            showError("Please accept the terms and conditions");
-            return;
-        }
 
-        // Get selected radio button for modeOfDispatch
-        String modeOfDispatch = getSelectedRadioButtonText(modeOfDispatchGroup);
-        if (modeOfDispatch.equals("")) {
-            showError("Please select a mode of dispatch");
-            return;
-        }
-
-        // Get selected checkboxes for pointsGroup
-        ArrayList<String> selectedPoints = new ArrayList<>();
-        for (int i = 0; i < pointsGroup.getChildCount(); i++) {
-            View child = pointsGroup.getChildAt(i);
-            if (child instanceof CheckBox) {
-                CheckBox checkBox = (CheckBox) child;
-                if (checkBox.isChecked()) {
-                    selectedPoints.add(checkBox.getText().toString());
-                }
-            }
-        }
-
-        // Get selected radio buttons for each group
-        String sampleCondition = getSelectedRadioButtonText(sampleConditionGroup);
-        if (sampleCondition.equals("")) {
-            showError("Please select a sample condition");
-            return;
-        }
-
-        String complianceStatement = getSelectedRadioButtonText(complianceStatementGroup);
-        if (complianceStatement.equals("")) {
-            showError("Please select a compliance statement");
-            return;
-        }
-
-        String standardDeviation = getSelectedRadioButtonText(standardDeviationGroup);
-        if (standardDeviation.equals("")) {
-            showError("Please select a standard deviation");
-            return;
-        }
-
-        // Prepare data for Firestore in the correct order
+        // Prepare data for Firestore
         Map<String, Object> data = new HashMap<>();
-        data.put("customerName", customerName);
-        data.put("dispatchAddress", dispatchAddress);
+        data.put("customer Name", customerName);
+        data.put("dispatch Address", dispatchAddress);
+        data.put("mobile Number", mobileNumber);
         data.put("email", email);
-        data.put("mobileNumber", mobileNumber);
-        data.put("modeOfDispatch", modeOfDispatch);
-        data.put("termsAndConditions", termsAndConditions);
-        data.put("sampleCondition", sampleCondition);
-        data.put("complianceStatement", complianceStatement);
-        data.put("standardDeviation", standardDeviation);
+        data.put("mode Of Dispatch", modeOfDispatch);
+        data.put("terms And Conditions", termsAndConditions);
+        data.put("sample Condition", sampleCondition);
+        data.put("compliance Statement", complianceStatement);
+        data.put("standard Deviation", standardDeviation);
+
+        // Collect additional data for points (checkboxes)
+        Map<String, Boolean> selectedPoints = new HashMap<>();
+        selectedPoints.put("Method of testing capability and resources acceptable", isCheckbox1Checked);
+        selectedPoints.put("Testing services requested may please be carried out", isCheckbox2Checked);
+        selectedPoints.put("Terms and Conditions of Testing acceptable as per review remarks", isCheckbox3Checked);
+
+        // Add the selected points to the data
+        data.put("selectedPoints", selectedPoints);
+
+        // Collect deviation and discussion details
+        String deviationDetails = deviationInput.getText().toString().trim();
+        String discussionDetails = discussionInput.getText().toString().trim();
+        data.put("Deviation Details", deviationDetails);
+        data.put("Discussion Details", discussionDetails);
 
         // Store data in Firestore
         db.collection("Total Orders")
@@ -956,24 +953,28 @@ public class MakeOrderFragment extends Fragment {
                     Toast.makeText(requireContext(), "Data submitted successfully", Toast.LENGTH_SHORT).show();
                     clearForm();
                 })
-                .addOnFailureListener(e ->
-                        Toast.makeText(requireContext(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show())
+                .addOnFailureListener(e -> {
+                    Toast.makeText(requireContext(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                })
                 .addOnCompleteListener(task -> {
-                    // Re-enable the button and hide progress
                     isSubmitting = false;
                     submitButton.setEnabled(true);
                 });
     }
 
     private String getSelectedRadioButtonText(RadioGroup radioGroup) {
+        if (radioGroup == null) {
+            return "";
+        }
         int selectedId = radioGroup.getCheckedRadioButtonId();
         if (selectedId != -1) {
-            RadioButton radioButton = radioGroup.findViewById(selectedId);
-            return radioButton.getText().toString();
+            RadioButton selectedRadioButton = radioGroup.findViewById(selectedId);
+            if (selectedRadioButton != null) {
+                return selectedRadioButton.getText().toString();
+            }
         }
         return "";
     }
-
 
     private void clearForm() {
         customerNameField.setText("");
@@ -992,13 +993,12 @@ public class MakeOrderFragment extends Fragment {
         standardDeviationGroup.clearCheck();
     }
 
+
     private void showError(String message) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show();
         isSubmitting = false;
         submitButton.setEnabled(true);
     }
-
-
 
 
     private CheckBox getSpecificGravityAndWaterAbsorptionFine() {

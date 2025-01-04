@@ -241,6 +241,7 @@
                             android:textColor="@color/black" />
                     </RadioGroup>
 
+
                     <!-- Testing Requirements -->
                     <TextView
                         android:layout_width="wrap_content"
@@ -1623,6 +1624,7 @@
                         android:layout_marginBottom="8dp" />
 
                     <CheckBox
+                        android:id="@+id/OnemethedOfTEsting"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -1635,6 +1637,7 @@
                         android:layout_marginBottom="8dp" />
 
                     <CheckBox
+                        android:id="@+id/TwoTestingService"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -1647,6 +1650,7 @@
                         android:layout_marginBottom="8dp" />
 
                     <CheckBox
+                        android:id="@+id/ThreeTermsAndCondition"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -1734,20 +1738,20 @@
                         android:layout_marginBottom="4dp" />
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/points_group"
+                        android:id="@+id/deviation_input_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:boxBackgroundMode="outline"
                         app:boxStrokeColor="@color/teal_700">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/deviation_input"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Detail Deviation"
                             android:inputType="text"
                             android:textColorHint="@color/gray" />
                     </com.google.android.material.textfield.TextInputLayout>
-
 
                     <!-- New Section: Review Remarks -->
                     <TextView
@@ -1769,16 +1773,19 @@
                         android:layout_marginBottom="4dp" />
 
                     <RadioGroup
+                        android:id="@+id/radio_group_remark1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
                         <RadioButton
+                            android:id="@+id/radio_remark1_yes"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="YES" />
 
                         <RadioButton
+                            android:id="@+id/radio_remark1_no"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="NO" />
@@ -1794,16 +1801,19 @@
                         android:layout_marginBottom="4dp" />
 
                     <RadioGroup
+                        android:id="@+id/radio_group_remark2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
                         <RadioButton
+                            android:id="@+id/radio_remark2_yes"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="YES" />
 
                         <RadioButton
+                            android:id="@+id/radio_remark2_no"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="NO" />
@@ -1819,21 +1829,25 @@
                         android:layout_marginBottom="4dp" />
 
                     <RadioGroup
+                        android:id="@+id/radio_group_remark3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
                         <RadioButton
+                            android:id="@+id/radio_remark3_ok"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="OK" />
 
                         <RadioButton
+                            android:id="@+id/radio_remark3_sealed"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="SEALED" />
 
                         <RadioButton
+                            android:id="@+id/radio_remark3_open"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="OPEN" />
@@ -1849,12 +1863,14 @@
                         android:layout_marginBottom="4dp" />
 
                     <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/discussion_input_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:boxBackgroundMode="outline"
                         app:boxStrokeColor="@color/teal_700">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/discussion_input"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Details of Discussion"
