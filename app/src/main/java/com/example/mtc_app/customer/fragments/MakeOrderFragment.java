@@ -89,9 +89,10 @@ public class MakeOrderFragment extends Fragment {
     private Button submitButton;
     private EditText termsAndConditionsField;
     private LinearLayout pointsGroup; // Assuming pointsGroup contains CheckBoxes in a LinearLayout
-    private RadioGroup sampleConditionGroup;
-    private RadioGroup complianceStatementGroup;
-    private RadioGroup standardDeviationGroup;
+    private RadioGroup sampleConditionGroup, complianceStatementGroup, standardDeviationGroup;
+
+    // UI elements for review remarks
+    private RadioGroup radioGroupRemark1, radioGroupRemark2, radioGroupRemark3;
 
     // LinearLayout and other UI elements
     private CheckBox cbOnemethedOfTEsting, cbTwoTestingService, cbThreeTermsAndCondition;
@@ -890,6 +891,11 @@ public class MakeOrderFragment extends Fragment {
         boolean isCheckbox2Checked = cbTwoTestingService.isChecked();
         boolean isCheckbox3Checked = cbThreeTermsAndCondition.isChecked();
 
+        // Initialize RadioGroups for Review Remarks
+        radioGroupRemark1 = view.findViewById(R.id.radio_group_remark1);
+        radioGroupRemark2 = view.findViewById(R.id.radio_group_remark2);
+        radioGroupRemark3 = view.findViewById(R.id.radio_group_remark3);
+
         // Collect text from input fields
         String customerName = customerNameField.getText().toString().trim();
         String dispatchAddress = dispatchAddressField.getText().toString().trim();
@@ -939,6 +945,16 @@ public class MakeOrderFragment extends Fragment {
 
         // Add the selected points to the data
         data.put("selectedPoints", selectedPoints);
+
+        // Collect data for review remarks
+        Map<String, String> reviewRemarks = new HashMap<>();
+        reviewRemarks.put("Requirements defined and understood", getSelectedRadioButtonText(radioGroupRemark1));
+        reviewRemarks.put("Capability and Resources available", getSelectedRadioButtonText(radioGroupRemark2));
+        reviewRemarks.put("Condition of Sample Received", getSelectedRadioButtonText(radioGroupRemark3));
+
+        // Add the review remarks to the data
+        data.put("reviewRemarks", reviewRemarks);
+
 
         // Collect deviation and discussion details
         String deviationDetails = deviationInput.getText().toString().trim();
