@@ -24,6 +24,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MakeOrderFragment extends Fragment {
@@ -857,7 +858,6 @@ public class MakeOrderFragment extends Fragment {
             calculateTotalPrice();
         });
 
-
         // Set up listener for NDT checkbox
         cbNDT.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
@@ -873,6 +873,32 @@ public class MakeOrderFragment extends Fragment {
                 cbReboundHammerTestNDT.setChecked(false);
             }
         });
+
+        // Initialize the view components
+        TextInputLayout deviationInputLayout = view.findViewById(R.id.deviation_input_layout);
+        TextView deviationText = view.findViewById(R.id.radio_text);
+
+        // Initially hide the input field and the text
+        deviationInputLayout.setVisibility(View.GONE);
+        deviationText.setVisibility(View.GONE);
+
+        // Set the listener for the RadioGroup to check for changes
+        standardDeviationGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                // Check if the "YES" option is selected
+                if (checkedId == R.id.radio_yes) {
+                    // Show the TextInputLayout (TextField) and the associated label
+                    deviationText.setVisibility(View.VISIBLE);
+                    deviationInputLayout.setVisibility(View.VISIBLE);
+                } else if (checkedId == R.id.radio_no) {
+                    // Hide the TextInputLayout (TextField) and the associated label
+                    deviationText.setVisibility(View.GONE);
+                    deviationInputLayout.setVisibility(View.GONE);
+                }
+            }
+        });
+
         return view;
     }
 
@@ -936,22 +962,23 @@ public class MakeOrderFragment extends Fragment {
         data.put("sample Condition", sampleCondition);
         data.put("compliance Statement", complianceStatement);
         data.put("standard Deviation", standardDeviation);
+        data.put("Total Price", totalPrice);
+
 
         // Collect additional data for points (checkboxes)
         Map<String, Boolean> selectedPoints = new HashMap<>();
         selectedPoints.put("Method of testing capability and resources acceptable", isCheckbox1Checked);
         selectedPoints.put("Testing services requested may please be carried out", isCheckbox2Checked);
         selectedPoints.put("Terms and Conditions of Testing acceptable as per review remarks", isCheckbox3Checked);
-
         // Add the selected points to the data
         data.put("selectedPoints", selectedPoints);
+
 
         // Collect data for review remarks
         Map<String, String> reviewRemarks = new HashMap<>();
         reviewRemarks.put("Requirements defined and understood", getSelectedRadioButtonText(radioGroupRemark1));
         reviewRemarks.put("Capability and Resources available", getSelectedRadioButtonText(radioGroupRemark2));
         reviewRemarks.put("Condition of Sample Received", getSelectedRadioButtonText(radioGroupRemark3));
-
         // Add the review remarks to the data
         data.put("reviewRemarks", reviewRemarks);
 
@@ -961,6 +988,184 @@ public class MakeOrderFragment extends Fragment {
         String discussionDetails = discussionInput.getText().toString().trim();
         data.put("Deviation Details", deviationDetails);
         data.put("Discussion Details", discussionDetails);
+
+        // Collect selected points for Aggregate Fine
+        List<String> AggregateFine = new ArrayList<>();
+        if (finenessModulusBygradationFine.isChecked()) AggregateFine.add("WITH CUBE");
+        if (siltContentFine.isChecked()) AggregateFine.add("WITH FLEXURER STRENGTH");
+        if (specificGravityAndWaterAbsorptionFine.isChecked()) AggregateFine.add("WITH ADMIXTURE");
+        if (soundnessFine.isChecked()) AggregateFine.add("WITH FLEXURER STRENGTH");
+        if (alkaliReactivityFine.isChecked()) AggregateFine.add("WITH ADMIXTURE");
+
+        // Collect selected points for Aggregate Coarse
+        List<String> AggregateCoarse = new ArrayList<>();
+        if (cbImpactValueCoarse.isChecked()) AggregateCoarse.add("IMPACT VALUE");
+        if (SpecificGravityAndWaterAbsorptionCoarse.isChecked()) AggregateCoarse.add("SPECIFIC GRAVITY AND WATER ABSORPTION");
+        if (cbCrushingValueCoarse.isChecked()) AggregateCoarse.add("CRUSHING VALUE");
+        if (cbSoundnessCyclesCoarse.isChecked()) AggregateCoarse.add("SOUNDNESS CYCLES");
+        if (cbFlakinessIndexAndElongationIndexCoarse.isChecked()) AggregateCoarse.add("FLAKINESS AND ELONGATION INDEX");
+        if (cbGradingOfAggregateCoarse.isChecked()) AggregateCoarse.add("GRADING OF AGGREGATE");
+        if (cbAbrasionValueCoarse.isChecked()) AggregateCoarse.add("ABRASION VALUE");
+        if (cbAlkaliReactivityCoarse.isChecked()) AggregateCoarse.add("ALKALI REACTIVITY");
+
+        // Collect selected points for Cement
+        List<String> Cement = new ArrayList<>();
+        if (cbFinessByBlainCement.isChecked()) Cement.add("FINENESS BY BLAIN");
+        if (cbInitialSettingTimeCement.isChecked()) Cement.add("INITIAL SETTING TIME");
+        if (cbConsistencyCement.isChecked()) Cement.add("CONSISTENCY");
+        if (cbCompressiveCement.isChecked()) Cement.add("COMPRESSIVE STRENGTH");
+        if (cbFinenessCement.isChecked()) Cement.add("FINENESS");
+        if (cbSoundenessCemenet.isChecked()) Cement.add("SOUNDNESS");
+        if (cbCompressiveStrengthMortarCement.isChecked()) Cement.add("COMPRESSIVE STRENGTH OF MORTAR");
+        if (cbChemicalAnalysisCement.isChecked()) Cement.add("CHEMICAL ANALYSIS");
+
+        // Collect selected points for Steel
+        List<String> Steel = new ArrayList<>();
+        if (cbUnitWaitSteel.isChecked()) Steel.add("UNIT WEIGHT");
+        if (cbEnsileTestYieldAndElogationTestSteel.isChecked()) Steel.add("TENSILE TEST YIELD AND ELONGATION TEST");
+        if (cbBendTestSteel.isChecked()) Steel.add("BEND TEST");
+        if (cbRebendTestSteel.isChecked()) Steel.add("REBEND TEST");
+        if (cbChemicalAnalysisSteel.isChecked()) Steel.add("CHEMICAL ANALYSIS");
+
+        // Collect selected points for ConcCube
+        List<String> ConcCube = new ArrayList<>();
+        if (cbCompressiveStrengthOfCube.isChecked()) ConcCube.add("COMPRESSIVE STRENGTH OF CUBE");
+        if (cbCastingPreparingCubesOfGivenMixCube.isChecked()) ConcCube.add("CASTING AND PREPARING CUBES OF GIVEN MIX");
+        if (cbFlexurerStrengthOfBeamCube.isChecked()) ConcCube.add("FLEXURER STRENGTH OF BEAM");
+        if (cbCastingPreparingBeamCube.isChecked()) ConcCube.add("CASTING AND PREPARING BEAM");
+
+        // Collect selected points for AAC
+        List<String> Aac = new ArrayList<>();
+        if (cbMeasurementOfDimensionsAac.isChecked()) Aac.add("MEASUREMENT OF DIMENSIONS");
+        if (cbCompressiveStrengthAac.isChecked()) Aac.add("COMPRESSIVE STRENGTH");
+        if (cbBlocksDensityAac.isChecked()) Aac.add("BLOCKS DENSITY");
+        if (cbWaterAbsorptionAac.isChecked()) Aac.add("WATER ABSORPTION");
+        if (cbDryingShrinkageAac.isChecked()) Aac.add("DRYING SHRINKAGE");
+        if (cbMoistureMovementAac.isChecked()) Aac.add("MOISTURE MOVEMENT");
+
+        // Collect selected points for Paver Block
+        List<String> PaverBlock = new ArrayList<>();
+        if (cbCompressiveStrengthPaver.isChecked()) PaverBlock.add("COMPRESSIVE STRENGTH");
+        if (cbWaterAbsorptionPaver.isChecked()) PaverBlock.add("WATER ABSORPTION");
+
+        // Collect selected points for Brick
+        List<String> Brick = new ArrayList<>();
+        if (cbWaterAbsorptionBrick.isChecked()) Brick.add("WATER ABSORPTION");
+        if (cbDimensionTestBrick.isChecked()) Brick.add("DIMENSION TEST");
+        if (cbCompressiveStrengthBrick.isChecked()) Brick.add("COMPRESSIVE STRENGTH");
+        if (cbEfflorescenceBrick.isChecked()) Brick.add("EFFLORESCENCE");
+
+
+        // Collect selected points for Soil
+        List<String> Soil = new ArrayList<>();
+        if (cbCBRTestUnsoakedSoil.isChecked()) Soil.add("CBR TEST UNSOAKED");
+        if (cbGrainSizeAnalysisSoil.isChecked()) Soil.add("GRAIN SIZE ANALYSIS");
+        if (cbTestSoakedSoil.isChecked()) Soil.add("CBR TEST SOAKED");
+        if (cbPlasticLimitSoil.isChecked()) Soil.add("PLASTIC LIMIT");
+        if (cbLightCompactionTestSoil.isChecked()) Soil.add("LIGHT COMPACTION TEST");
+        if (cbHeavyCompactionTestSoil.isChecked()) Soil.add("HEAVY COMPACTION TEST");
+        if (cbFreeSwellIndexSoil.isChecked()) Soil.add("FREE SWELL INDEX");
+        if (cbUnconfinedCompressionSoil.isChecked()) Soil.add("UNCONFINED COMPRESSION TEST");
+        if (cbTriaxialTestUUSoil.isChecked()) Soil.add("TRIAXIAL TEST UU");
+        if (cbTriaxialTestCUSoil.isChecked()) Soil.add("TRIAXIAL TEST CU");
+        if (cbSwellingPressureSoil.isChecked()) Soil.add("SWELLING PRESSURE");
+        if (cbSpecificGravitySoil.isChecked()) Soil.add("SPECIFIC GRAVITY");
+        if (cbShrinkageLimitSoil.isChecked()) Soil.add("SHRINKAGE LIMIT");
+        if (cbDirectShearSoil.isChecked()) Soil.add("DIRECT SHEAR TEST");
+        if (cbPermeabilityTestSoil.isChecked()) Soil.add("PERMEABILITY TEST");
+        if (cbRelativeDensitySoil.isChecked()) Soil.add("RELATIVE DENSITY");
+        if (cbFieldDensityAndMoistureContentSoil.isChecked()) Soil.add("FIELD DENSITY AND MOISTURE CONTENT");
+        if (cbConsolidationSoil.isChecked()) Soil.add("CONSOLIDATION TEST");
+
+        // Collect selected points for NDT
+        List<String> Ndt = new ArrayList<>();
+        if (cbUltrasonicPulseVelocityNDT.isChecked()) Ndt.add("ULTRASONIC PULSE VELOCITY");
+        if (cbReboundHammerTestNDT.isChecked()) Ndt.add("REBOUND HAMMER TEST");
+
+        // Collect selected points for ConstWater
+        List<String> ConstWater = new ArrayList<>();
+        if (cbSulphatesSO4CWater.isChecked()) ConstWater.add("SULPHATES (SO4)");
+        if (cbAlkalinityCWater.isChecked()) ConstWater.add("ALKALINITY");
+        if (cbPHValueCWater.isChecked()) ConstWater.add("PH VALUE");
+        if (cbOrganicImpuritiesCWater.isChecked()) ConstWater.add("ORGANIC IMPURITIES");
+        if (cbInorganicImpuritiesCWater.isChecked()) ConstWater.add("INORGANIC IMPURITIES");
+        if (cbChlorideAsClCWater.isChecked()) ConstWater.add("CHLORIDE AS CL");
+        if (cbSuspendedMatterCWater.isChecked()) ConstWater.add("SUSPENDED MATTER");
+        if (cbTDSTotalDissolvedSolidsCWater.isChecked()) ConstWater.add("TDS (TOTAL DISSOLVED SOLIDS)");
+
+        // Collect selected points for WasteWater
+        List<String> WasteWater = new ArrayList<>();
+        if (cbChlorideAsClWasteWater.isChecked()) WasteWater.add("CHLORIDE AS CL");
+        if (cbPhValueWasteWater.isChecked()) WasteWater.add("PH VALUE");
+        if (cbSulphatesSo4WasteWater.isChecked()) WasteWater.add("SULPHATES (SO4)");
+        if (cbTdsTotalDissolvedSolidsWasteWater.isChecked()) WasteWater.add("TDS (TOTAL DISSOLVED SOLIDS)");
+        if (cbTssTotalSuspendedSolidsWasteWater.isChecked()) WasteWater.add("TSS (TOTAL SUSPENDED SOLIDS)");
+
+        // Collect selected points for Concrete Mix Design
+        List<String> concreteMixDesign = new ArrayList<>();
+        if (cbWithCubeMixDesign.isChecked()) concreteMixDesign.add("WITH CUBE");
+        if (cbWithFlexurerStrengthMixDesign.isChecked()) concreteMixDesign.add("WITH FLEXURER STRENGTH");
+        if (cbWithAdmixtureMixDesign.isChecked()) concreteMixDesign.add("WITH ADMIXTURE");
+
+        // Collect selected points for Fly Ash
+        List<String> flyAsh = new ArrayList<>();
+        if (cbSpecificGravityFlyAsh.isChecked()) flyAsh.add("WITH SPECIFIC GRAVITY");
+        if (cbSoundnessFlyAsh.isChecked()) flyAsh.add("SOUNDNESS");
+        if (cbCompressiveStrengthFlyAsh.isChecked()) flyAsh.add("COMPRESSIVE STRENGTH");
+
+        // Collect selected points for Bitumen
+        List<String> Bitumen = new ArrayList<>();
+        if (cbPenetrationValueBitumen.isChecked()) Bitumen.add("PENETRATION VALUE");
+        if (cbSofteningPointBitumen.isChecked()) Bitumen.add("SOFTENING POINT");
+        if (cbDuctilityBitumen.isChecked()) Bitumen.add("DUCTILITY");
+        if (cbSpecificGravityBitumen.isChecked()) Bitumen.add("SPECIFIC GRAVITY");
+
+        // Add selected checkboxes for All Segments Checkboxes
+        if (!AggregateFine.isEmpty()) {
+            data.put("AGGREGATE FINE", AggregateFine);
+        }
+        if (!AggregateCoarse.isEmpty()) {
+            data.put("AGGREGATE COARSE", AggregateCoarse);
+        }
+        if (!Cement.isEmpty()) {
+            data.put("CEMENT", Cement);
+        }
+        if (!Steel.isEmpty()) {
+            data.put("STEEL", Steel);
+        }
+        if (!ConcCube.isEmpty()) {
+            data.put("CONC CUBE", ConcCube);
+        }
+        if (!Aac.isEmpty()) {
+            data.put("AAC", Aac);
+        }
+        if (!PaverBlock.isEmpty()) {
+            data.put("CONCRETE PAVER BLOCK", PaverBlock);
+        }
+        if (!Brick.isEmpty()) {
+            data.put("BRICK", Brick);
+        }
+        if (!Soil.isEmpty()) {
+            data.put("SOIL", Soil);
+        }
+        if (!Ndt.isEmpty()) {
+            data.put("NDT", Ndt);
+        }
+        if (!ConstWater.isEmpty()) {
+            data.put("CONST WATER", ConstWater);
+        }
+        if (!WasteWater.isEmpty()) {
+            data.put("WASTE WATER", WasteWater);
+        }
+        if (!concreteMixDesign.isEmpty()) {
+            data.put("CONCRETE MIX DESIGN", concreteMixDesign);
+        }
+        if (!flyAsh.isEmpty()) {
+            data.put("FLY ASH", flyAsh);
+        }
+        if (!Bitumen.isEmpty()) {
+            data.put("BITUMEN", Bitumen);
+        }
 
         // Store data in Firestore
         db.collection("Total Orders")
@@ -1007,8 +1212,124 @@ public class MakeOrderFragment extends Fragment {
         sampleConditionGroup.clearCheck();
         complianceStatementGroup.clearCheck();
         standardDeviationGroup.clearCheck();
-    }
 
+        //Aggregate Fine
+        finenessModulusBygradationFine.setChecked(false);
+        siltContentFine.setChecked(false);
+        specificGravityAndWaterAbsorptionFine.setChecked(false);
+        soundnessFine.setChecked(false);
+        alkaliReactivityFine.setChecked(false);
+
+        // Aggregate Coarse
+        cbImpactValueCoarse.setChecked(false);
+        SpecificGravityAndWaterAbsorptionCoarse.setChecked(false);
+        cbCrushingValueCoarse.setChecked(false);
+        cbSoundnessCyclesCoarse.setChecked(false);
+        cbFlakinessIndexAndElongationIndexCoarse.setChecked(false);
+        cbGradingOfAggregateCoarse.setChecked(false);
+        cbAbrasionValueCoarse.setChecked(false);
+        cbAlkaliReactivityCoarse.setChecked(false);
+
+        // Steel
+        cbUnitWaitSteel.setChecked(false);
+        cbEnsileTestYieldAndElogationTestSteel.setChecked(false);
+        cbBendTestSteel.setChecked(false);
+        cbRebendTestSteel.setChecked(false);
+        cbChemicalAnalysisSteel.setChecked(false);
+
+        // Brick
+        cbWaterAbsorptionBrick.setChecked(false);
+        cbDimensionTestBrick.setChecked(false);
+        cbCompressiveStrengthBrick.setChecked(false);
+        cbEfflorescenceBrick.setChecked(false);
+
+        // Soil
+        cbCBRTestUnsoakedSoil.setChecked(false);
+        cbGrainSizeAnalysisSoil.setChecked(false);
+        cbTestSoakedSoil.setChecked(false);
+        cbPlasticLimitSoil.setChecked(false);
+        cbLightCompactionTestSoil.setChecked(false);
+        cbHeavyCompactionTestSoil.setChecked(false);
+        cbFreeSwellIndexSoil.setChecked(false);
+        cbUnconfinedCompressionSoil.setChecked(false);
+        cbTriaxialTestUUSoil.setChecked(false);
+        cbTriaxialTestCUSoil.setChecked(false);
+        cbSwellingPressureSoil.setChecked(false);
+        cbSpecificGravitySoil.setChecked(false);
+        cbShrinkageLimitSoil.setChecked(false);
+        cbDirectShearSoil.setChecked(false);
+        cbPermeabilityTestSoil.setChecked(false);
+        cbRelativeDensitySoil.setChecked(false);
+        cbFieldDensityAndMoistureContentSoil.setChecked(false);
+        cbConsolidationSoil.setChecked(false);
+
+        //Cement
+        cbFinessByBlainCement.setChecked(false);
+        cbInitialSettingTimeCement.setChecked(false);
+        cbConsistencyCement.setChecked(false);
+        cbCompressiveCement.setChecked(false);
+        cbFinenessCement.setChecked(false);
+        cbSoundenessCemenet.setChecked(false);
+        cbCompressiveStrengthMortarCement.setChecked(false);
+        cbChemicalAnalysisCement.setChecked(false);
+
+        //Paver Block
+        cbCompressiveStrengthPaver.setChecked(false);
+        cbWaterAbsorptionPaver.setChecked(false);
+
+        // AAC
+        cbMeasurementOfDimensionsAac.setChecked(false);
+        cbCompressiveStrengthAac.setChecked(false);
+        cbBlocksDensityAac.setChecked(false);
+        cbWaterAbsorptionAac.setChecked(false);
+        cbDryingShrinkageAac.setChecked(false);
+        cbMoistureMovementAac.setChecked(false);
+
+        // NDT
+        cbUltrasonicPulseVelocityNDT.setChecked(false);
+        cbReboundHammerTestNDT.setChecked(false);
+
+        // ConcCube
+        cbCompressiveStrengthOfCube.setChecked(false);
+        cbCastingPreparingCubesOfGivenMixCube.setChecked(false);
+        cbFlexurerStrengthOfBeamCube.setChecked(false);
+        cbCastingPreparingBeamCube.setChecked(false);
+
+        // ConstWater
+        cbSulphatesSO4CWater.setChecked(false);
+        cbAlkalinityCWater.setChecked(false);
+        cbPHValueCWater.setChecked(false);
+        cbOrganicImpuritiesCWater.setChecked(false);
+        cbInorganicImpuritiesCWater.setChecked(false);
+        cbChlorideAsClCWater.setChecked(false);
+        cbSuspendedMatterCWater.setChecked(false);
+        cbTDSTotalDissolvedSolidsCWater.setChecked(false);
+
+        // WasteWater
+        cbChlorideAsClWasteWater.setChecked(false);
+        cbPhValueWasteWater.setChecked(false);
+        cbSulphatesSo4WasteWater.setChecked(false);
+        cbTdsTotalDissolvedSolidsWasteWater.setChecked(false);
+        cbTssTotalSuspendedSolidsWasteWater.setChecked(false);
+
+        //Mix Design
+        cbMixDesign.setChecked(false);
+        cbWithCubeMixDesign.setChecked(false);
+        cbWithFlexurerStrengthMixDesign.setChecked(false);
+        cbWithAdmixtureMixDesign.setChecked(false);
+
+        //Fly Ash
+        cbFlyAsh.setChecked(false);
+        cbSpecificGravityFlyAsh.setChecked(false);
+        cbSoundnessFlyAsh.setChecked(false);
+        cbCompressiveStrengthFlyAsh.setChecked(false);
+
+        // Bitumen
+        cbPenetrationValueBitumen.setChecked(false);
+        cbSofteningPointBitumen.setChecked(false);
+        cbDuctilityBitumen.setChecked(false);
+        cbSpecificGravityBitumen.setChecked(false);
+    }
 
     private void showError(String message) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show();
