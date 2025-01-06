@@ -9,8 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.mtc_app.R;
-import com.example.mtc_app.admin.HomeFragmentAdmin;
-import com.example.mtc_app.helpAndSupport.HelpAndSupportActivity;
+import com.example.mtc_app.customer.fragments.CustomerHomeFragment;
 import com.example.mtc_app.login.CustomerLoginActivity;
 
 public class SplashScreenActivity extends AppCompatActivity {
@@ -29,21 +28,21 @@ public class SplashScreenActivity extends AppCompatActivity {
         btnEmployee = findViewById(R.id.btn_employee);
 
         // Set click listeners for each button
-        btnAdmin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Navigate to Admin Login
-                Intent intent = new Intent(SplashScreenActivity.this, HomeFragmentAdmin.class);
-                startActivity(intent);
-            }
-        });
+//        btnAdmin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Navigate to Admin Login
+//                Intent intent = new Intent(SplashScreenActivity.this, HomeFragmentAdmin.class);
+//                startActivity(intent);
+//            }
+//        });
 
         btnCustomerRepresentative.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Replace the current activity content with HomeFragmentAdmin
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragmentContainer, new HomeFragmentAdmin()); // Replace `fragmentContainer` with your actual container ID
+                transaction.replace(R.id.fragmentContainer, new CustomerHomeFragment()); // Replace `fragmentContainer` with your actual container ID
 //                transaction.addToBackStack(null);
                 transaction.commit();
             }

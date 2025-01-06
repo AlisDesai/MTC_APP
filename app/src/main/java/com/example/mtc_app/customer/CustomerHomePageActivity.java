@@ -6,8 +6,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import com.example.mtc_app.R;
-import com.example.mtc_app.customer.fragments.HomeFragment;
-import com.example.mtc_app.customer.fragments.ProfileFragment;
+import com.example.mtc_app.customer.fragments.CustomerHomeFragment;
+import com.example.mtc_app.customer.fragments.CustomerProfileFragment;
 import com.example.mtc_app.customer.fragments.MakeOrderFragment;
 
 public class CustomerHomePageActivity extends AppCompatActivity {
@@ -28,13 +28,13 @@ public class CustomerHomePageActivity extends AppCompatActivity {
         backArrow.setOnClickListener(view -> finish()); // Finish the current activity and go back
 
         // Set default fragment (HomeFragment)
-        setFragment(new HomeFragment(), "Home Page");
+        setFragment(new CustomerHomeFragment(), "Home Page");
 
         // Navigation bar items click listeners
-        findViewById(R.id.nav_home).setOnClickListener(v -> setFragment(new HomeFragment(), "Home Page"));
+        findViewById(R.id.nav_home).setOnClickListener(v -> setFragment(new CustomerHomeFragment(), "Home Page"));
         findViewById(R.id.nav_request_order).setOnClickListener(v -> setFragment(new MakeOrderFragment(), "Make Orders"));
 //        findViewById(R.id.nav_my_orders).setOnClickListener(v -> setFragment(new MyOrdersFragment(), "My Orders"));
-        findViewById(R.id.nav_profile).setOnClickListener(v -> setFragment(new ProfileFragment(), "Profile"));
+        findViewById(R.id.nav_profile).setOnClickListener(v -> setFragment(new CustomerProfileFragment(), "Profile"));
     }
 
     private void setFragment(Fragment fragment, String title) {

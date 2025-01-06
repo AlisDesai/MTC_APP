@@ -13,16 +13,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mtc_app.R;
-import com.example.mtc_app.customer.CustomerHomePageActivity;
 import com.example.mtc_app.customer.adapter.ItemData;
 import com.example.mtc_app.customer.adapter.adapter_home;
 import com.example.mtc_app.customer.orders.CustomerOrderDetails;
-import com.example.mtc_app.helpAndSupport.HelpAndSupportActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFragment extends Fragment {
+public class CustomerHomeFragment extends Fragment {
 
     private RecyclerView homeRecyclerView;
     private adapter_home homeAdapter;
@@ -30,7 +28,7 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_home_fragment, container, false);
+        View view = inflater.inflate(R.layout.activity_customer_home_fragment, container, false);
 
         // Initialize the RecyclerView
         homeRecyclerView = view.findViewById(R.id.homeRecyclerView);

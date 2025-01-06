@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.mtc_app.customer.CustomerHomePageActivity;
-import com.example.mtc_app.customer.fragments.HomeFragment;
 import com.example.mtc_app.splashScreen.SplashScreenActivity;
 
 public class MainActivity extends AppCompatActivity {
