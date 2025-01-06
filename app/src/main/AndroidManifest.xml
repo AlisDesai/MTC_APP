@@ -13,6 +13,39 @@
         android:theme="@style/Theme.MTC_APP"
         tools:targetApi="31">
         <activity
+            android:name=".admin.AdminOrderDetail"
+            android:exported="false" />
+        <activity
+            android:name=".staff.staff_profile_page"
+            android:exported="false" />
+        <activity
+            android:name=".staff.staff_detailed_page"
+            android:exported="false" /> <!-- Example Activity Declarations -->
+        <activity
+            android:name=".admin.FilterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.LabsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.OrdersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.ManageUsersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.AdminHomePageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".cr.RepresentativeHomePageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".staff.staff_home"
+            android:exported="false" />
+        <activity
             android:name=".order.MyOrdersActivity"
             android:exported="false" />
         <activity
@@ -24,20 +57,6 @@
         <activity
             android:name=".login.CustomerLoginActivity"
             android:exported="false" />
-        <activity
-            android:name=".login.CustomerLoginActivity"
-            android:exported="false"
-            tools:ignore="DuplicateActivity" />
-        <activity
-            android:name=".splashScreen.SplashScreenActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".customer.ProfileActivity"
             android:exported="false" />
@@ -52,7 +71,17 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="false" /> <!-- Splash Screen Activity -->
+        <activity
+            android:name=".splashScreen.SplashScreenActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -9,9 +9,11 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mtc_app.R;
+import com.example.mtc_app.admin.AdminHomePageActivity;
 import com.example.mtc_app.login.CustomerLoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -24,7 +26,7 @@ import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText nameField, emailField, passwordField, phoneField, roleField;
+    private EditText nameField, emailField, passwordField, phoneField, registerField;
     private Button registerButton;
     private ProgressBar progressBar;
     private FirebaseAuth auth;
@@ -39,16 +41,16 @@ public class RegisterActivity extends AppCompatActivity {
         emailField = findViewById(R.id.emailField);
         passwordField = findViewById(R.id.passwordField);
         phoneField = findViewById(R.id.phoneField);
-        roleField = findViewById(R.id.roleField);
         registerButton = findViewById(R.id.registerButton);
         progressBar = findViewById(R.id.progressBar);
+
 
         TextView redirectToLogin = findViewById(R.id.tv_redirect_to_login);
         redirectToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Redirect to LoginActivity
-                Intent intent = new Intent(RegisterActivity.this, CustomerLoginActivity.class);
+                Intent intent = new Intent(RegisterActivity.this, AdminHomePageActivity.class);
                 startActivity(intent);
                 finish(); // Optionally finish RegisterActivity to prevent back navigation to it
             }
@@ -65,9 +67,11 @@ public class RegisterActivity extends AppCompatActivity {
         String email = emailField.getText().toString();
         String password = passwordField.getText().toString();
         String phone = phoneField.getText().toString();
-        String role = roleField.getText().toString();
 
-        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(phone) || TextUtils.isEmpty(role)) {
+        // Set role as "customer" for all registrations
+        String role = "customer";
+
+        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(phone)) {
             Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -95,7 +99,7 @@ public class RegisterActivity extends AppCompatActivity {
         user.put("name", name);
         user.put("email", email);
         user.put("phone", phone);
-        user.put("role", role);
+        user.put("role", role);  // Role is set as "customer" during registration
         user.put("created_at", createdAt);
 
         firestore.collection("users").document(userId)

@@ -56,16 +56,6 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/edit_text_background" />
 
-    <EditText
-        android:id="@+id/roleField"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Role"
-        android:inputType="text"
-        android:padding="12dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/edit_text_background" />
-
     <Button
         android:id="@+id/registerButton"
         android:layout_width="match_parent"
