@@ -125,7 +125,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mtc_app.R;
-import com.example.mtc_app.customer.CustomerHomePageActivity;
 import com.example.mtc_app.login.CustomerLoginActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

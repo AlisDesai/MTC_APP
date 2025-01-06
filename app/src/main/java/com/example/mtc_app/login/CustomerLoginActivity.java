@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mtc_app.R;
 import com.example.mtc_app.customer.*;
+import com.example.mtc_app.register.RegisterActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class CustomerLoginActivity extends AppCompatActivity {
@@ -39,7 +40,7 @@ public class CustomerLoginActivity extends AppCompatActivity {
 
         // Redirect to RegisterActivity when registerButton is clicked
         registerButton.setOnClickListener(view -> {
-            Intent intent = new Intent(CustomerLoginActivity.this, CustomerHomePageActivity.class);
+            Intent intent = new Intent(CustomerLoginActivity.this, RegisterActivity.class);
             startActivity(intent);
         });
     }
