@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="685dp"
+    android:layout_height="match_parent"
     android:background="#FFFFFF">
 
     <RelativeLayout
@@ -90,12 +90,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="mtcapp@gmail.com"
                         android:textColor="#000000"
                         android:textSize="16sp"
                         android:gravity="end" />
                 </LinearLayout>
-
 
                 <View
                     android:layout_width="match_parent"
@@ -124,7 +122,6 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Vadodara, India"
                         android:textColor="#000000"
                         android:textSize="16sp"
                         android:gravity="end" />
@@ -158,12 +155,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="9876543210"
                         android:textColor="#000000"
                         android:textSize="16sp"
                         android:gravity="end" />
                 </LinearLayout>
-
             </LinearLayout>
 
             <!-- Edit Profile and Log Out Buttons -->
@@ -197,8 +192,17 @@
                     android:textStyle="bold"
                     android:layout_gravity="center" />
             </LinearLayout>
-
-
         </LinearLayout>
+
+        <!-- Centered Loading Progress Bar -->
+        <ProgressBar
+            android:id="@+id/loading_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:indeterminate="true"
+            style="@android:style/Widget.Material.ProgressBar.Large"
+            android:layout_gravity="center" />
     </RelativeLayout>
 </ScrollView>

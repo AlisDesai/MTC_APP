@@ -50,6 +50,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Progress Bar -->
+    <FrameLayout
+        android:id="@+id/loadingContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:layout_gravity="center">
+        <ProgressBar
+            android:id="@+id/loadingProgress"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            android:backgroundTint="@android:color/transparent"
+            android:color="@color/purple"
+            style="@android:style/Widget.ProgressBar.Large"/>
+    </FrameLayout>
+
     <!-- Bottom Navigation Bar -->
     <LinearLayout
         android:id="@+id/bottom_navigation"
@@ -107,6 +126,8 @@
                 android:textColor="#FFFFFF"
                 android:textSize="12sp" />
         </LinearLayout>
+
+        <!-- Profile Icon -->
         <LinearLayout
             android:id="@+id/nav_profile"
             android:layout_width="0dp"

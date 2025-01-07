@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -18,6 +19,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.mtc_app.R;
+import com.example.mtc_app.customer.CustomerHomePageActivity;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -133,6 +135,9 @@ public class MakeOrderFragment extends Fragment {
 
         deviationInput = view.findViewById(R.id.deviation_input);
         discussionInput = view.findViewById(R.id.discussion_input);
+
+        // Add the ProgressBar
+        ProgressBar loadingProgress = view.findViewById(R.id.loading_progress);
 
         submitButton = view.findViewById(R.id.submit_button);
         submitButton.setOnClickListener(v -> {
@@ -900,6 +905,16 @@ public class MakeOrderFragment extends Fragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // Hide the progress bar when the fragment is visible
+        if (getActivity() != null) {
+            ((CustomerHomePageActivity) getActivity()).hideProgressBar();
+        }
     }
 
     private void setListeners(View view) {
