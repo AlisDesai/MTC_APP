@@ -1,0 +1,18 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Outer Rectangle (Envelope body) -->
+    <path
+        android:fillColor="#8692f7"
+        android:pathData="M2,4L22,4L22,20L2,20L2,4Z" />
+    <!-- Triangle (Envelope flap) -->
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M2,4L12,12L22,4Z" />
+    <!-- Inner Line (Separating flap from envelope) -->
+    <path
+        android:fillColor="#8692f7"
+        android:pathData="M2,20L12,12L22,20Z" />
+</vector>

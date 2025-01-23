@@ -1,0 +1,220 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/backgroundColor">
+
+    <!-- App Bar -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+
+        android:background="@drawable/top_bar_background"
+        android:elevation="4dp"
+        android:layout_alignParentTop="true">
+
+        <ImageView
+            android:id="@+id/backArrow"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_arrow_back"
+            android:contentDescription="Back"
+            android:layout_gravity="center_vertical"
+            android:tint="#FF5722"
+            android:layout_marginBottom="6dp"
+            android:layout_marginRight="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            tools:ignore="UseAppTint" />
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/topBarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order Details"
+            android:textColor="#333333"
+            android:textSize="20sp"
+            android:layout_weight="2"
+            android:textStyle="bold"
+            android:gravity="center_vertical" />
+
+        <ImageView
+            android:id="@+id/downloadReport"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:contentDescription="Back"
+            android:padding="8dp"
+            android:src="@drawable/ic_pending" />
+    </LinearLayout>
+
+
+    <!-- Scrollable Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="72dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <!-- Section: General Information -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="General Information"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:paddingVertical="8dp"
+                android:textColor="@color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divideColor" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="8dp">
+
+                <TextView
+                    android:id="@+id/customerName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Customer Name: John Doe"
+                    android:textSize="16sp"
+                    android:textColor="@color/darkGrey" />
+
+                <TextView
+                    android:id="@+id/phoneNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Phone Number: +1-234-567-8901"
+                    android:textSize="16sp"
+                    android:textColor="@color/darkGrey" />
+
+                <TextView
+                    android:id="@+id/contactInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Email: john.doe@example.com"
+                    android:textSize="16sp"
+                    android:textColor="@color/darkGrey" />
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Date: 2024-12-16"
+                    android:textSize="16sp"
+                    android:textColor="@color/darkGrey" />
+            </LinearLayout>
+
+            <!-- Section: Test Information -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Test Information"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:paddingVertical="8dp"
+                android:textColor="@color/black" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divideColor" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="8dp">
+
+                <TextView
+                    android:id="@+id/sampleName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sample Name: Soil Sample A"
+                    android:textColor="@color/darkGrey"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/quantity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Quantity: 50kg"
+                    android:textColor="@color/darkGrey"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/labJobNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lab Job No: 12345"
+                    android:textColor="@color/darkGrey"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/dispatchMode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mode of Dispatch: Courier"
+                    android:textColor="@color/darkGrey"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Status: In Progress"
+                    android:textColor="@color/darkGrey"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/testsPerformed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tests Performed: Soil pH, Moisture Content, Nutrient Levels"
+                    android:textColor="@color/darkGrey"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Buttons at the bottom -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
+
+        <Button
+            android:id="@+id/buttonUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:layout_marginEnd="16dp" />
+
+        <Button
+            android:id="@+id/buttonDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete" />
+    </LinearLayout>
+</LinearLayout>
