@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- CR Section -->
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_cr"
+            android:title="CR"/>
+        <item
+            android:id="@+id/nav_home_admin"
+            android:title="Home Page"/>
+        <item
+            android:id="@+id/nav_add_customer"
+            android:title="Add Customer"/>
+    </group>
+
+    <!-- Staff Section -->
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_staff"
+            android:title="Staff"/>
+        <item
+            android:id="@+id/nav_staff_home"
+            android:title="Home Page"/>
+        <item
+            android:id="@+id/nav_staff_profile"
+            android:title="Profile Page"/>
+    </group>
+
+    <!-- Others Section -->
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_logout"
+            android:title="Others"/>
+        <item
+            android:id="@+id/nav_other_home"
+            android:title="Home Page"/>
+        <item
+            android:id="@+id/nav_other_settings"
+            android:title="Settings"/>
+    </group>
+</menu>
