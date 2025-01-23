@@ -1,0 +1,1904 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="685dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Name and Address -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="14dp"
+            android:elevation="4dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="20dp">
+
+            <!-- Title TextView -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. NAME AND ADDRESS OF CUSTOMER"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp" />
+
+            <!-- Input Field -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/Lavender"
+                app:boxCornerRadiusTopStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusBottomEnd="16dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/customer_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Customer Name and Address"
+                    android:inputType="textMultiLine"
+                    android:textColorHint="@color/gray" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <!-- Dispatch Address Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="14dp"
+            android:elevation="4dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="20dp">
+
+            <!-- Title TextView -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2. NAME AND ADDRESS FOR DISPATCHING THE REPORT"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp" />
+
+            <!-- Input Field -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/Lavender"
+                app:boxCornerRadiusTopStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusBottomEnd="16dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/dispatch_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Dispatch Address"
+                    android:inputType="textMultiLine"
+                    android:textColorHint="@color/gray" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <!-- Contact Details Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="14dp"
+            android:elevation="4dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="20dp">
+
+            <!-- Title TextView -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3. CONTACT DETAILS"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp" />
+
+            <!-- Input Field -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/Lavender"
+                app:boxCornerRadiusTopStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusBottomEnd="16dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/mobile_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Mobile Number"
+                    android:inputType="textMultiLine"
+                    android:textColorHint="@color/gray" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <!-- email Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="14dp"
+            android:elevation="4dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="20dp">
+
+            <!-- Title TextView -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4. EMAIL ADDRESS"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp" />
+
+            <!-- Input Field -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/Lavender"
+                app:boxCornerRadiusTopStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusBottomEnd="16dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email Address"
+                    android:inputType="textMultiLine"
+                    android:textColorHint="@color/gray" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:padding="14dp"
+            android:elevation="4dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="20dp">
+
+            <ScrollView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:background="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Mode of Dispatch -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="8dp"
+                        android:text="MODE OF DISPATCH"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:id="@+id/mode_of_dispatch_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radio_post"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Post"
+                            android:textColor="@color/black" />
+
+                        <RadioButton
+                            android:id="@+id/radio_courier"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Courier"
+                            android:textColor="@color/black" />
+                    </RadioGroup>
+
+
+                    <!-- Testing Requirements -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="8dp"
+                        android:text="3. TESTING REQUIREMENTS"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:id="@+id/aggregate_fine_options_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <!-- AGGREGATE (FINE) -->
+                        <CheckBox
+                            android:id="@+id/cb_aggregate_fine"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="AGGREGATE (FINE)"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_aggregate_fine_quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter Quantity in KG's"
+                            app:boxBackgroundMode="outline"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_aggregate_fine_quantity"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- FINENESS MODULUS BY GRADATION Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AGGREGATE_fineness_modulus_bygradation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="8dp"
+                            android:text="FINENESS MODULUS BY GRADATION"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!--  SILT CONTENT Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AGGREGATE_silt_content"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="8dp"
+                            android:text="SILT CONTENT"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!-- SPECIFIC GRAVITY and WATER ABSORPTION Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AGGREGATE_specific_gravity_and_water_absorption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="8dp"
+                            android:text="SPECIFIC GRAVITY &amp; WATER ABSORPTION"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!-- SOUNDNESS Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AGGREGATE_soundness"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="8dp"
+                            android:text="SOUNDNESS"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!-- ALKALI REACTIVITY Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AGGREGATE_alkali_reactivity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="8dp"
+                            android:text="ALKALI REACTIVITY"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+
+                        <!-- AGGREGATE (COARSE) -->
+                        <CheckBox
+                            android:id="@+id/cb_aggregate_coarse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="AGGREGATE (COARSE)"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_aggregate_coarse_quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter Quantity in KG's"
+                            app:boxBackgroundMode="outline"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_aggregate_coarse_quantity"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- GRADING OF AGGREGATE Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AGGREGATE_grading_of_aggregate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="GRADING OF AGGREGATE"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!-- FLAKINESS INDEX AND ELONGATION INDEX Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AGGREGATE_flakiness_index_and_elongation_index"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="FLAKINESS INDEX AND ELONGATION INDEX"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!-- SPECIFIC GRAVITY & WATER ABSORPTION Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AGGREGATE_specific_gravity_and_water_absorption_coarse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="SPECIFIC GRAVITY &amp; WATER ABSORPTION"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!-- IMPACT VALUE Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AGGREGATE_impact_value_coarse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="IMPACT VALUE"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!-- ABRASION VALUE Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AGGREGATE_abrasion_value_coarse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="ABRASION VALUE"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!-- CRUSHING VALUE Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AGGREGATE_crushing_value_coarse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="CRUSHING VALUE"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!-- SOUNDNESS Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AGGREGATE_soundness_cycles_coarse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="SOUNDNESS (5 Cycles)"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!-- ALKALI REACTIVITY Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AGGREGATE_alkali_reactivity_coarse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="ALKALI REACTIVITY"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!-- CEMENT -->
+                        <CheckBox
+                            android:id="@+id/cb_cement"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CEMENT"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_cement_quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter Quantity in Kg's"
+                            app:boxBackgroundMode="outline"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_cement_quantity"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- Consistency Checkbox -->
+                        <CheckBox
+                            android:id="@+id/CEMENT_consistency"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="CONSISTENCY"
+                            android:textColor="@color/purple"
+                            android:visibility="gone"/>
+
+                        <!-- Initial Setting Time Checkbox -->
+                        <CheckBox
+                            android:id="@+id/CEMENT_initial_setting_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="INITIAL &amp; FINAL SETTING"
+                            android:textColor="@color/purple"
+                            android:visibility="gone"/>
+
+
+                        <!--  FINENESS BY BLAIN AIR Checkbox -->
+                        <CheckBox
+                            android:id="@+id/CEMENT_finess_by_blain"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="FINENESS BY BLAIN AIR"
+                            android:textColor="@color/purple"
+                            android:visibility="gone"/>
+
+                        <!--  SOUNDNESS Checkbox -->
+                        <CheckBox
+                            android:id="@+id/CEMENT_soundness"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="SOUNDNESS"
+                            android:textColor="@color/purple"
+                            android:visibility="gone"/>
+
+
+                        <!-- Compressive Checkbox -->
+                        <CheckBox
+                            android:id="@+id/CEMENT_compressive"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="COMPRESSIVE STRENGTH"
+                            android:textColor="@color/purple"
+                            android:visibility="gone"/>
+
+                        <!-- COMPRESSIVE STRENGTH OF CEMENT MORTAR Checkbox -->
+                        <CheckBox
+                            android:id="@+id/CEMENT_COMPRESSIVE_STRENGTH_MORTAR"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="COMPRESSIVE STRENGTH OF CEMENT MORTAR"
+                            android:textColor="@color/purple"
+                            android:visibility="gone"/>
+
+                        <!-- FINENESS BY SIEVING Checkbox -->
+                        <CheckBox
+                            android:id="@+id/CEMENT_fineness"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="FINENESS BY SIEVING"
+                            android:textColor="@color/purple"
+                            android:visibility="gone"/>
+
+                        <!-- CHEMICAL ANALYSIS Checkbox -->
+                        <CheckBox
+                            android:id="@+id/cement_chemical_analysis"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="CHEMICAL ANALYSIS"
+                            android:textColor="@color/purple"
+                            android:visibility="gone"/>
+
+                        <!-- STEEL -->
+                        <CheckBox
+                            android:id="@+id/cb_steel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="STEEL (Up to 25 MM)"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_steel_quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter Quantity Set's"
+                            app:boxBackgroundMode="outline"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- UNIT WAIT Checkbox -->
+                        <CheckBox
+                            android:id="@+id/STEEL_unit_wait"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="UNIT WAIT"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!-- TENSILE TEST, YIELD AND ELOGATION TEST Checkbox -->
+                        <CheckBox
+                            android:id="@+id/STEEL_ensile_test_yield_and_elogation_test"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="TENSILE TEST, YIELD &amp; ELOGATION TEST"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!-- BEND TEST Checkbox -->
+                        <CheckBox
+                            android:id="@+id/STEEL_bend_test"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="BEND TEST"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!-- REBEND TEST Checkbox -->
+                        <CheckBox
+                            android:id="@+id/STEEL_rebend_test"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="REBEND TEST"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!-- CHEMICAL ANALYSIS Checkbox -->
+                        <CheckBox
+                            android:id="@+id/STEEL_chemical_analysis"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="CHEMICAL ANALYSIS"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!-- CEMENT CONC.CUBE BLOCK -->
+                        <CheckBox
+                            android:id="@+id/cb_cement_cube"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CEMENT CONC.CUBE"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_cement_cube_quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter Quantity in Number's"
+                            app:boxBackgroundMode="outline"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- SCOMPRESSIVE STRENGTH OF CUBE Checkbox -->
+                        <CheckBox
+                            android:id="@+id/CUBE_compressive_strength_of_cube"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="COMPRESSIVE STRENGTH OF CUBE"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!--  CASTING & PREPARING CUBES OF GIVEN MIX Checkbox -->
+                        <CheckBox
+                            android:id="@+id/CUBE_casting_preparing_cubes_of_given_mix"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text=" CASTING &amp; PREPARING CUBES OF GIVEN MIX"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!--  FLEXURER STRENGTH OF BEAM Checkbox -->
+                        <CheckBox
+                            android:id="@+id/CUBE_flexurer_strength_of_beam"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="FLEXURER STRENGTH OF BEAM"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!--  CASTING & PREPARING BEAM Checkbox -->
+                        <CheckBox
+                            android:id="@+id/CUBE_casting_preparing_beam"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="CASTING &amp; PREPARING BEAM"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+
+                        <!-- AAC BLOCK -->
+                        <CheckBox
+                            android:id="@+id/cb_aac_block"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="AAC BLOCK"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_aac_block_quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter Quantity in Number's"
+                            app:boxBackgroundMode="outline"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- MEASUREMENT OF DIMENSIONS Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AAC_measurement_of_dimensions"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="MEASUREMENT OF DIMENSIONS"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!-- COMPRESSIVE STRENGTH Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AAC_compressive_strength"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="COMPRESSIVE STRENGTH"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!--  BLOCKS DENSITY Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AAC_blocks_density"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="BLOCKS DENSITY"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!--  WATER ABSORPTION Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AAC_water_absorption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="WATER ABSORPTION"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!-- DRYING SHRINKAGE Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AAC_drying_shrinkage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="40dp"
+                            android:layout_marginTop="8dp"
+                            android:text="DRYING SHRINKAGE"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!-- MOISTURE MOVEMENT Checkbox -->
+                        <CheckBox
+                            android:id="@+id/AAC_moisture_movement"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="MOISTURE MOVEMENT"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+
+                        <!-- CONCRETE POWER BLOCK -->
+                        <CheckBox
+                            android:id="@+id/cb_power_block"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CONCRETE POWER BLOCK"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_power_block_quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter Quantity in Number's"
+                            app:boxBackgroundMode="outline"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!--  COMPRESSIVE STRENGTH Checkbox -->
+                        <CheckBox
+                            android:id="@+id/PAVER_compressive_strength"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text=" COMPRESSIVE STRENGTH"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!-- WATER ABSORPTION Checkbox -->
+                        <CheckBox
+                            android:id="@+id/PAVER_water_absorption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="WATER ABSORPTION"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+
+                        <!-- BRICK -->
+                        <CheckBox
+                            android:id="@+id/cb_brick"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="BRICK"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_brick_quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter Quantity in Set's"
+                            app:boxBackgroundMode="outline"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- DIMENSION AND TOLERANCE Checkbox -->
+                        <CheckBox
+                            android:id="@+id/BRICK_dimension_test"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="DIMENSION &amp; TOLERANCE"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!-- COMPRESSIVE STRENGTH Checkbox -->
+                        <CheckBox
+                            android:id="@+id/BRICK_compressive_strength"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="COMPRESSIVE STRENGTH"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!-- WATER ABSORPTION Checkbox -->
+                        <CheckBox
+                            android:id="@+id/BRICK_Fine_water_absorption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="WATER ABSORPTION"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+                        <!-- EFFLORESCENCE Checkbox -->
+                        <CheckBox
+                            android:id="@+id/BRICK_efflorescence"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="EFFLORESCENCE"
+                            android:textColor="@color/purple"
+                            android:visibility="gone" />
+
+
+                        <!-- SOIL -->
+                        <CheckBox
+                            android:id="@+id/cb_soil"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SOIL"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_soil_quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="SOIL Quantity in Kg's"
+                            app:boxBackgroundMode="outline"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- GRAIN SIZE ANALYSIS Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_grain_size_analysis"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="GRAIN SIZE ANALYSIS"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- PLASTICITY INDEX Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_plastic_limit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="PLASTICITY INDEX"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- LIGHT COMPACTION Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_light_compaction_test"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="LIGHT COMPACTION"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- HEAVY COMPACTION Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_heavy_compaction_test"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="HEAVY COMPACTION"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- CBR TEST (UNSOAKED) Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_cbr_test_unsoaked"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="CBR TEST (UNSOAKED)"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- CBR TEST (SOAKED-96 HRS) Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_cbr_test_soaked"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="CBR TEST (SOAKED-96 HRS)"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- DIRECT SHEAR TEST Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_direct_shear"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="DIRECT SHEAR TEST"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- UNCONFINED COMPRESSION Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_unconfined_compression"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="UNCONFINED COMPRESSION"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- TRIAXIAL TEST (UU) Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_triaxial_test_uu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="TRIAXIAL TEST (UU)"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- TRIAXIAL TEST (CU) Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_triaxial_test_cu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="TRIAXIAL TEST (CU)"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- FREE SWELL INDEX Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_free_swell_index"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="FREE SWELL INDEX"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- CONSOLIDATION TEST (3-Jar) Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_consolidation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="CONSOLIDATION TEST (3-Jar)"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- SWELING PRESSURE Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_swelling_pressure"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="SWELING PRESSURE"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!--  SPECIFIC GRAVITY Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_specific_gravity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="SPECIFIC GRAVITY"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- SHRINKAGE LIMIT Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_shrinkage_limit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="SHRINKAGE LIMIT"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- PERMEABILITY TEST Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_permeability_test"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="PERMEABILITY TEST"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- RELATIVE DENSITY Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_relative_density"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="RELATIVE DENSITY"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!--  FIELD DENSITY AND MOISTURE CONTENT Checkbox -->
+                        <CheckBox
+                            android:id="@+id/SOIL_field_density_and_moisture_content"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="FIELD DENSITY &amp; MOISTURE CONTENT"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- NDT -->
+                        <CheckBox
+                            android:id="@+id/cb_ndt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="NDT"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_ndt_quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter Quantity in Number's"
+                            app:boxBackgroundMode="outline"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_ndt_quantity"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- Rebound Hammer Test Checkbox -->
+                        <CheckBox
+                            android:id="@+id/NDT_rebound_hammer_test"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="REBOUND HAMMER TEST IS 516"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- Ultrasonic Pulse velocity Checkbox -->
+                        <CheckBox
+                            android:id="@+id/NDT_ultrasonic_pulse_velocity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="ULTRASONIC PULSE VELOCITY IS 516"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+
+                        <!-- CONST. WATER -->
+                        <CheckBox
+                            android:id="@+id/cb_const_water"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CONST. WATER"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_const_water_quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Const Water Quantity in Kg's"
+                            app:boxBackgroundMode="outline"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- Sulphates SO4 Checkbox -->
+                        <CheckBox
+                            android:id="@+id/C_WATER_sulphates_so4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="SULPHATES SO4"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- Alkalinity Checkbox -->
+                        <CheckBox
+                            android:id="@+id/C_WATER_alkalinity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="ALKALINITY"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- PH VALUE Checkbox -->
+                        <CheckBox
+                            android:id="@+id/C_WATER_ph_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="PH VALUE"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- ORGANIC IMPURITIES Checkbox -->
+                        <CheckBox
+                            android:id="@+id/C_WATER_organic_impurities"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="ORGANIC IMPURITIES"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- INORGANIC IMPURITIES Checkbox -->
+                        <CheckBox
+                            android:id="@+id/C_WATER_inorganic_impurities"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="INORGANIC IMPURITIES"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- CHLORIDE AS CL Checkbox -->
+                        <CheckBox
+                            android:id="@+id/C_WATER_chloride_as_cl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="CHLORIDE AS CL"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- SUSPENDED MATTER Checkbox -->
+                        <CheckBox
+                            android:id="@+id/C_WATER_suspended_matter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="SUSPENDED MATTER"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- TDS (TOTAL DISSOLVED SOLIDS) Checkbox -->
+                        <CheckBox
+                            android:id="@+id/C_WATER_tds_total_dissolved_solids"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="TDS (TOTAL DISSOLVED SOLIDS)"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+
+                        <!-- WASTE WATER -->
+                        <CheckBox
+                            android:id="@+id/cb_waste_water"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="WASTE WATER"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_waste_water_quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Waste Water Quantity in Kg's"
+                            app:boxBackgroundMode="outline"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- CHLORIDE AS CL Checkbox -->
+                        <CheckBox
+                            android:id="@+id/WASTE_WATER_chloride_as_cl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="CHLORIDE AS CL"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- PH VALUE Checkbox -->
+                        <CheckBox
+                            android:id="@+id/WASTE_WATER_ph_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="PH VALUE"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- SULPHATES SO4 Checkbox -->
+                        <CheckBox
+                            android:id="@+id/WASTE_WATER_sulphates_so4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="SULPHATES SO4"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- TDS (TOTAL DISSOLVED SOLIDS) Checkbox -->
+                        <CheckBox
+                            android:id="@+id/WASTE_WATER_tds_total_dissolved_solids"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="TDS (TOTAL DISSOLVED SOLIDS)"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- TSS (TOTAL SUSPENDED SOLIDS) Checkbox -->
+                        <CheckBox
+                            android:id="@+id/WASTE_WATER_tss_total_suspended_solids"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="TSS (TOTAL SUSPENDED SOLIDS)"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+
+                        <!-- CONCRETE MIX DESIGN -->
+                        <CheckBox
+                            android:id="@+id/cb_mix_design"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CONCRETE MIX DESIGN"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_mix_water_quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter Quantity Set's"
+                            app:boxBackgroundMode="outline"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- WITH CUBE Checkbox -->
+                        <CheckBox
+                            android:id="@+id/MIX_DESIGN_with_cube"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="WITH CUBE"
+                            android:textColor="@color/Lavender"
+                            android:visibility="gone" />
+
+                        <!-- WITH FLEXURER STRENGTH Checkbox -->
+                        <CheckBox
+                            android:id="@+id/MIX_DESIGN_with_flexurer_strength"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="WITH FLEXURER STRENGTH"
+                            android:textColor="@color/Lavender"
+                            android:visibility="gone" />
+
+                        <!-- WITH ADMIXTURE Checkbox -->
+                        <CheckBox
+                            android:id="@+id/MIX_DESIGN_with_admixture"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="WITH ADMIXTURE"
+                            android:textColor="@color/Lavender"
+                            android:visibility="gone" />
+
+
+                        <!-- FLY ASH DESIGN -->
+                        <CheckBox
+                            android:id="@+id/cb_fly_ash"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="FLY ASH"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_fly_ash_quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter Quantity Set's"
+                            app:boxBackgroundMode="outline"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- SPECIFIC GRAVITY Checkbox -->
+                        <CheckBox
+                            android:id="@+id/FLY_ASH_specific_gravity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="SPECIFIC GRAVITY"
+                            android:textColor="@color/Lavender"
+                            android:visibility="gone" />
+
+                        <!-- SOUNDNESS Checkbox -->
+                        <CheckBox
+                            android:id="@+id/FLY_ASH_soundness"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="SOUNDNESS"
+                            android:textColor="@color/Lavender"
+                            android:visibility="gone" />
+
+                        <!-- COMPRESSIVE STRENGTH Checkbox -->
+                        <CheckBox
+                            android:id="@+id/FLY_ASH_compressive_strength"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="COMPRESSIVE STRENGTH"
+                            android:textColor="@color/Lavender"
+                            android:visibility="gone" />
+
+
+                        <!-- Bitumen -->
+                        <CheckBox
+                            android:id="@+id/cb_bitumen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="BITUMEN"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_bitumen_quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter Quantity in Number's"
+                            app:boxBackgroundMode="outline"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_bitumen_quantity"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!-- PENETRATION Value Checkbox -->
+                        <CheckBox
+                            android:id="@+id/BITUMEN_penetration_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="PENETRATION VALUE"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- DUCTILITY Checkbox -->
+                        <CheckBox
+                            android:id="@+id/BITUMEN_ductility"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="DUCTILITY"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- SOFTNING POINT Checkbox -->
+                        <CheckBox
+                            android:id="@+id/BITUMEN_softening_point"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="SOFTNING POINT"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+                        <!-- SPECIFIC GRAVITY Checkbox -->
+                        <CheckBox
+                            android:id="@+id/BITUMEN_specific_gravity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:text="SPECIFIC GRAVITY"
+                            android:textColor="@color/errorColor"
+                            android:visibility="gone" />
+
+
+                        <!-- Total Price Display -->
+                        <TextView
+                            android:id="@+id/tv_total_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:layout_gravity="center"
+                            android:text="Total Price: 0 /- Rs"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:background="@drawable/rounded_background"
+                            android:padding="8dp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="8dp"
+                        android:text="3. ADDITIONAL TESTING REQUIREMENTS"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+            </ScrollView>
+
+            <ScrollView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Terms and Conditions Section -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Terms and Conditions of Testing"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="8dp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/Lavender">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/terms_and_conditions"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Details"
+                            android:inputType="text"
+                            android:textColorHint="@color/gray" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Points Section -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1. Method of testing capability and resources acceptable"
+                        android:textColor="@color/black"
+                        android:layout_marginBottom="8dp" />
+
+                    <CheckBox
+                        android:id="@+id/OnemethedOfTEsting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2. Testing services requested may please be carried out"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp" />
+
+                    <CheckBox
+                        android:id="@+id/TwoTestingService"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3. Terms and Conditions of Testing acceptable as per review remarks"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp" />
+
+                    <CheckBox
+                        android:id="@+id/ThreeTermsAndCondition"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4. Sample – Sealed / Open"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp" />
+
+                    <RadioGroup
+                        android:id="@+id/sample_condition_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sealed" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Open" />
+                    </RadioGroup>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5. Do you Require Statement of Compliance on Test Report ?"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp" />
+
+                    <RadioGroup
+                        android:id="@+id/compliance_statement_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="YES" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="NO" />
+                    </RadioGroup>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="6. Any deviation in the standard test Method YES / NO"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp" />
+
+                    <RadioGroup
+                        android:id="@+id/standard_deviation_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radio_yes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="YES" />
+
+                        <RadioButton
+                            android:id="@+id/radio_no"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="NO" />
+                    </RadioGroup>
+
+                    <TextView
+                        android:id="@+id/radio_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7. If Yes, please detail the deviation and approve:"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="4dp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/deviation_input_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/Lavender">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/deviation_input"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Detail Deviation"
+                            android:inputType="text"
+                            android:textColorHint="@color/gray" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- New Section: Review Remarks -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Review Remarks:"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="8dp" />
+
+                    <!-- Review Remark 1 -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1. Requirements defined and understood"
+                        android:textColor="@color/black"
+                        android:layout_marginBottom="4dp" />
+
+                    <RadioGroup
+                        android:id="@+id/radio_group_remark1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radio_remark1_yes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="YES" />
+
+                        <RadioButton
+                            android:id="@+id/radio_remark1_no"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="NO" />
+                    </RadioGroup>
+
+                    <!-- Review Remark 2 -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2. Capability and Resources available"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="4dp" />
+
+                    <RadioGroup
+                        android:id="@+id/radio_group_remark2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radio_remark2_yes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="YES" />
+
+                        <RadioButton
+                            android:id="@+id/radio_remark2_no"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="NO" />
+                    </RadioGroup>
+
+                    <!-- Review Remark 3 -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3. Condition of Sample Received"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="4dp" />
+
+                    <RadioGroup
+                        android:id="@+id/radio_group_remark3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radio_sample_ok"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="OK" />
+
+                        <RadioButton
+                            android:id="@+id/radio_remark3_sealed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SEALED" />
+
+                        <RadioButton
+                            android:id="@+id/radio_remark3_open"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="OPEN" />
+                    </RadioGroup>
+
+                    <!-- Review Remark 4 -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4. Discussion with Customer, if any:"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="4dp" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/discussion_input_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/Lavender">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/discussion_input"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Details of Discussion"
+                            android:inputType="text"
+                            android:textColorHint="@color/gray" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+
+
+        <!-- Submit Button -->
+        <Button
+            android:layout_width="match_parent"
+            android:id="@+id/submit_button"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/Lavender"
+            android:text="Submit"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:elevation="4dp"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+
+</ScrollView>
