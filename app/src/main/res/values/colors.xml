@@ -7,4 +7,33 @@
     <color name="white">#FFFFFF</color> <!-- White -->
     <color name="purple">#9C27B0</color> <!-- Purple -->
     <color name="light_purple">#D1C4E9</color> <!-- Light Purple -->
+    <color name="lavender">#8692f7</color>
+    <color name="teal_200">#F3F4FF</color>
+    <color name="teal_700">#0B3312</color>
+    <color name="Lavender">#8692f7</color>
+
+
+    <!-- Background Colors -->
+    <color name="backgroundColor">#F5F5F5</color> <!-- Light Background -->
+    <color name="appBarColor">#6200EE</color> <!-- AppBar Background -->
+
+    <!-- Divider Colors -->
+    <color name="divideColor">#D6D6D6</color> <!-- Tag Divider Color -->
+
+    <!-- Button Colors -->
+    <color name="secondaryColor">#54FFFFFF</color> <!-- Secondary Button Background -->
+
+    <!-- Text Colors -->
+    <color name="darkGrey">#212121</color> <!-- Dark gray for titles -->
+    <color name="lightGrey">#757575</color> <!-- Lighter gray for subtitles -->
+
+    <!-- Additional Colors -->
+    <color name="halfTransparentBackground">#55F0EEE2</color> <!-- Half Transparent Background -->
+
+    <!-- Neutral Tones -->
+    <color name="neutralLight">#E0E0E0</color> <!-- Light Neutral -->
+    <color name="neutralDark">#616161</color> <!-- Dark Neutral -->
+
+    <color name="gray">#9E9E9E</color> <!-- Gray -->
+
 </resources>

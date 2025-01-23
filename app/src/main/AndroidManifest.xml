@@ -16,40 +16,22 @@
             android:name=".customer.profile.EditProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.AdminHomePage"
+            android:name=".admin.AdminHomePageActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.CustomerDetails"
+            android:name=".admin.AdminOrderDetail"
             android:exported="false" />
         <activity
-            android:name=".admin.HomeFragmentAdmin"
+            android:name=".staff.staff_profile_page"
             android:exported="false" />
         <activity
-            android:name=".customer.orders.CustomerOrderDetails"
+            android:name=".staff.staff_detailed_page"
+            android:exported="false" /> <!-- Example Activity Declarations -->
+        <activity
+            android:name=".cr.RepresentativeHomePageActivity"
             android:exported="false" />
         <activity
-            android:name=".customer.CustomerOrderDetails"
-            android:exported="false" />
-        <activity
-            android:name=".customer.fragments.CustomerProfileFragment"
-            android:exported="false" />
-        <activity
-            android:name=".customer.fragments.MyOrdersFragment"
-            android:exported="false" />
-        <activity
-            android:name=".customer.fragments.MakeOrderFragment"
-            android:exported="false" />
-        <activity
-            android:name=".customer.fragments.CustomerHomeFragment"
-            android:exported="false" />
-        <activity
-            android:name=".helpAndSupport.HelpAndSupportActivity"
-            android:exported="false" />
-        <activity
-            android:name=".order.MyOrdersActivity"
-            android:exported="false" />
-        <activity
-            android:name=".order.RequestOrderActivity"
+            android:name=".staff.staff_home"
             android:exported="false" />
         <activity
             android:name=".customer.CustomerHomePageActivity"
@@ -58,9 +40,20 @@
             android:name=".login.CustomerLoginActivity"
             android:exported="false" />
         <activity
-            android:name=".login.CustomerLoginActivity"
-            android:exported="false"
-            tools:ignore="DuplicateActivity" />
+            android:name=".register.RegisterActivity"
+            android:exported="true" />
+        <activity
+            android:name=".customer.orders.CustomerOrderDetails"
+            android:exported="false" />
+        <activity
+            android:name=".helpAndSupport.HelpAndSupportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customerRepresentative.CrMain"
+            android:exported="true" />
         <activity
             android:name=".splashScreen.SplashScreenActivity"
             android:exported="true"
@@ -71,24 +64,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".customer.ProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".customer.ViewResultsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".customer.AddMaterialsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".register.RegisterActivity"
-            android:exported="true" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".customerRepresentative.CrMain"
-            android:exported="true" />
     </application>
 
 </manifest>

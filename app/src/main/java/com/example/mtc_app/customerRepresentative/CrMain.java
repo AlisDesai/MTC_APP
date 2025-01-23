@@ -42,23 +42,23 @@ public class CrMain extends AppCompatActivity {
 
         // Load the default fragment on first run
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new HomeFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new CRHomeFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_home);
         }
 
-        replaceFragment(new HomeFragment());
+        replaceFragment(new CRHomeFragment());
 
         // Set up BottomNavigationView
         bottomNavigationView.setBackground(null); // Remove background for FAB overlap
         bottomNavigationView.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.home) {
-                replaceFragment(new HomeFragment());
+                replaceFragment(new CRHomeFragment());
 //            } else if (item.getItemId() == R.id.addcustomer) {
 //                replaceFragment(new AddCustomer());
 //            } else if (item.getItemId() == R.id.customerdetails) {
 //                replaceFragment(new CustomerDetails());
             } else if (item.getItemId() == R.id.profile) {
-                replaceFragment(new Profile());
+                replaceFragment(new CRProfile());
             } else {
                 return false;
             }

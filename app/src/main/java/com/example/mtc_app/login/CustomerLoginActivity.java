@@ -16,6 +16,7 @@ import com.example.mtc_app.R;
 import com.example.mtc_app.admin.AdminHomePageActivity;
 import com.example.mtc_app.cr.RepresentativeHomePageActivity;
 import com.example.mtc_app.customer.CustomerHomePageActivity;
+import com.example.mtc_app.customerRepresentative.CrMain;
 import com.example.mtc_app.register.RegisterActivity;
 import com.example.mtc_app.staff.staff_home;
 import com.google.firebase.auth.FirebaseAuth;
@@ -111,8 +112,8 @@ public class CustomerLoginActivity extends AppCompatActivity {
             case "staff":
                 intent = new Intent(this, staff_home.class);
                 break;
-            case "customer representative":
-                intent = new Intent(this, RepresentativeHomePageActivity.class);
+            case "cr":
+                intent = new Intent(this, CrMain.class);
                 break;
             default:
                 Toast.makeText(this, "Unknown role: " + role, Toast.LENGTH_SHORT).show();

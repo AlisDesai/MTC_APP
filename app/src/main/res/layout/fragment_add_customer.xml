@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         style="@style/loginHeader"
         android:text="Add Customer"
-        android:layout_marginTop="@dimen/loginViewsMargin"/>
+        android:layout_marginTop="@dimen/loginViewsMargin" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputName"
@@ -29,7 +29,6 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextName"
             style="@style/modifiedEditText"
-
             android:hint="@string/login_name_hint"
             android:inputType="textPersonName"
             android:maxLines="1" />
@@ -74,14 +73,35 @@
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- Role Field -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputRole"
+        style="@style/parent"
+        android:layout_marginTop="@dimen/loginViewsMargin">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextRole"
+            style="@style/modifiedEditText"
+            android:hint="Role"
+            android:inputType="text"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Signup Button -->
     <Button
-        android:id="@+id/cirLoginButton"
+        android:id="@+id/addCustomerButton"
         style="@style/loginButton"
-        android:text="Signup"
+        android:text="Add"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/loginViewsMargin"/>
+        android:layout_marginTop="@dimen/loginViewsMargin" />
 
-
+    <!-- Progress Bar -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/loginViewsMargin" />
 
 </LinearLayout>
