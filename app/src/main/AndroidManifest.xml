@@ -46,9 +46,6 @@
             android:name=".register.RegisterActivity"
             android:exported="true" />
         <activity
-            android:name=".customer.orders.CustomerOrderDetails"
-            android:exported="false" />
-        <activity
             android:name=".helpAndSupport.HelpAndSupportActivity"
             android:exported="false" />
         <activity

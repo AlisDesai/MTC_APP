@@ -11,6 +11,12 @@
     <color name="teal_200">#F3F4FF</color>
     <color name="teal_700">#0B3312</color>
     <color name="Lavender">#8692f7</color>
+    <color name="light_gray">#F5F5F5</color>
+    <color name="darker_gray">#757575</color>
+    <color name="holo_red_dark">#D32F2F</color>
+    <color name="holo_green_dark">#388E3C</color>
+    <color name="holo_blue_dark">#1976D2</color>
+    <color name="holo_orange_dark">#F57C00</color>
 
 
     <!-- Background Colors -->
