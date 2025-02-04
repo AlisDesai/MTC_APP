@@ -11,6 +11,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.mtc_app.R;
 import com.example.mtc_app.customer.models.Order;
+import com.example.mtc_app.customer.orders.CustomerOrderDetails;
 import com.google.android.material.button.MaterialButton;
 import java.util.List;
 
@@ -34,22 +35,18 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
     public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
         Order order = orderList.get(position);
 
-        // ✅ Ensure values are not null to avoid crashes
         String status = order.getStatus() != null ? order.getStatus() : "Unknown";
         String dispatchMode = order.getDispatchMode() != null ? order.getDispatchMode() : "N/A";
         String date = order.getDate() != null ? order.getDate() : "N/A";
         String segment = order.getSegment() != null ? order.getSegment() : "N/A";
-        int price = order.getPrice(); // No need for null check
+        int price = order.getPrice();
 
-
-        // ✅ Set text safely
         holder.orderStatus.setText("Status: " + status);
         holder.dispatchMode.setText("Dispatch Mode: " + dispatchMode);
         holder.orderDate.setText("Date: " + date);
         holder.segment.setText("Segment: " + segment);
         holder.price.setText("Total Price: " + price);
 
-        // ✅ Handle different status colors
         if ("Submitted".equalsIgnoreCase(status)) {
             holder.orderStatus.setTextColor(holder.itemView.getContext().getResources().getColor(android.R.color.holo_green_dark));
         } else if ("Pending".equalsIgnoreCase(status)) {
@@ -60,12 +57,16 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
             holder.orderStatus.setTextColor(holder.itemView.getContext().getResources().getColor(android.R.color.darker_gray));
         }
 
-//         ✅ Handle click on order details button
-//        holder.orderDetailsButton.setOnClickListener(v -> {
-//            Intent intent = new Intent(context, OrderDetailsActivity.class);
-//            intent.putExtra("order_id", order.getId()); // Pass order ID
-//            context.startActivity(intent);
-//        });
+        // ✅ Handle click on order details button
+        holder.orderDetailsButton.setOnClickListener(v -> {
+            Intent intent = new Intent(context, CustomerOrderDetails.class);
+            intent.putExtra("orderStatus", order.getStatus());
+            intent.putExtra("dispatchMode", order.getDispatchMode());  // ✅ Correct key name
+            intent.putExtra("orderDate", order.getDate());
+            intent.putExtra("segment", order.getSegment());  // ✅ Correct key name
+            intent.putExtra("price", String.valueOf(order.getPrice()));
+            context.startActivity(intent);
+        });
     }
 
     @Override
@@ -73,14 +74,13 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         return orderList.size();
     }
 
-    // ✅ Search filter method (update filtered list)
     public void updateList(List<Order> newList) {
         orderList = newList;
         notifyDataSetChanged();
     }
 
     static class OrderViewHolder extends RecyclerView.ViewHolder {
-        TextView orderStatus, dispatchMode, orderDate, segment , price;
+        TextView orderStatus, dispatchMode, orderDate, segment, price;
         MaterialButton orderDetailsButton;
         CardView cardView;
 

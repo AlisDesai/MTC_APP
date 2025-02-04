@@ -27,13 +27,22 @@ public class CustomerOrderDetails extends AppCompatActivity {
 
         Intent intent = getIntent();
         if (intent != null) {
-            orderStatus.setText("Status: " + intent.getStringExtra("orderStatus"));
-            dispatchMode.setText("Dispatch Mode: " + intent.getStringExtra("dispatchMode"));
-            orderDate.setText("Order Date: " + intent.getStringExtra("orderDate"));
-            segment.setText("Segment: " + intent.getStringExtra("segment"));
-            price.setText("Price: " + intent.getStringExtra("price"));
+            // ✅ Check for null values and set default values if missing
+            String status = intent.getStringExtra("orderStatus") != null ? intent.getStringExtra("orderStatus") : "Unknown";
+            String dispatch = intent.getStringExtra("dispatchMode") != null ? intent.getStringExtra("dispatchMode") : "Not Available";
+            String date = intent.getStringExtra("orderDate") != null ? intent.getStringExtra("orderDate") : "N/A";
+            String seg = intent.getStringExtra("segment") != null ? intent.getStringExtra("segment") : "Not Specified";
+            String priceValue = intent.getStringExtra("price") != null ? intent.getStringExtra("price") : "0";
+
+            orderStatus.setText("Status: " + status);
+            dispatchMode.setText("Dispatch Mode: " + dispatch);
+            orderDate.setText("Order Date: " + date);
+            segment.setText("Segment: " + seg);
+            price.setText("Price: " + priceValue);
         }
 
         backButton.setOnClickListener(v -> finish());
     }
 }
+
+
