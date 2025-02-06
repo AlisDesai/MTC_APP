@@ -22,7 +22,6 @@ public class CustomerDetails extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_order_details, container, false);
     }
 
     @Override
@@ -30,7 +29,6 @@ public class CustomerDetails extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         // Handle "Order Details" button click
-        MaterialButton orderDetailsButton = view.findViewById(R.id.orderDetailsButton1);
         if (orderDetailsButton != null) {
             orderDetailsButton.setOnClickListener(v -> {
                 Fragment orderDetailsFragment = new OrderDetails();

@@ -8,7 +8,6 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mtc_app.R;
-import com.example.mtc_app.customer.CustomerHomePageActivity;
 import com.example.mtc_app.login.CustomerLoginActivity;
 
 public class SplashScreenActivity extends AppCompatActivity {
