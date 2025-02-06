@@ -1,12 +1,12 @@
 package com.example.mtc_app.customer.models;
 
-public class Order {
+public class CustomerHomePageOrder {
     private String status, dispatchMode, date, segment;
     private int price;
 
-    public Order() { } // Required for Firestore
+    public CustomerHomePageOrder() { } // Required for Firestore
 
-    public Order(String status, String dispatchMode, String date, String segment , int price) {
+    public CustomerHomePageOrder(String status, String dispatchMode, String date, String segment , int price) {
         this.status = status;
         this.dispatchMode = dispatchMode;
         this.date = date;

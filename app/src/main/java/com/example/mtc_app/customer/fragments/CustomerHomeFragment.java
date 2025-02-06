@@ -14,8 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mtc_app.R;
-import com.example.mtc_app.customer.adapters.OrderAdapter;
-import com.example.mtc_app.customer.models.Order;
+import com.example.mtc_app.customer.adapters.CustomerOrderAdapter;
+import com.example.mtc_app.customer.models.CustomerHomePageOrder;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -29,8 +29,8 @@ public class CustomerHomeFragment extends Fragment {
     private FirebaseAuth auth;
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
-    private OrderAdapter orderAdapter;
-    private List<Order> orderList = new ArrayList<>();
+    private CustomerOrderAdapter customerOrderAdapter;
+    private List<CustomerHomePageOrder> orderList = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -49,8 +49,8 @@ public class CustomerHomeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         // Fix here: Pass Context (getContext()) along with the List<Order>
-        orderAdapter = new OrderAdapter(getContext(), orderList);
-        recyclerView.setAdapter(orderAdapter);
+        customerOrderAdapter = new CustomerOrderAdapter(getContext(), orderList);
+        recyclerView.setAdapter(customerOrderAdapter);
 
         fetchOrders();
     }
@@ -75,7 +75,7 @@ public class CustomerHomeFragment extends Fragment {
                             Toast.makeText(getContext(), "No orders found", Toast.LENGTH_SHORT).show();
                         } else {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                Order order = new Order(
+                                CustomerHomePageOrder order = new CustomerHomePageOrder(
                                         document.getString("status"),
                                         document.getString("mode Of Dispatch"),
                                         document.getString("created_at"),
@@ -84,7 +84,7 @@ public class CustomerHomeFragment extends Fragment {
                                 );
                                 orderList.add(order);
                             }
-                            orderAdapter.notifyDataSetChanged();
+                            customerOrderAdapter.notifyDataSetChanged();
                         }
                     } else {
                         Toast.makeText(getContext(), "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();

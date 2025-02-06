@@ -10,16 +10,16 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.mtc_app.R;
-import com.example.mtc_app.customer.models.Order;
+import com.example.mtc_app.customer.models.CustomerHomePageOrder;
 import com.example.mtc_app.customer.orders.CustomerOrderDetails;
 import com.google.android.material.button.MaterialButton;
 import java.util.List;
 
-public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHolder> {
-    private List<Order> orderList;
+public class CustomerOrderAdapter extends RecyclerView.Adapter<CustomerOrderAdapter.OrderViewHolder> {
+    private List<CustomerHomePageOrder> orderList;
     private Context context;
 
-    public OrderAdapter(Context context, List<Order> orderList) {
+    public CustomerOrderAdapter(Context context, List<CustomerHomePageOrder> orderList) {
         this.context = context;
         this.orderList = orderList;
     }
@@ -33,7 +33,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
 
     @Override
     public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
-        Order order = orderList.get(position);
+        CustomerHomePageOrder order = orderList.get(position);
 
         String status = order.getStatus() != null ? order.getStatus() : "Unknown";
         String dispatchMode = order.getDispatchMode() != null ? order.getDispatchMode() : "N/A";
@@ -74,7 +74,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         return orderList.size();
     }
 
-    public void updateList(List<Order> newList) {
+    public void updateList(List<CustomerHomePageOrder> newList) {
         orderList = newList;
         notifyDataSetChanged();
     }
