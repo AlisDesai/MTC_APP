@@ -1,269 +1,218 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundColor"
-    tools:context=".staff.staff_profile_page">
+    android:background="#FFFFFF">
 
-    <!-- Profile Header -->
-    <LinearLayout
-        android:id="@+id/profileHeader"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:padding="16dp"
-        android:background="@color/primaryColor"
-        android:elevation="4dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <!-- Profile Image -->
-        <ImageView
-            android:id="@+id/profileImage"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:src="@drawable/cust_profile"
-            android:contentDescription="Profile Image"
-            android:padding="8dp"
-            android:layout_marginTop="12dp" />
-
-        <!-- User Name -->
-        <TextView
-            android:id="@+id/userName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Amir Asadi"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:layout_marginTop="12dp"
-            android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@id/profileImage" />
-
-        <!-- User Title -->
-        <TextView
-            android:id="@+id/userTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Soil"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:layout_marginTop="4dp"
-            android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@id/userName" />
-    </LinearLayout>
-
-    <!-- Profile Details Section -->
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:orientation="vertical"
-        android:padding="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/profileHeader">
+        android:layout_height="wrap_content">
 
-        <!-- Email Section -->
+        <!-- Oval Background (at the back) -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:background="@drawable/oval_background" />
+
+        <!-- Profile Content (on top) -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="90dp"
+            android:paddingTop="16dp">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Email"
-                android:textColor="@color/darkGrey"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@id/emailValue"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <TextView
-                android:id="@+id/emailValue"
+            <!-- Profile Image with Edit Icon -->
+            <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="mail.amirasadi@gmail.com"
-                android:textColor="@color/primaryColor"
-                android:textSize="16sp" />
+                android:layout_gravity="center">
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="8dp"
-                android:contentDescription="Arrow"
-                android:src="@drawable/ic_chevron_right"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/emailValue" />
-        </LinearLayout>
+                <ImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/rounded_image_background"
+                    android:contentDescription="Profile Image" />
 
-        <!-- Phone Number Section -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+                <ImageView
+                    android:id="@+id/edit_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="bottom|end"
+                    android:background="@drawable/rounded_edit_icon"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_edit"
+                    android:contentDescription="Edit Profile" />
+            </FrameLayout>
 
+            <!-- Username -->
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Phone number"
-                android:textColor="@color/darkGrey"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@id/phoneValue"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <TextView
-                android:id="@+id/phoneValue"
+                android:id="@+id/username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0911***4504"
-                android:textColor="@color/primaryColor"
-                android:textSize="16sp" />
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="8dp"
-                android:contentDescription="Arrow"
-                android:src="@drawable/ic_chevron_right"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/phoneValue" />
-        </LinearLayout>
-
-        <!-- Address Section -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:text="Staff_name"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Address"
-                android:textColor="@color/darkGrey"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@id/addressValue"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <TextView
-                android:id="@+id/addressValue"
+                android:id="@+id/user_handle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Canada, Montreal"
-                android:textColor="@color/primaryColor"
-                android:textSize="16sp" />
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"
+                android:text="Staff"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="8dp"
-                android:contentDescription="Arrow"
-                android:src="@drawable/ic_chevron_right"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/addressValue" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <!-- Profile Actions Section -->
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-        <!-- Change Password Section -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <TextView
-                android:layout_width="0dp"
+            <!-- Rounded Information Box -->
+            <LinearLayout
+                android:layout_width="370dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Change Password"
-                android:textColor="@color/darkGrey"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@id/changePasswordArrow"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_background"
+                android:orientation="vertical"
+                android:padding="25dp"
+                android:layout_gravity="center">
 
-            <ImageView
-                android:id="@+id/changePasswordArrow"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:contentDescription="Arrow"
-                android:src="@drawable/ic_chevron_right"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/changePasswordArrow" />
-        </LinearLayout>
+                <!-- Email -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="25dp">
 
-        <!-- Help Section -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email"
+                        android:textColor="@color/Lavender"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="start" />
 
-            <TextView
-                android:layout_width="0dp"
+                    <TextView
+                        android:id="@+id/emailValue"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:gravity="end" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#CCCCCC" />
+
+                <!-- Address -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="25dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Address"
+                        android:textColor="@color/Lavender"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="start" />
+
+                    <TextView
+                        android:id="@+id/addressValue"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:gravity="end" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#CCCCCC" />
+
+                <!-- Phone -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="25dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Phone"
+                        android:textColor="@color/Lavender"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="start" />
+
+                    <TextView
+                        android:id="@+id/phoneValue"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:gravity="end" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Edit Profile and Log Out Buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Help"
-                android:textColor="@color/darkGrey"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@id/helpArrow"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:orientation="horizontal"
+                android:layout_marginTop="25dp"
+                android:gravity="center">
 
-            <ImageView
-                android:id="@+id/helpArrow"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:contentDescription="Arrow"
-                android:src="@drawable/ic_chevron_right"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/helpArrow" />
+                <Button
+                    android:id="@+id/edit_profile_button"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/Lavender"
+                    android:padding="12dp"
+                    android:text="Edit Profile"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp" />
+
+                <Button
+                    android:id="@+id/btnLogout"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/Lavender"
+                    android:padding="12dp"
+                    android:text="Log Out"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:layout_gravity="center" />
+            </LinearLayout>
         </LinearLayout>
 
-        <!-- Logout Section as Rounded Button -->
-        <Button
-            android:id="@+id/btnLogout"
+        <!-- Centered Loading Progress Bar -->
+        <ProgressBar
+            android:id="@+id/loading_progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Logout"
-            android:textColor="@android:color/white"
-            android:textSize="16sp"
-            android:padding="12dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:background="@drawable/button_rounded" />
-
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:indeterminate="true"
+            style="@android:style/Widget.Material.ProgressBar.Large"
+            android:layout_gravity="center" />
+    </RelativeLayout>
+</ScrollView>

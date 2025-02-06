@@ -2,6 +2,7 @@
 package com.example.mtc_app.login;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -46,6 +47,17 @@ public class CustomerLoginActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
 
+        // Check if user is already logged in
+        SharedPreferences sharedPreferences = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
+        boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
+
+        if (isLoggedIn) {
+            // Redirect to the appropriate role-based page without showing the login form
+            String userRole = sharedPreferences.getString("userRole", "");
+            redirectToRoleBasedPage(userRole);
+            return;
+        }
+
         loginButton.setOnClickListener(view -> loginUser());
         registerButton.setOnClickListener(view -> {
             Intent intent = new Intent(CustomerLoginActivity.this, RegisterActivity.class);
@@ -54,8 +66,8 @@ public class CustomerLoginActivity extends AppCompatActivity {
     }
 
     private void loginUser() {
-        String email = emailField.getText().toString();
-        String password = passwordField.getText().toString();
+        String email = emailField.getText().toString().trim();
+        String password = passwordField.getText().toString().trim();
 
         if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
             Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();
@@ -85,7 +97,13 @@ public class CustomerLoginActivity extends AppCompatActivity {
                         DocumentSnapshot document = task.getResult();
                         if (document != null && document.exists()) {
                             String role = document.getString("role");
-                            redirectToRoleBasedPage(role);
+                            if (role != null) {
+                                saveUserRoleInPreferences(role);
+                                redirectToRoleBasedPage(role);
+                            } else {
+                                Toast.makeText(this, "Role is missing for this user.", Toast.LENGTH_SHORT).show();
+                            }
+//                            redirectToRoleBasedPage(role);
                         } else {
                             Toast.makeText(this, "User role not found.", Toast.LENGTH_SHORT).show();
                         }
@@ -95,6 +113,14 @@ public class CustomerLoginActivity extends AppCompatActivity {
                 });
     }
 
+    private void saveUserRoleInPreferences(String role) {
+        // Save login status and user role to SharedPreferences
+        getSharedPreferences("MyAppPrefs", MODE_PRIVATE)
+                .edit()
+                .putBoolean("isLoggedIn", true)
+                .putString("userRole", role)
+                .apply();
+    }
     private void redirectToRoleBasedPage(String role) {
         if (role == null) {
             Toast.makeText(this, "Invalid role.", Toast.LENGTH_SHORT).show();
