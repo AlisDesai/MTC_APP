@@ -99,7 +99,7 @@ public class AddCustomer extends Fragment {
         customer.put("created_at", createdAt);
 
         // Save to Firestore
-        firestore.collection("customers").document(userId)
+        firestore.collection("users").document(userId)
                 .set(customer)
                 .addOnSuccessListener(aVoid -> {
                     progressBar.setVisibility(View.GONE);
