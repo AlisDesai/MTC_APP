@@ -47,9 +47,13 @@ dependencies {
     implementation("com.google.firebase:firebase-storage-ktx")
 
     // Google Play Services
+    implementation ("com.google.android.gms:play-services-auth:20.7.0") // Update version as needed
     implementation("com.google.android.gms:play-services-base:18.2.0") // Base dependency
     implementation("com.google.android.gms:play-services-auth:20.6.0") // Authentication
     implementation("com.google.android.gms:play-services-maps:18.1.0") // Maps (if needed)
+    implementation ("com.google.android.gms:play-services-base:latest_version")
+    implementation ("com.google.android.gms:play-services-maps:latest_version") // Example for maps
+
 
     // Testing
     testImplementation(libs.junit)

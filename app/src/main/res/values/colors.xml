@@ -36,4 +36,7 @@
 
     <color name="gray">#9E9E9E</color> <!-- Gray -->
 
+    <color name="blue">#4A90E2</color>
+    <color name="nav_item_color">#000000</color>
+
 </resources>
