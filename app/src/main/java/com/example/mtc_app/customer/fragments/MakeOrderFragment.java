@@ -24,9 +24,12 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class MakeOrderFragment extends Fragment {
@@ -927,6 +930,9 @@ public class MakeOrderFragment extends Fragment {
         isSubmitting = true;
         submitButton.setEnabled(false);
 
+        // Get current date and time
+        String createdAt = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+
         // Collect data from checkboxes
         boolean isCheckbox1Checked = cbOnemethedOfTEsting.isChecked();
         boolean isCheckbox2Checked = cbTwoTestingService.isChecked();
@@ -978,6 +984,7 @@ public class MakeOrderFragment extends Fragment {
         data.put("compliance Statement", complianceStatement);
         data.put("standard Deviation", standardDeviation);
         data.put("Total Price", totalPrice);
+        data.put("created_at", createdAt);
 
 
         // Collect additional data for points (checkboxes)

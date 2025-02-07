@@ -1,61 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/light_gray"
+    tools:context=".customer.fragments.CustomerHomeFragment">
 
-    <!-- Search and Filter Section -->
-    <LinearLayout
-        android:id="@+id/searchFilterContainer"
-        android:layout_width="0dp"
+    <!-- 🔍 Centered Search Bar -->
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
+        android:queryHint="Search orders..."
+        android:background="@drawable/search_bar_bg"
+        android:elevation="6dp"
+        android:padding="12dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/progressBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintVertical_chainStyle="packed"
+        app:queryBackground="@android:color/transparent"
+        app:iconifiedByDefault="false"/>
 
-        <!-- Search Bar -->
-        <EditText
-            android:id="@+id/searchBar"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:hint="Search..."
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:background="@drawable/search_bar_background"
-            android:drawableStart="@drawable/ic_search"
-            android:drawablePadding="8dp"
-            android:inputType="text"
-            android:gravity="center_vertical" />
 
-        <!-- Filter Button -->
-        <ImageView
-            android:id="@+id/filterButton"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_filter"
-            android:contentDescription="Filter Options"
-            android:layout_marginStart="8dp"
-            android:background="@drawable/circle_background"
-            android:padding="8dp" />
-    </LinearLayout>
+    <!-- 🔄 Progress Bar -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/searchView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/recyclerView"
+        android:layout_marginTop="12dp"/>
 
-    <!-- Home Screen RecyclerView -->
+    <!-- 📜 RecyclerView (List of Orders) -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/homeRecyclerView"
-        android:layout_width="0dp"
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:clipToPadding="false"
         android:padding="8dp"
         android:scrollbars="vertical"
-        app:layout_constraintTop_toBottomOf="@id/searchFilterContainer"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        app:layout_constraintTop_toBottomOf="@id/progressBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:listitem="@layout/item_home_list" />
+        app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
