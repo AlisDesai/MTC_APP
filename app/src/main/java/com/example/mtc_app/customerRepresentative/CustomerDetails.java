@@ -22,6 +22,7 @@ public class CustomerDetails extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_customer_details, container, false);
     }
 
     @Override
@@ -29,6 +30,7 @@ public class CustomerDetails extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         // Handle "Order Details" button click
+        MaterialButton orderDetailsButton = view.findViewById(R.id.orderDetailsButton3);
         if (orderDetailsButton != null) {
             orderDetailsButton.setOnClickListener(v -> {
                 Fragment orderDetailsFragment = new OrderDetails();
@@ -53,5 +55,18 @@ public class CustomerDetails extends Fragment {
             });
         }
 
+        // Handle "Add Order" button click
+        MaterialButton addOrderButton = view.findViewById(R.id.addOrderButton);
+        if (addOrderButton != null) {
+            addOrderButton.setOnClickListener(v -> {
+                // Navigate to Add Order Fragment
+                Fragment addOrderFragment = new AddOrder();
+                requireActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_customerDetails, addOrderFragment) // Ensure container ID matches your activity layout
+                        .addToBackStack(null) // Add to backstack for navigation
+                        .commit();
+            });
+        }
     }
 }
