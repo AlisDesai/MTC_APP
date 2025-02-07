@@ -7,11 +7,14 @@
     tools:ignore="MissingConstraints"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Search Bar Layout -->
     <LinearLayout
         android:id="@+id/searchBarLayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_margin="16dp"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/search_bar_background"
         android:gravity="center_vertical"
         android:orientation="horizontal"
@@ -45,7 +48,7 @@
         android:id="@+id/cardScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="120dp"
         android:fillViewport="true">
 
         <LinearLayout

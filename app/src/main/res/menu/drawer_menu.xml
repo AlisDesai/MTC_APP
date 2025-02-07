@@ -30,7 +30,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_logout"
-            android:title="Others"/>
+            android:title="Logout"/>
         <item
             android:id="@+id/nav_other_home"
             android:title="Home Page"/>

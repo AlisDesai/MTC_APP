@@ -55,6 +55,15 @@ dependencies {
     implementation ("com.google.android.gms:play-services-maps:latest_version") // Example for maps
 
 
+    // Glide for image loading
+    implementation("com.github.bumptech.glide:glide:4.14.2")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.14.2")
+
+    implementation ("com.android.volley:volley:1.2.1")
+
+    implementation ("com.cloudinary:cloudinary-android:2.3.1")
+    implementation ("com.squareup.okhttp3:okhttp:4.9.3")
+
     // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
