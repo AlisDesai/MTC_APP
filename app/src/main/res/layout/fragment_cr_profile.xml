@@ -32,8 +32,8 @@
                 android:layout_gravity="center"
 
                 android:background="@drawable/profile"
-                android:contentDescription="Profile Image"
-                android:src="@drawable/ic_placeholder" />
+                android:contentDescription="Profile Image"/>
+<!--                android:src="@drawable/ic_placeholder" />-->
 
             <TextView
                 android:id="@+id/username"

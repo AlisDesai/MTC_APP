@@ -1,5 +1,6 @@
 package com.example.mtc_app.customer.profile;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -29,7 +30,7 @@ public class EditProfileActivity extends AppCompatActivity {
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final int REQUEST_IMAGE_PICK = 2;
 
-    private EditText emailEditText, addressEditText, phoneEditText;
+    private EditText nameEditText, addressEditText, phoneEditText;
     private Button saveButton, tryAgainButton, okButton;
     private ImageView profileImage;
     private View buttonsLayout;
@@ -40,12 +41,13 @@ public class EditProfileActivity extends AppCompatActivity {
 
     private Uri imageUri;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
 
-        emailEditText = findViewById(R.id.edit_email);
+        nameEditText = findViewById(R.id.edit_name);
         addressEditText = findViewById(R.id.edit_address);
         phoneEditText = findViewById(R.id.edit_phone);
         saveButton = findViewById(R.id.save_button);
@@ -65,7 +67,7 @@ public class EditProfileActivity extends AppCompatActivity {
         okButton.setOnClickListener(v -> uploadImageToStorage());
 
         saveButton.setOnClickListener(v -> {
-            String newEmail = emailEditText.getText().toString().trim();
+            String newEmail = nameEditText.getText().toString().trim();
             String newAddress = addressEditText.getText().toString().trim();
             String newPhone = phoneEditText.getText().toString().trim();
 
@@ -97,7 +99,7 @@ public class EditProfileActivity extends AppCompatActivity {
         String phone = documentSnapshot.getString("phone");
         String imageUrl = documentSnapshot.getString("image");
 
-        emailEditText.setText(email);
+        nameEditText.setText(email);
         addressEditText.setText(address);
         phoneEditText.setText(phone);
 

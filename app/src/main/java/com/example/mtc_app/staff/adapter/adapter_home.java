@@ -1,81 +1,66 @@
 package com.example.mtc_app.staff.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import androidx.cardview.widget.CardView;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mtc_app.R;
+import com.example.mtc_app.staff.staff_detailed_page;
 
 import java.util.List;
 
-public class adapter_home extends RecyclerView.Adapter<adapter_home.HomeViewHolder> {
-
-    private List<ItemData> dataItems; // We now use an ItemData class to hold title, subtitle, and icon data
+public class adapter_home extends RecyclerView.Adapter<adapter_home.ViewHolder> {
+    private List<ItemData> itemList;
     private Context context;
-    private OnItemClickListener onItemClickListener;
 
-    public adapter_home(List<ItemData> dataItems, Context context) {
-        this.dataItems = dataItems;
+    public adapter_home(List<ItemData> itemList, Context context) {
+        this.itemList = itemList;
         this.context = context;
     }
 
+    @NonNull
     @Override
-    public HomeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_home_list, parent, false);
-        return new HomeViewHolder(view);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_list, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(HomeViewHolder holder, int position) {
-        ItemData item = dataItems.get(position);
-        holder.itemTitle.setText(item.getTitle());
-        holder.itemSubtitle.setText(item.getSubtitle());
-        holder.itemIcon.setImageResource(item.getIconResId());
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        ItemData item = itemList.get(position);
+        holder.itemTitle.setText(item.getCustomerName());
+        holder.itemSubtitle.setText("Status: " + item.getStatus());
+        holder.itemSampleName.setText("Sample: " + item.getSampleName());
 
-        // Optionally, handle action icon if needed
-        holder.itemActionIcon.setImageResource(R.drawable.ic_chevron_right); // Example
-
-        holder.cardView.setOnClickListener(v -> {
-            if (onItemClickListener != null) {
-                onItemClickListener.onItemClick(position);
-            }
+        // Handle click event
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, staff_detailed_page.class);
+            intent.putExtra("orderId", item.getOrderId());
+            intent.putExtra("customerName", item.getCustomerName());
+            intent.putExtra("status", item.getStatus());
+            intent.putExtra("sampleName", item.getSampleName());
+            context.startActivity(intent);
         });
     }
 
     @Override
     public int getItemCount() {
-        return dataItems.size();
+        return itemList.size();
     }
 
-    // Set the item click listener
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        this.onItemClickListener = listener;
-    }
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        TextView itemTitle, itemSubtitle, itemSampleName;
 
-    // ViewHolder class to hold individual item views
-    public static class HomeViewHolder extends RecyclerView.ViewHolder {
-        TextView itemTitle, itemSubtitle;
-        ImageView itemIcon, itemActionIcon;
-        CardView cardView;
-
-        public HomeViewHolder(View itemView) {
+        public ViewHolder(View itemView) {
             super(itemView);
             itemTitle = itemView.findViewById(R.id.itemTitle);
             itemSubtitle = itemView.findViewById(R.id.itemSubtitle);
-            itemIcon = itemView.findViewById(R.id.itemIcon);
-            itemActionIcon = itemView.findViewById(R.id.itemActionIcon);
-            cardView = itemView.findViewById(R.id.cardView);
+            itemSampleName = itemView.findViewById(R.id.itemSampleName);
         }
-    }
-
-    // Interface for item click listener
-    public interface OnItemClickListener {
-        void onItemClick(int position);
     }
 }
